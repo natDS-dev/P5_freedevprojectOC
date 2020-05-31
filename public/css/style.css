@@ -1,0 +1,25 @@
+.custom_brand {
+  font-size: 2rem;
+}
+
+.custom_nav_way {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.custom_section {
+  width: 100%;
+  height: 100vh;
+  padding-top: 80px;
+}
+.custom_leftside,
+.custom_rightside {
+  height: 100vh;
+  width: 100%;
+}
+
+.bg-image {
+  background-image: url("../images/mynature-cut1.jpg");
+  background-repeat: no-repeat;
+  background-size: initial;
+}
