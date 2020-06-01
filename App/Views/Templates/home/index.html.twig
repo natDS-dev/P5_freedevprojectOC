@@ -1,8 +1,11 @@
 {% extends "main_template.html.twig" %}
 
-{% block title %}Bigoudus{% endblock %}
 
 {% block content %}
-jklljlljjl
+Pour voir les annonces et en déposer vous devez vous inscrire/connecter
+{% for offer in lastoffers %}
+<div> {{ offer.id }},{{offer.title}},{{offer.description}}
+</div>
+{% endfor %}
 
 {% endblock %}
