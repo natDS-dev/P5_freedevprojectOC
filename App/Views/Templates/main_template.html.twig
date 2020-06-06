@@ -24,7 +24,13 @@
           class="col-lg-6 d-flex justify-content-center align-items-center bg-success"
         >
           <div class="w-75 h-50 bg-white ">
-            <p class="text-center">{% block content %}{% endblock %}</p>
+            <p class="text-center">
+            {% for log in logs %}
+              <p class="alert {{log.alertBootstrap}}">
+                {{log.message}} 
+              </p> 
+            {% endfor %}
+            {% block content %}{% endblock %}</p>
           </div>
         </div>
         <div class="col-lg-6 bg-primary"></div>

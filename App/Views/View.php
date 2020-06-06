@@ -17,7 +17,24 @@ class View
 
     public function render($template = null, $data = null)
     {
+        if (isset($_SESSION["logs"]))
+        {
+            $data["logs"] = $_SESSION["logs"];
+        } 
         echo $this->twigEnvironment->render($template . ".html.twig", $data);
+        unset($_SESSION["logs"]); 
+    }
 
+    public function addLog($message, $alertBootstrap)
+    {
+        if (!isset($_SESSION["logs"])) 
+        {
+            $_SESSION["logs"] = [];
+        }
+        
+        $_SESSION["logs"][] = [
+            "message" => $message,
+            "alertBootstrap" => $alertBootstrap
+        ]; 
     }
 }
