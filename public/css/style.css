@@ -1,12 +1,22 @@
 .custom_brand {
-  width: 100%;
-  color: white;
   font-size: 2rem;
 }
 
+.navbar {
+  border-radius: 0 !important;
+}
 .custom_nav_way {
   writing-mode: vertical-rl;
   text-orientation: upright;
+}
+
+.custom_items_menu:hover {
+  transform: scale(1.5);
+  transition-duration: 0.5s;
+}
+
+.custom_items_menu {
+  transform: scale(0.8);
 }
 
 .custom_section {
@@ -25,3 +35,14 @@
   background-repeat: no-repeat;
   background-size: initial;
 }
+
+.frontpage_square {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 100%;
+}
+.frontpage_square img {
+  position: absolute;
+}
+
+/*footer*/

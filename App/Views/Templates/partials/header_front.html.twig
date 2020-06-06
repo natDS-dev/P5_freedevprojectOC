@@ -1,0 +1,45 @@
+{% block header %}
+    <nav class="navbar fixed-top d-flex justify-content-end border-0 mb-4">
+      <!-- Brand -->
+      <a class="custom_brand navbar-brand text-dark" href="#">ZAT is so....Breizh !</a>
+      <!-- Collapse button -->
+      <button
+        class="navbar-toggler bg-primary"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent1"
+        aria-controls="navbarSupportedContent1"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="text-light"
+          ><i class="fas fa-caret-square-down"></i
+        ></span>
+      </button>
+
+      <!-- Collapse content -->
+      <div
+        class="custom_nav_way collapse navbar-collapse"
+        id="navbarSupportedContent1"
+      >
+        <!-- Links -->
+        <ul class="navbar-nav flex-row text-center mr-2">
+          <li class="nav-item active">
+            <a class="nav-link text-light bg-secondary" href="#" title="Accueil"
+              ><i class="custom_items_menu fas fa-home fa-2x"></i>
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light bg-info" href="#" title="Infos"
+              ><i class="custom_items_menu fas fa-info-circle fa-2x"></i></a>
+          </li>          
+          <li class="nav-item ">
+            <a class=" nav-link text-light bg-warning" href="#" title="Connexion/inscription"
+              ><i class="custom_items_menu fas fa-sign-in-alt fa-2x"></i></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+{% endblock %}

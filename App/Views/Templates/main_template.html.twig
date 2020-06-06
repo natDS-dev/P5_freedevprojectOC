@@ -21,31 +21,20 @@
     <section class="custom_section container-fluid">
       <div class="row h-100">
         <div
-          class="col-md-6 d-flex justify-content-center align-items-center bg-success"
+          class="col-lg-6 d-flex justify-content-center align-items-center bg-success"
         >
           <div class="w-75 h-50 bg-white ">
             <p class="text-center">{% block content %}{% endblock %}</p>
           </div>
         </div>
-        <div class="col-md-6 bg-primary"></div>
+        <div class="col-lg-6 bg-primary"></div>
       </div>
     </section>
     <!--section 2-->
-    <section class="custom_section container-fluid">
-      <div class="row h-100">
-        <div
-          class="col-md-6  d-flex justify-content-center align-items-center bg-success"
-        >
-          <div class="w-75 h-50 bg-white">
-            <p class="text-center"></p>
-          </div>
-        </div>
-        <div class="col-md-6 bg-primary"></div>
-      </div>
-    </section>
+    
 
-    <!--section 2-->
-
+    <!--footer-->
+    {% include ("partials/footer.html.twig") %} 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
