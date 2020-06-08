@@ -1,6 +1,8 @@
 .custom_body_bg {
   background: url("../images/background/nature_bg.png");
+  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .custom_main_bg {
@@ -36,8 +38,8 @@
   padding-top: 80px;
 }
 
-.custom_section1_bg {
-  background: url("../images/apple_cut3.png");
+.custom_bg_halfsection1{
+  background: url("../images/apple_cut4.png");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -53,13 +55,6 @@
   background-size: initial;
 }
 
-.frontpage_square {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 100%;
-}
-.frontpage_square img {
-  position: absolute;
-}
+
 
 /*footer*/
