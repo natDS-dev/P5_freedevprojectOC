@@ -25,7 +25,7 @@
         <!-- Links -->
         <ul class="navbar-nav flex-row text-center mr-2">
           <li class="nav-item active">
-            <a class="nav-link text-light bg-secondary" href="#" title="Accueil"
+            <a class="nav-link text-light bg-secondary" href="index.php?controller=home&action=index" title="Accueil"
               ><i class="custom_items_menu fas fa-home fa-2x"></i>
               <span class="sr-only">(current)</span>
             </a>
@@ -41,11 +41,11 @@
             </li> 
           {% else %}
             <li class="nav-item ">
-              <a class=" nav-link text-light bg-warning" href="index.php?controller=users&action=login" title="Connexion"><i class="custom_items_menu fas fa-sign-in-alt fa-2x"></i>
+              <a class=" nav-link text-light bg-warning" href="index.php?controller=home&action=login" title="Connexion"><i class="custom_items_menu fas fa-sign-in-alt fa-2x"></i>
               </a>
             </li> 
             <li class="nav-item ">
-              <a class=" nav-link text-light bg-warning" href="index.php?controller=users&action=register" title="S'inscrire"><i class="custom_items_menu fa fa-user-plus  fa-2x"></i>
+              <a class=" nav-link text-light bg-warning" href="index.php?controller=home&action=register" title="S'inscrire"><i class="custom_items_menu fa fa-user-plus  fa-2x"></i>
               </a>
             </li> 
           {% endif %}

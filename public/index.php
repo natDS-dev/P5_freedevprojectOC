@@ -11,10 +11,10 @@ if(!empty($controllerName))
 
 if(class_exists($controller))
 {
-    if(strpos($controllerName,"admin") === 0 && !isset($_SESSION["user"]))
+    if($controllerName != "home" && !isset($_SESSION["user"]))
     {
         (new $controller())->addLog("Vous devez être connecté","alert-danger");
-        header("Location: index.php?controller=users&action=login");
+        header("Location: index.php?controller=home&action=login");
         exit;
     }
     $action = isset($_GET["action"])? $_GET["action"] : "";
