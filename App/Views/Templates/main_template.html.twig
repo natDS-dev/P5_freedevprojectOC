@@ -14,29 +14,60 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>3 flans, 6 choux {% block title %}{{ title }}{% endblock %}</title>
   </head>
-  <body>
-    {% include ("partials/header_front.html.twig") %}    
-    <!--section 1-->
+  <body class="custom_body_bg">    
+    {% include ("partials/header_front.html.twig") %} 
 
-    <section class="custom_section container-fluid">
+    <!--MAIN CONTENT-->
+  <div class="custom_main_bg">
+
+    <!--SECTION 1-->
+    <section class="custom_section container-fluid" id="home_section1">
       <div class="row h-100">
-        <div
-          class="col-lg-6 d-flex justify-content-center align-items-center bg-success"
-        >
-          <div class="w-75 h-50 bg-white ">
+        <!--Section 1 left part-->
+        <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
+          <div class=" d-flex justify-content-center align-items-center  w-75 h-50 " id="custom_bg_s1_col1">
             <p class="text-center">
-            {% for log in logs %}
-              <p class="alert {{log.alertBootstrap}}">
-                {{log.message}} 
-              </p> 
-            {% endfor %}
-            {% block content %}{% endblock %}</p>
+              {% for log in logs %}
+                <p class="alert {{log.alertBootstrap}}">
+                  {{log.message}} 
+                </p> 
+              {% endfor %}
+              {% block content %}{% endblock %}</p>
           </div>
         </div>
-        <div class="col-lg-6 bg-primary"></div>
+        <!--Section 1 right part-->
+        <div class="col-md-6 bg-light"></div>
       </div>
     </section>
-    <!--section 2-->
+
+    <!--SECTION 2-->
+    <section class="custom_section container-fluid" id="home_section2">
+      <div class="row h-100">
+        <!--Section 2 left part-->
+        <div class="col-md-6 d-flex justify-content-center align-items-center ">
+          <div class="d-flex w-75 h-50 bg-white" id="custom_bg_s2_col1 ">
+            <p class="text-center">ceci est un test</p>
+          </div>
+        </div>
+        <!--Section 2 right part-->
+        <div class="col-md-6 bg-light"></div>
+      </div>
+    </section>
+
+    <!--SECTION 3-->
+    <section class="custom_section container-fluid" id="home_section3">
+      <div class="row h-100">
+        <!--Section 3 left part-->
+        <div class="col-md-6 d-flex justify-content-center align-items-center bg-primary">
+          <div class="d-flex w-75 h-50 bg-white" id="custom_bg_s3_col1 ">
+            <p class="text-center">ceci est un test</p>
+          </div>
+        </div>
+        <!--Section 3 right part-->
+        <div class="col-md-6 bg-light"></div>
+      </div>
+    </section>
+  </div>
     
 
     <!--footer-->
@@ -56,8 +87,4 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // Get the current year for the copyright
-      $("#year").text(new Date().getFullYear());
-    </script>
   </body>

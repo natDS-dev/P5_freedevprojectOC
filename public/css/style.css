@@ -1,51 +1,109 @@
-.custom_brand {
+/*BODY*/
+.custom_body_bg {
+  background: url("../images/background/nature_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*HEADER*/
+header {
+  height: 15vh;
+}
+
+.custom_logo img {
+  width: 35%;
+}
+
+.custom_brand h1 {
   font-size: 2rem;
 }
 
-.navbar {
-  border-radius: 0 !important;
-}
-.custom_nav_way {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-}
-
-.custom_items_menu:hover {
-  transform: scale(1.5);
-  transition-duration: 0.5s;
+/* Nav*/
+.custom_nav {
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;  
 }
 
-.custom_items_menu {
-  transform: scale(0.8);
-}
-
-.custom_section {
+.p{
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+  cursor: pointer; 
   width: 100%;
-  height: 100vh;
-  padding-top: 80px;
-}
-.custom_leftside,
-.custom_rightside {
-  height: 100vh;
-  width: 100%;
+  background: #aa6c11;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px; 
 }
 
-.bg-image {
-  background-image: url("../images/mynature-cut1.jpg");
-  background-repeat: no-repeat;
-  background-size: initial;
+.div {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  width: 150px;
+  height: auto;
+  margin-top: -3%;
+ transition-duration: 0.2s;
 }
 
-.frontpage_square {
+.p:hover {
+  color: #a5d710;
+}
+
+.div:nth-child(odd) {
+  transform: perspective(300px) rotateY(45deg);
+  /*box-shadow: -2px 2px 7px gray;*/
+}
+
+.div:nth-child(even) {
+  transform: perspective(300px) rotateY(-45deg);
+ 
+}
+.div:hover {
+  transform: rotateY(0);
+  color: black;
+}
+
+/*MAIN CONTENT*/
+.custom_main_bg {
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.418);
   position: relative;
-  overflow: hidden;
-  padding-bottom: 100%;
 }
-.frontpage_square img {
-  position: absolute;
+/*Sections general*/
+#home_section1 {
+  width: 100%;
+  height: 100vh;
+ padding-top: 15vh;
+  background-color: rgba(255, 255, 255, 0.45)
 }
 
-/*test menu*/
+ #home_section2,#home_section3 {
+  width: 100%;
+  height: 85vh;
+} 
+
+/*Section 1*/
+/*s1 col 1*/
+#custom_bg_s1_col1{
+  background: url("../images/background/nature_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*FOOTER*/
+.custom_footer_bg {
+  background-color: #633c07b8;
+  border-radius: 0;
+}
+
+
+
+
 
 
 /*footer*/

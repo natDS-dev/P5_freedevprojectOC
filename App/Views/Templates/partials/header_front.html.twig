@@ -1,55 +1,56 @@
 {% block header %}
-    <nav class="navbar fixed-top d-flex justify-content-end border-0 mb-4">
-      <!-- Brand -->
-      <a class="custom_brand navbar-brand text-dark" href="#">3 flans, 6 choux !</a>
-      <!-- Collapse button -->
-      <button
-        class="navbar-toggler bg-primary"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent1"
-        aria-controls="navbarSupportedContent1"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="text-light"
-          ><i class="fas fa-caret-square-down"></i
-        ></span>
-      </button>
+    <!--HEADER : BRAND + NAV-->
+  <header class="fixed-top d-flex bg-info">
+    <div class="container-fluid ">
+      <div class="row h-100">
+        <!-- Brand -->
+        <div class="custom_logo d-flex align-items-center justify-content-center col-6">
+          <img class=" d-flex mx-auto img-fluid mt-4" src="./images/logo/logo_expand_1B.png " alt="" />
+        </div>
 
-      <!-- Collapse content -->
-      <div
-        class="custom_nav_way collapse navbar-collapse"
-        id="navbarSupportedContent1"
-      >
-        <!-- Links -->
-        <ul class="navbar-nav flex-row text-center mr-2">
-          <li class="nav-item active">
-            <a class="nav-link text-light bg-secondary" href="index.php?controller=home&action=index" title="Accueil"
-              ><i class="custom_items_menu fas fa-home fa-2x"></i>
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light bg-info" href="#" title="Infos"
-              ><i class="custom_items_menu fas fa-info-circle fa-2x"></i></a>
-          </li>
-          {% if user is defined %}          
-            <li class="nav-item ">
-              <a class=" nav-link text-light bg-warning" href="index.php?controller=users&action=logout" title="Déconnexion"><i class="custom_items_menu fa fa-sign-out-alt fa-2x"></i>
-              </a>
-            </li> 
-          {% else %}
-            <li class="nav-item ">
-              <a class=" nav-link text-light bg-warning" href="index.php?controller=home&action=login" title="Connexion"><i class="custom_items_menu fas fa-sign-in-alt fa-2x"></i>
-              </a>
-            </li> 
-            <li class="nav-item ">
-              <a class=" nav-link text-light bg-warning" href="index.php?controller=home&action=register" title="S'inscrire"><i class="custom_items_menu fa fa-user-plus  fa-2x"></i>
-              </a>
-            </li> 
-          {% endif %}
-        </ul>
+        <!--<div class="custom_brand d-flex align-items-center justify-content-center col-4">
+          <h1 class="text-center">3 <span class="custom_main_title_part1">flancs,</span>
+            6 <span class="sp-2">choux</span>
+          </h1>
+        </div>-->
+        <!--
+        <div class="custom_nav d-flex align-items-center justify-content-center col-4">-->
+
+        <!--Nav-->
+        <nav class="d-flex align-items-center justify-content-center col-6">
+          <button class="navbar-toggler bg-primary" type="button" title="menu" data-toggle="collapse"
+            data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="text-light"><i class="fa fa-seedling"></i></span>
+          </button>
+
+          <div class="custom_nav align-items-center justify-content-center collapse" id="navbarSupportedContent1">
+            <div class="container d-inline-flex">
+              <div class="row">
+                <div id="home" class="div ">
+                  <p id="homep" class="p">Accueil</p>
+                </div>
+                <div class="div">
+                  <p class="p">Infos</p>
+                </div>
+                {% if user is defined %}
+                  <div class="div">
+                  <p class="p">Déconnexion</p>
+                </div>
+                {% else %} 
+                  <div class="div">
+                    <p class="p">Connexion</p>
+                  </div>
+                  <div class="div">
+                    <p class="p">Inscription</p>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </nav>
       </div>
-    </nav>
+    </div>
+  </header>
 {% endblock %}
+          
