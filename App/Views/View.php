@@ -20,6 +20,7 @@ class View
         if (isset($_SESSION["logs"]))
         {
             $data["logs"] = $_SESSION["logs"];
+            unset($_SESSION["logs"]); 
         } 
         if (isset($_SESSION["user"]))
         {
@@ -27,7 +28,6 @@ class View
         } 
         
         echo $this->twigEnvironment->render($template . ".html.twig", $data);
-        unset($_SESSION["logs"]); 
     }
 
     public function addLog($message, $alertBootstrap)

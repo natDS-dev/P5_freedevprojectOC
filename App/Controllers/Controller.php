@@ -14,5 +14,8 @@ class Controller
     $this->db = new Database();
     $this->view = new View();
   }
-
+  public function addLog($message,$alertBootstrap)
+  {
+    $this->view->addLog($message,$alertBootstrap);
+  }
 }

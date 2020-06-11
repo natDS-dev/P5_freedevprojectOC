@@ -3,14 +3,20 @@ session_start();
 require_once '../vendor/autoload.php';
 use App\Controllers\HomeController;
 
-$controller = isset($_GET["controller"]) ? $_GET["controller"] : "";
-if(!empty($controller))
+$controllerName = isset($_GET["controller"]) ? $_GET["controller"] : "";
+if(!empty($controllerName))
 {
-    $controller = "App\\Controllers\\".ucfirst($controller)."Controller";
+    $controller = "App\\Controllers\\".ucfirst($controllerName)."Controller";
 }
 
 if(class_exists($controller))
 {
+    if(strpos($controllerName,"admin") === 0 && !isset($_SESSION["user"]))
+    {
+        (new $controller())->addLog("Vous devez être connecté","alert-danger");
+        header("Location: index.php?controller=users&action=login");
+        exit;
+    }
     $action = isset($_GET["action"])? $_GET["action"] : "";
     if(method_exists($controller,$action))
     {
@@ -19,4 +25,5 @@ if(class_exists($controller))
         exit;
     }
 }   
+//appelé si controlleur et/ou action non défini/incorrect
 (new HomeController())->error(); 
