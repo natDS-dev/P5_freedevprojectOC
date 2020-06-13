@@ -2,6 +2,8 @@
 
 
 {% block content %}
-{{user.email}}lj,lm,jml,m
-
+<h3>J'espère que tu es en forme {{user.name}} !</h3>
+{% for add in lastAdds %}
+{{add.title}} {{add.name}} {{add.address}} 
+{% endfor %}
 {% endblock %}

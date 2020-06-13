@@ -26,7 +26,6 @@ class View
         {
             $data["user"] = $_SESSION["user"];
         } 
-        
         echo $this->twigEnvironment->render($template . ".html.twig", $data);
     }
 
@@ -36,9 +35,9 @@ class View
         {
             $_SESSION["logs"] = [];
         }
-        
         $_SESSION["logs"][] = [
             "message" => $message,
+            "name" => (isset($_SESSION["user"]) ? $_SESSION["user"]["name"] : null),
             "alertBootstrap" => $alertBootstrap
         ]; 
     }
