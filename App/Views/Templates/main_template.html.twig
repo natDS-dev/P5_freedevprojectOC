@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Site communautaire 3 flans 6 choux échange de services et mise en avant des producteurs locaux">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />    
+    <link rel="icon" type="image/gif" href="./images/logo/animated_favicon1.gif" >
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -19,7 +21,7 @@
 
     <!--MAIN CONTENT-->
   <div class="custom_main_bg">
-  <h3 class="custom_page_title text-primary ">{{title}}<h3>
+    <h3 class="custom_page_title text-primary ">{{title}}<h3>
     <!--SECTION 1-->
     <section class="custom_section container-fluid">
       <div class="row h-100">
@@ -31,6 +33,7 @@
                 <h3>Titre section 1</h3>
                 <p class="text-center">
                 {% block content %}{% endblock %}
+                {% block section1 %}{% endblock %}
                 </p>
               </div>              
             </div>  
@@ -75,7 +78,8 @@
               <div class="col-md-12 m-auto">
                 <h3>Titre section 2</h3>
                 <p class="text-center">
-                section 2 colonne 1
+                  {% block section2 %}{% endblock %}
+                  section 2 colonne 1
                 </p>
               </div>              
             </div>  
@@ -101,7 +105,7 @@
           </div>
         </div>
         <!--Section 3 right part-->
-        <div class="col-md-6 d-flex justify-content-center align-items-center bg-primaryd">
+        <div class="col-md-6 d-flex justify-content-center align-items-center bg-primary">
           <div class="container w-75 h-50" >          
             <div class="row h-100 text-center bg-light" id="custom_bg_s3_col2">
               <div class="col-md-12 m-auto">

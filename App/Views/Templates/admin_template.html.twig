@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Site communautaire 3 flans 6 choux échange de services et mise en avant des producteurs locaux">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />    
+    <link rel="icon" type="image/gif" href="./images/logo/animated_favicon1.gif" >
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -12,13 +14,49 @@
     />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Zat is so...admin-{% block title %}{% endblock %}</title>
+    <title>3 flans, 6 choux {% block title %}{{ title }}{% endblock %}</title>
   </head>
-  <body>
-    {% block header %}{% endblock %}
-    {% block content %}{% endblock %}     
+  <body class="custom_body_bg">    
+    {% include ("partials/header.html.twig") %} 
 
-    <script
+    <!--MAIN CONTENT-->
+  <div class="custom_main_bg">
+    <h3 class="custom_page_title text-primary ">{{title}}<h3>
+    <div>
+      {% include ("partials/admin_nav.html.twig") %} 
+    </div>
+    <!--SECTION 1-->
+    <section class="custom_section container-fluid">
+      <div class="row h-100">
+        <!--Section 1 left part-->
+        <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
+          <div class="container w-75 h-50" >          
+            <div class="row h-100 text-center" id="custom_bg_s1_col1">
+              <div class="col-md-12 m-auto">
+                <h3>Titre section 1</h3>
+                <p class="text-center">
+                </p>
+              </div>              
+            </div>  
+          </div>
+        </div>
+        <!--Section 1 right part-->
+        <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
+          <div class="container w-75 h-50" >          
+            <div class="row h-100 text-center bg-light" id="custom_bg_s1_col2">
+              <div class="col-md-12 m-auto">
+                <h3>Créer une annonce</h3>
+                <p class="text-center">
+                {% block content %}{% endblock %}               
+                </p>
+              </div>              
+            </div>  
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>  
+     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
       crossorigin="anonymous"
@@ -33,8 +71,4 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-    <script>
-      // Get the current year for the copyright
-      $("#year").text(new Date().getFullYear());
-    </script>
   </body>

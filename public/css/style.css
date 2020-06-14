@@ -1,6 +1,9 @@
+/*CUSTOM CSS : ADDITIONAL CSS FOR BOOTSTRAP*/
 /*GENERAL*/
 .alert {
   text-align: center;
+  position: absolute;
+  top: 15.5vh;
 }
 
 .custom_page_title {
@@ -12,11 +15,7 @@
   text-align: left;
 }
 
-
-
-
-
-/*BODY*/
+/*Body*/
 .custom_body_bg {
   background: url("../images/background/nature_bg.png");
   background-repeat: no-repeat;
@@ -24,7 +23,7 @@
   background-attachment: fixed;
 }
 
-/*HEADER*/
+/*Header*/
 header {
   height: 15vh;
 }
