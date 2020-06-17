@@ -14,6 +14,8 @@
     />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    {% block stylesheet %}{% endblock %}
+    
     <title>3 flans, 6 choux {% block title %}{{ title }}{% endblock %}</title>
   </head>
   <body class="custom_body_bg">    
@@ -21,13 +23,14 @@
 
     <!--MAIN CONTENT-->
   <div class="custom_main_bg">
-    <h3 class="custom_page_title text-primary ">{{title}}<h3>
+   
     <!--SECTION 1-->
     <section class="custom_section container-fluid">
       <div class="row h-100">
         <!--Section 1 left part-->
         <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
-          <div class="container w-75 h-50" >          
+          <div class="container w-75 h-50" > 
+                   
             <div class="row h-100 text-center" id="custom_bg_s1_col1">
               <div class="col-md-12 m-auto">
                 <h3>Titre section 1</h3>
@@ -123,7 +126,7 @@
     
 
     <!--footer-->
-    {% include ("partials/footer.html.twig") %} 
+    {% include ("partials/footer.html.twig") %}
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -139,4 +142,5 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    {% block javascript %}{% endblock %}
   </body>
