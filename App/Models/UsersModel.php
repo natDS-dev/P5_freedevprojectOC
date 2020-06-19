@@ -3,10 +3,10 @@ namespace App\Models;
 
 class UsersModel extends Model
 {
-    public function createNewUser($name, $surname, $company, $address, $zipcode,	$city,	$phone,	$email,	$password, $role, $profile)
+    public function createNewUser($name, $surname, $company, $address, $zipcode, $city,	$phone,	$email,	$password, $role, $profile, $lat, $lng)
     {
-         $query=$this->db->getPDO()->prepare('INSERT INTO `users` (name, surname, company, address, zip_code,	city,	phone,	email,	password, role, profile) VALUES (:name, :surname, :company, :address, :zip_code,	:city,	:phone,	:email,	:password, :role, :profile)');
-         $query->execute([ 
+         $query=$this->db->getPDO()->prepare('INSERT INTO `users` (name, surname, company, address, zip_code,	city,	phone,	email,	password, role, profile, lat, lng) VALUES (:name, :surname, :company, :address, :zip_code,	:city,	:phone,	:email,	:password, :role, :profile, :lat, :lng)');
+         return $query->execute([ 
             "name"=>$name,
             "surname"=>$surname,
             "company"=>$company,
@@ -17,7 +17,9 @@ class UsersModel extends Model
             "email"=>$email,
             "password"=>$password,
             "role"=>$role,
-            "profile"=>$profile
+            "profile"=>$profile,
+            "lat"=>$lat,
+            "lng"=>$lng
          ]);
     }
 

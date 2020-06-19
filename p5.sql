@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 17 juin 2020 à 17:26
+-- Généré le :  ven. 19 juin 2020 à 09:48
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -40,20 +40,7 @@ CREATE TABLE IF NOT EXISTS `adds` (
   `basket_quantity` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `creator_id` (`creator_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `adds`
---
-
-INSERT INTO `adds` (`id`, `created_at`, `title`, `description`, `closed`, `creator_id`, `basket_size`, `basket_quantity`) VALUES
-(1, '2020-06-13 10:22:16', 'pelouse ', 'pelouse à tondre', 0, 1, 1, 2),
-(3, '2020-06-14 15:34:27', 'Taille', 'taille haie', 0, 1, 1, 2),
-(4, '2020-06-14 15:36:14', '', 'planter choux', 0, 1, 2, 1),
-(5, '2020-06-14 15:54:49', 'nettoyage', 'nettoyer garage', 0, 1, 2, 11),
-(6, '2020-06-14 16:36:20', 'camping', 'faire feu de camp', 0, 1, 3, 20),
-(7, '2020-06-14 16:47:48', 'film', 'tourner film', 0, 4, 3, 24),
-(8, '2020-06-14 16:48:27', 'film', 'tourner film', 0, 4, 3, 24);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -70,15 +57,7 @@ CREATE TABLE IF NOT EXISTS `baskets` (
   `available` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `company_id` (`company_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `baskets`
---
-
-INSERT INTO `baskets` (`id`, `company_id`, `title`, `description`, `available`) VALUES
-(1, 2, 'panier légumes', 'légumes de saison', 1),
-(2, 5, 'Légumes variés', 'Légumes de saison 1kg', 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -100,18 +79,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) NOT NULL,
   `role` int(11) NOT NULL,
   `profile` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `surname`, `company`, `address`, `zip_code`, `city`, `phone`, `email`, `password`, `role`, `profile`) VALUES
-(1, 'natacha', 'de smet', '', '11 rue bel air', '29600', 'ST MARTIN DES CHAMPS', '0623523032', 'natachadesmet@yahoo.fr', '$2y$10$/EDIqNpWLjxY3thRAW4xRO6HcClCs348qhwoCzKKUbGx.uubw6Xwq', 1, 'jbjknk'),
-(2, '', '', 'Les choux Cie', '3 rue des patates', '29600', 'Chips city', '06.00.01.02.03', 'chouxcie@yahoo.com', 'jjj', 2, 'chef d\'entreprise'),
-(4, 'robert', 'de niro', '', 'jhihoioi', '68219', 'vjbuk', '6581', 'jybg@huj.vf', '$2y$10$3JvMElm1k4CGLagU5fWnoOOrHJXkhFa0nvkKnYSpkAGFc2H8rz9k6', 1, 'jkjhliho'),
-(5, '', '', 'chouchou', '665245', '451646', 'gbjjh', '684616', 'chou@chou.com', '$2y$10$NW8wdymudCVy9RK7uMNOB.WQmTL/Ss1T4pN99AgppqIEjFRTzUhI2', 2, 'jhuhuih i');
+  `lat` float NOT NULL,
+  `lng` float NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
