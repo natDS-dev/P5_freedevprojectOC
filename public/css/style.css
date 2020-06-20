@@ -2,7 +2,7 @@
 /*GENERAL*/
 a, a:hover {
   text-decoration: none;
-  font-size: 15px;
+  font-size: 1em;
 }
 
 label {
@@ -64,7 +64,7 @@ header {
 }
 
 .p{
-  font-size: 15px;
+  
   text-align: center;
   margin-top: 0;
   cursor: pointer; 
@@ -78,10 +78,10 @@ header {
 }
 
 .div {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   border-radius: 10px;
-  width: 100px;
+  width: 78px;
   height: auto;
   margin-top: -3%;
  transition-duration: 0.2s;
@@ -173,7 +173,7 @@ header {
 .custom_admin_nav {
   position: absolute;
   top: 16VH;
-  z-index: 1100;
+  z-index: 1020;
   width: 100%;
 }
 
@@ -190,7 +190,7 @@ header {
 
 /*Admin index => profile */
 #custom_admin_profile_s1_col1 {
-  width:40%;
+  width:35%;
   border: 2px solid #a5d710;
   box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
   border: 15px solid transparent;  
@@ -202,6 +202,7 @@ header {
 
 .custom_admin_profile_div_title {
   
+  width:250px;
   background-image: url("../images/background/wood.png");
   background-size: cover;
   border-bottom-left-radius: 10px;
@@ -220,7 +221,8 @@ header {
 .custom_admin_circle {
   width:6em;
   height:6em;
-  border-radius: 100%;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
   
 }
 
