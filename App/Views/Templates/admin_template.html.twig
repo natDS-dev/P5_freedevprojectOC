@@ -22,10 +22,7 @@
 
     <!--MAIN CONTENT-->
     <div class="custom_main_bg">
-      
-      <div class="custom_admin_nav container col-md-12">
-        {% include ("partials/admin_nav.html.twig") %} 
-      </div>
+      {% include ("partials/admin_nav.html.twig") %} 
       <!--SECTION 1-->
       <section class="custom_section container-fluid">
         <div class="row h-100">
@@ -34,7 +31,7 @@
             {% block section1 %}{% endblock %}         
           </div>
           <!--Section 1 right part-->
-          <div class="col-md-6 d-flex justify-content-center align-items-center  bg-light">
+          <div class="col-md-6 d-flex justify-content-center align-items-center  bg-primary">
             {% block section2 %}{% endblock %}               
           </div>              
         </div>  

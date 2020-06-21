@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 19 juin 2020 à 09:48
+-- Généré le :  Dim 21 juin 2020 à 19:00
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -40,7 +40,16 @@ CREATE TABLE IF NOT EXISTS `adds` (
   `basket_quantity` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `creator_id` (`creator_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `adds`
+--
+
+INSERT INTO `adds` (`id`, `created_at`, `title`, `description`, `closed`, `creator_id`, `basket_size`, `basket_quantity`) VALUES
+(1, '2020-06-20 09:39:00', 'Cabane dans les arbres ', 'Bonjour j\'aurais besoin d\'aide pour créer une cabane dans un arbre de mon jardin afin que mes petits enfants puissent y jouer. J\'ai le matériel nécessaire à disposition. Je pense que cela représentera une journée de travail. Merci   ', 0, 1, 2, 2),
+(2, '2020-06-20 11:35:05', 'brico', 'brico', 0, 2, 1, 3),
+(3, '2020-06-20 11:50:40', 'couture', 'couture pantalon', 0, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -83,7 +92,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lng` float NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `surname`, `company`, `address`, `zip_code`, `city`, `phone`, `email`, `password`, `role`, `profile`, `lat`, `lng`) VALUES
+(1, 'Nat', 'DS', '', '11 rue bel air', '29600', 'ST MARTIN DES CHAMPS', '0623523032', 'natachadesmet@yahoo.fr', '$2y$10$ka0BKEnd0T424kYSpbGRHOTpSq9FEVW9BnI.pyt4yLzfVwGilKuAW', 1, 'test', 48.5696, -3.83997),
+(2, 'yo', 'jjk', '', ' 9 rue  bel air', '29600', 'st martin des champs', '64646', 'yo@yahooo.com', '$2y$10$E.LyDzV8vrxRkjLtaGtEg.OwvVoewXY1mMt0kaRTdBFVL.AFo1fLG', 1, 'yo', 48.5696, -3.83997);
 
 -- --------------------------------------------------------
 

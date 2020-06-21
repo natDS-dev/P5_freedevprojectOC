@@ -172,8 +172,8 @@ header {
 /*Admin nav*/
 .custom_admin_nav {
   position: absolute;
-  top: 16VH;
-  z-index: 1020;
+  top: 15vh;
+  z-index: 1029;
   width: 100%;
 }
 
@@ -229,5 +229,6 @@ header {
 
 /*MAP*/
 #map {
-  height: 500px;
+  height: 100%;
+ 
 }
