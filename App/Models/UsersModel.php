@@ -45,5 +45,23 @@ class UsersModel extends Model
         }
     }
 
+    public function findBadgesStats($id)
+    {
+        $badgeStats = [];
+        $query=$this->db->getPDO()->prepare('SELECT COUNT(*) AS created_adds FROM `adds` WHERE creator_id=:id AND closed=0');
+        $res= $query->execute(["id" => $id]);
+        $badgeStats['createdAdds'] = $res?(int)$query->fetch()["created_adds"]:0;
+
+        $query=$this->db->getPDO()->prepare('SELECT COUNT(*) AS accepted_adds FROM `validations` WHERE user_id=:id');
+        $res= $query->execute(["id" => $id]);
+        $badgeStats['acceptedAdds'] = $res?(int)$query->fetch()["accepted_adds"]:0;
+
+        $query=$this->db->getPDO()->prepare('SELECT COUNT(*) AS available_baskets FROM `baskets` WHERE company_id=:id AND available=1');
+        $res= $query->execute(["id" => $id]);
+        $badgeStats['availableBaskets'] = $res?(int)$query->fetch()["available_baskets"]:0;
+        
+        return $badgeStats;
+    }
+
 
 }
