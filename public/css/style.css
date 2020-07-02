@@ -25,7 +25,11 @@ label {
   top: 5px;
   
 }
-
+/*engraved style*/
+.custom_engraved_text {
+    color: #937d43;
+    text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+}
 
 /*Body*/
 .custom_body_bg {
@@ -47,7 +51,7 @@ header {
 }
   
 .custom_logo img {
-  width: 35%;
+  width: 70%;
 }
 
 .custom_brand h1 {
@@ -123,8 +127,6 @@ header {
 .custom_section {
   width: 100%;
   height: 85vh;
-  background: url("../images/background/admin_bg_5372.png") no-repeat center fixed ;
-  background-size: cover;
 }
   
 
@@ -190,35 +192,33 @@ header {
   background-color:#a5d710;
 }
 
-.custom_admin_content {
-  position: absolute;
-  top: 5%;
-}
+/*Admin section 1*/
+.custom_admin_section {
+  
+  height: 85vh;
+  background: url("../images/background/admin_bg_5372.png") no-repeat center;
+  background-size: cover;
+}  
 
 /*Admin section 1 left*/
 .custom_admin_section_bg_left  {
   
 }
+
 /*Admin index => profile */
 #custom_admin_profile_s1_col1 {
-  width:35%;
-  border: 2px solid #a5d710;
-  box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
-  border: 15px solid transparent;  
-  border-image-source: url("../images/background/wood.png");
-  border-image-repeat: stretch;
-  border-image-slice: 30;
+  width:40%;
+  border : 10px solid #845f3c;
   box-shadow: #54452c 3px 3px 3px;
 }
 
 .custom_admin_profile_div_title {
   
   width:250px;
-  background-image: url("../images/background/wood.png");
-  background-size: cover;
+  background-color: #0fa3b1;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
-  border: solid 2px #845f3c;
+  border: solid 3px #845f3c;
   box-shadow: #54452c 3px 3px 3px;
 
 }
@@ -230,20 +230,43 @@ header {
 }
 
 .custom_admin_circle {
-  width:6em;
-  height:6em;
-  border-radius:50%;
+  width: 6em;
+  height: 6em;
+  border: 2px solid #845f3c;
+  border-radius: 50%;
   box-shadow: #54452c 3px 3px 3px;
+  background-image: url(../images/background/wood.png);
+}
+
+.custom_admin_icon_badge {
+  text-shadow: 0px -1px 0px #5a0620;
+}
+
+.custom_admin_badges {
+  position: absolute;
+  margin: 8px;
+}
+
+.custom_admin_section_bg_right  {
+  
 }
 
 .custom_admin_bg_s1col2 {
-  width: 45%;
+  
   background: url("../images/background/nature_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed; 
-  border: 8px solid #d9b964;
+  border: 8px solid #9d8547;
   box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
+}
+
+.custom_admin_bg_form {
+  z-index: 2000;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: solid 3px #845f3c;
+  box-shadow: #54452c 3px 3px 3px;
 }
 /*MAP*/
 #map {

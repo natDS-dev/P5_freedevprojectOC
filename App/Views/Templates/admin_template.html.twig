@@ -24,18 +24,17 @@
     <div class="custom_main_bg">
       {% include ("partials/admin_nav.html.twig") %} 
       <!--SECTION 1-->
-      <section class="custom_section container-fluid">
+      <section class="custom_admin_section container-fluid">
         <div class="row h-100">
           <!--Section 1 left part-->
           <div class="custom_admin_section_bg_left col-md-6 d-flex justify-content-center align-items-center">
             {% block section1 %}{% endblock %}         
           </div>
           <!--Section 1 right part-->
-          <div class=" col-md-6 d-flex justify-content-center align-items-center  ">
+          <div class="custom_admin_section_bg_right col-md-6 d-flex justify-content-center align-items-center  ">
             {% block section2 %}{% endblock %}               
           </div>              
-        </div>
-         
+        </div>         
       </section>
     </div>  
   <!--footer-->
