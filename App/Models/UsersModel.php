@@ -23,6 +23,25 @@ class UsersModel extends Model
          ]);
     }
 
+    public function updateUser($id, $name, $surname, $company, $address, $zipCode, $city,	$phone,	$email,	$password, $profile, $lat, $lng){
+        $query=$this->db->getPDO()->prepare('UPDATE `users` SET name=:name,surname=:surname,company=:company,address=:address,zip_code=:zip_code,city=:city,phone=:phone,email=:email,password=:password,profile=:profile,lat=:lat,lng=:lng WHERE id=:id');
+        return $query->execute([ 
+            "name"=>$name,
+            "surname"=>$surname,
+            "company"=>$company,
+            "address"=>$address,
+            "zip_code"=>$zipCode,
+            "city"=>$city,
+            "phone"=>$phone,
+            "email"=>$email,
+            "password"=>$password,
+            "profile"=>$profile,
+            "lat"=>$lat,
+            "lng"=>$lng,
+            "id"=>$id
+         ]);
+    }
+
     public function findUserByUserEmail($email)
     {
         $query=$this->db->getPDO()->prepare('SELECT * FROM `users` WHERE email=:email');

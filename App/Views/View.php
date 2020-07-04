@@ -25,7 +25,8 @@ class View
         if (isset($_SESSION["user"]))
         {
             $data["user"] = $_SESSION["user"];
-        } 
+        }
+        
         echo $this->twigEnvironment->render($template . ".html.twig", $data);
     }
 

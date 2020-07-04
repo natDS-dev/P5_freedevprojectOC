@@ -24,6 +24,11 @@ if(class_exists($controller))
         (new $controller())->$action($id);
         exit;
     }
-}   
-//appelé si controlleur et/ou action non défini/incorrect
-(new HomeController())->error(); 
+}else{
+    //appelé si controlleur et/ou action non défini/incorrect
+    (new HomeController())->error(); 
+    exit;
+}  
+//Page par défaut
+(new HomeController())->index();
+  

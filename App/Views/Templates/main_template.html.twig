@@ -22,94 +22,24 @@
     {% include ("partials/header.html.twig") %} 
 
     <!--MAIN CONTENT-->
-  <div class="custom_main_bg">
+    <div class="custom_main_bg">
    
-    <!--SECTION 1-->
-    <section class="custom_section container-fluid">
-     
-      <div class="row h-100">      
-        <!--Section 1 left part-->
-        <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
-          <div class="container w-75 h-50" > 
-                 
-            <div class="row h-100 text-center" id="custom_bg_s1_col1">
-              <div class="col-md-12 m-auto">
-              <h2 class="text-center">{{title}}</h2>
-                {% block content %}{% endblock %}
-                {% block section1 %}{% endblock %}
-                </p>
-              </div>              
-            </div>  
-          </div>
-        </div>
-        <!--Section 1 right part-->
-        <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
-          <div class="container w-75 h-50" >          
-            <div class="row h-100 text-center bg-light" id="custom_bg_s1_col2">
-              <div class="col-md-12 m-auto">
-              {% block static1 %}{% endblock %} 
-              </div>              
-            </div>  
-          </div>
-        </div>
-      </div>
-    </section>
+      <!--SECTION 1-->
+      <section class="custom_section container-fluid">
+        {% block content %}{% endblock %}
+        {% block section1 %}{% endblock %}
+      </section>
 
-    <!--SECTION 2-->
-    <section class="custom_section container-fluid">
-      <div class="row h-100">
-        <!--Section 2 left part-->
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-          <div class="container w-75 h-50" >          
-            <div class="row h-100 text-center bg-light" id="custom_bg_s2_col1">
-              <div class="col-md-12 m-auto">
-                {% block static2 %}{% endblock %}
-                </p>
-              </div>              
-            </div>  
-          </div>
-        </div>
-        <!--Section 2 right part-->
-        <div class="col-md-6 d-flex justify-content-center align-items-center">
-          <div class="container w-75 h-50" >          
-            <div class="row h-100 text-center bg-light" id="custom_bg_s2_col2">
-              <div class="col-md-12 m-auto">
-                {% block static3 %}{% endblock %}
-                {% block section2 %}{% endblock %}
-                </p>
-              </div>              
-            </div>  
-          </div>
-        </div>     
-      </div>
-    </section>
+      <!--SECTION 2-->
+      <section class="custom_section container-fluid">
+        {% block section2 %}{% endblock %}
+      </section>
 
-    <!--SECTION 3-->
-    <section class="custom_section container-fluid">
-      <div class="row h-100">
-        <!--Section 3 left part-->
-        <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
-          <div class="container w-75 h-50" >          
-            <div class="row h-100 text-center bg-light" id="custom_bg_s3_col1">
-              <div class="col-md-12 m-auto">
-                {% block static4 %}{% endblock %}
-              </div>              
-            </div>  
-          </div>
-        </div>
-        <!--Section 3 right part-->
-        <div class="col-md-6 d-flex justify-content-center align-items-center bg-primary">
-          <div class="container w-75 h-50" >          
-            <div class="row h-100 text-center bg-light" id="custom_bg_s3_col2">
-              <div class="col-md-12 m-auto">
-               {% block static5 %}{% endblock %}
-              </div>              
-            </div>  
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+      <!--SECTION 3-->
+      <section class="custom_section container-fluid">
+        {% block section3 %}{% endblock %}  
+      </section>
+    </div>
     
 
     <!--footer-->
@@ -131,3 +61,4 @@
     ></script>
     {% block javascript %}{% endblock %}
   </body>
+</html>
