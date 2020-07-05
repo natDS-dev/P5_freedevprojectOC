@@ -20,8 +20,8 @@ if(class_exists($controller))
     $action = isset($_GET["action"])? $_GET["action"] : "";
     if(method_exists($controller,$action))
     {
-        $id = isset($_GET["id"]) ? (int)$_GET["id"]:0;
-        (new $controller())->$action($id);
+        $param = isset($_GET["param"]) ? (int)$_GET["param"]:0;
+        (new $controller())->$action($param);
         exit;
     }
 }else{
