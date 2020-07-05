@@ -1,4 +1,4 @@
-{% extends "main_template.html.twig" %}
+{% extends "sections_template.html.twig" %}
 
 
 {% block section1 %}
@@ -7,13 +7,14 @@
 {{add.title}} {{add.name}} {{add.address}} 
 {% endfor %} #}
 
-<div class="row h-100">      
+<div class="row justify-content-center h-100">      
     <!--Section 1 left part-->
     <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
         <div class="container w-75 h-50" > 
             <div class="row h-100 text-center" id="custom_bg_s1_col1">
-                <div class="col-md-12 m-auto">
-                    <h2 class="text-center">{{title}}</h2>
+                <div class="col-md-10 m-auto bg-primary">
+                    <h2 class="text-center text-light">3 flans, 6 choux :</h2>
+                    <h3>Une autre façon de voir local</h3>
                 </div>              
             </div>  
         </div>
@@ -22,10 +23,14 @@
     <div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
         <div class="container w-75 h-50" >          
             <div class="row h-100 text-center bg-light" id="custom_bg_s1_col2">
-                <div class="col-md-12 m-auto">
-                {% block static1 %}{% endblock %} 
+                <div class="col-md-6 m-auto">
+                    <h1 class="text-primary">Bienvenue</h1>
+                    <h2>Ici chez nous, c'est troc'n'roll ! </h2>                 
+                </div>
+                <div class="col-md-6 m-auto">
+                    <img class=" d-flex mx-auto img-fluid mt-4" src="./images/persos/chou-chêne.png" alt="personnage chou avec un panier et des sabots bois">                 
                 </div>              
-            </div>  
+            </div>
         </div>
     </div>
 </div>
