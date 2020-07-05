@@ -1,0 +1,44 @@
+{% extends "admin_template.html.twig" %}
+{% block section1 %}
+
+<div class="container w-75 h-50" >          
+  <div class="row h-100 text-center" id="custom_bg_s1_col1">
+    <div class="col-md-12 m-auto">
+      <h3>Titre section 1</h3>
+      <p class="text-center">
+      </p>
+    </div>              
+  </div>  
+</div>
+{% endblock %} 
+
+{% block section2 %}
+<div class="container w-75 h-50">          
+  <div class="row h-100 text-center bg-light" id="custom_bg_s1_col2">
+    <div class="col-md-12 m-auto">
+      <h3>Créer un panier</h3>                  
+      <form method="POST" action="index.php?controller=baskets&action=create">
+        <div class="form-group">
+          <label for="Titre"></label>
+          <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{basket.title}}" />
+        </div>
+        <div class="form-group">
+          <label for="description"></label>
+          <textarea class="form-control" placeholder="Description" name="description" id="description" required>{{basket.description}}</textarea>
+        </div>
+        <div class="form-group">
+          <label for="available">Disponibilité</label>
+          <select class="form-control" name="available" id="available" required > 
+            <option value="1"{% if  basket.available is same as(1) %} selected{% endif %}>Oui</option>
+            <option value="0"{% if  basket.available is same as(0) %} selected{% endif %}>Non</option>
+          </select>
+        </div>
+        <div class="form-group">  
+          <input type="hidden" name="id" value="{{basket.id}}"/>
+        </div>
+          <button class="btn btn-primary" type="submit">Valider</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

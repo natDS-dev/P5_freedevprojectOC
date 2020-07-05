@@ -1,0 +1,58 @@
+CORE
+
+!!l'adresse https://3flans6choux.desmet-webdev.fr/ va sur page erreur 404!!
+
+!!limiter nb de création paniers à 3 ou 4 par producteur!!
+!!dans formulaire création panier il manque le choix des tailles =>
+ex: disponibilité en quelle taille ? -> cases à cocher S M L !!
+!! popup limiter le nb d'annonces => car pas possible de voir!!
+
+OK 1- edit mise à jour profil => penser appel à l'API pour calcul nouvelles coordonnées lat long
+2-Validations
+3 - page contact =>contact form => renvoi sur mon adresse mail
+4- Messagerie interne
+5- update annonce
+6-mettre lien RGPD + charger
+
+
+CSS / MISE EN PAGE - CONTENU
+
+
+OK !! page carte => passer carte +titre colonne gauche!!
+
+0-custom_register_form dans REGISTER
+1-Créer pages statiques : infos / mentions / légales / contact + contenu pour toutes
+2- Contenu page home
+3- Contenu admin :
+Particuliers : - liste annonces / liste offres répondus
+Professionnels : -liste paniers dispo + paniers "brouillon" / liste paniers commandés =validations
+4-modifier les noms balises menu principal "div" etc
+OK 5-faire lien accueil sur logo
+5-labels sur les forms
+
+FAIT:
+Menu admin
+-Rajout bouton déconnexion
+-Page profil
+
+fait 03.07
+-page carte : Inversement colonne map et infos détaillées => + rajout bg formulaire validation
+-création du personnage "chou-chêne"
+-JS map => ajout adresse complète sur carte producteurs
+-menu admin => lien dropdown pour les cartes
+
+
+<?php
+  if (!empty($_POST['email'])
+  && !empty($_POST['name'])
+  && !empty($_POST['message'])) {
+    //Email information
+    $adminMail = "natachadesmet@yahoo.fr";
+    $name = strip_tags($_POST['name']);
+    $email = strip_tags($_POST['email']);
+    $message = strip_tags($_POST['message']);
+    
+    //send email
+    mail($adminMail, "Envoi de mail automatique via formulaire de contact", $message . ' - ' . $name, "From:" . $email);
+    header('Location: ');
+  } +ADDlOG

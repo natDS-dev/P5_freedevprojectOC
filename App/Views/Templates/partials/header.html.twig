@@ -1,0 +1,72 @@
+    <!--HEADER : BRAND + NAV-->
+  <header class="fixed-top d-flex">
+  <div class="custom_title_main_content ">
+    <h3 class="custom_page_title col-md-6 text-gray-dark">{{title}}</h3>
+
+  </div> 
+    <div class="container-fluid ">
+      <div class="row h-100">
+        <!-- Brand -->
+        <div class="custom_logo d-flex align-items-center justify-content-center col-6">
+          <a href="index.php?controller=home&action=index">
+            <img class=" d-flex mx-auto img-fluid mt-4" src="./images/logo/logo_expand_1C.png " alt="panier avec un flan et un chou" />
+          </a>
+        </div>
+
+        <!--<div class="custom_brand d-flex align-items-center justify-content-center col-4">
+          <h1 class="text-center">3 <span class="custom_main_title_part1">flancs,</span>
+            6 <span class="sp-2">choux</span>
+          </h1>
+        </div>-->
+        <!--
+        <div class="custom_nav d-flex align-items-center justify-content-center col-4">-->
+
+        <!--Nav-->
+        <nav class="d-flex align-items-center justify-content-center col-6">
+          <button class="navbar-toggler bg-primary" type="button" title="menu" data-toggle="collapse"
+            data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="text-light"><i class="fa fa-seedling"></i></span>
+          </button>
+
+          <div class="custom_nav align-items-center justify-content-center collapse" id="navbarSupportedContent1">
+            <div class="container d-inline-flex">
+              <div class="row">
+                <div id="home" class="div">
+                  <p id="homep" class="p"><a href="index.php?controller=home&action=index">Accueil</a></p>
+                </div>
+                <div class="div">
+                  <p class="p"><a href="">Infos</a></p>
+                </div>
+                {% if user is defined %}
+                <div class="div">
+                  <p class="p"><a href="index.php?controller=users&action=index">Mon compte</a></p>
+                </div> 
+                <div class="div">
+                  <p class="p"><a href="">Annonces</a></p>
+                </div>
+                  <div class="div">
+                  <p class="p"><a href="index.php?controller=users&action=logout">Déconnexion</a></p>
+                </div>               
+                {% else %} 
+                  <div class="div">
+                    <p class="p"><a href="index.php?controller=home&action=login">Connexion</a></p>
+                  </div>
+                  <div class="div">
+                    <p class="p"><a href="index.php?controller=home&action=register">Inscription</a></p>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </nav>
+        {% for log in logs %}
+        <div class="alert alert-dismissible fade show {{log.alertBootstrap}}">
+          <button class="close" data-dismiss="alert">&times;</button>
+          <h5>{{log.message}} {{log.name}}</h5>
+        </div>                   
+        {% endfor %}
+      </div>
+    </div>    
+  </header>
+          

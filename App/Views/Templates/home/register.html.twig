@@ -1,0 +1,75 @@
+{% extends "simple_template.html.twig" %}
+{% block simplepage %}
+<!--Section 1 left part-->
+<div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
+    <div class="container w-75 h-50" > 
+        <div class="row h-100 text-center" id="custom_bg_s1_col1">
+            <div class="col-md-12 m-auto">
+                <h2 class="text-center">{{title}}</h2>
+            </div>              
+        </div>  
+    </div>
+</div>
+<!--Section 1 right part-->
+<div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
+  <div class="container w-75 h-75" >          
+    <div class="row h-100 text-center bg-light" id="custom_bg_s1_col2">
+      <div class="col-md-12 m-auto">
+        <div>
+          <button class= "btn btn-primary" id ="btn_individual">Particulier</button> 
+          <button class= "btn  btn-secondary" id ="btn_professional">Professionnel</button> 
+        </div>
+          <form class="custom_register_form hidden_form mt-2 p-2 bg-info" method="POST" action="index.php?controller=home&action=register" id="register_form">
+              <div class="form-group">
+                <label for="company"></label>
+                <input type="text" placeholder="Nom entreprise" name="company" value="{{newUser.company}}" id="input_company" required /> <label for="name"></label>
+                <input type="text" placeholder="Votre prénom" name="name" value="{{newUser.name}}"  required />
+                <label for="surname"></label>
+                <input type="text" placeholder="Votre nom" name="surname" value="{{ newUser.surname}}" required />
+              </div>
+              
+              <div class="form-group">
+                <label for="address"></label>
+                <input type="text" placeholder="Adresse" name="address"value="{{newUser.address}}"  required />
+                <label for="zip_code"></label>
+                <input type="text" placeholder="Code postal" name="zip_code" value="{{newUser.zip_code}}" required />
+                <label for="city"></label>
+                <input type="text" placeholder="Ville" name="city" value="{{newUser.city}}" required />
+              </div>
+              <div class="form-group">
+                <label for="phone"></label>
+                <input type="text" placeholder="n° tel" name="phone" value="{{newUser.phone}}" required />
+                <label for="email"></label>
+                <input type="email" placeholder="email" name="email" value="{{newUser.email}}" required />
+              </div>
+              <div class="form-group">
+                <label for="password"></label>
+                <input type="password" placeholder="mot de passe" name="password" required />
+              </div>
+              <div class="form-group">
+                <label for="role"></label>
+                <input type="hidden" name="role" value="{{newUser.role}}" id="role_user" required />
+              </div>
+                <!--1 = particulier -->
+              <div class="form-group">
+                <label for="description"></label>
+                <textarea placeholder="Description" name="profile">{{newUser.name}}</textarea>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="accepted" id="rgpd" name="rgpd" required>
+                <label class="form-check-label" for="rgpd">
+                  Accepter RGPD ?
+                </label>
+              </div>
+            <button class="btn btn-primary" type="submit">S'inscrire</button>
+        </form>        
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="js/register.js"></script>
+{% endblock %}

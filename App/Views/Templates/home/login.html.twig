@@ -1,0 +1,36 @@
+{% extends "simple_template.html.twig" %} 
+
+{% block simplepage %}
+{# <h3>J'espère que tu es en forme {{user.name}} !</h3>
+{% for add in lastAdds %}
+{{add.title}} {{add.name}} {{add.address}} 
+{% endfor %} #}
+
+  
+<!--Section 1 left part-->
+<div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
+    <div class="container w-75 h-50" > 
+        <div class="row h-100 text-center" id="custom_bg_s1_col1">
+            <div class="col-md-12 m-auto">
+                <h2 class="text-center">{{title}}</h2>
+            </div>              
+        </div>  
+    </div>
+</div>
+<!--Section 1 right part-->
+<div class="col-md-6 d-flex justify-content-center align-items-center bg-light">
+    <div class="container w-75 h-50" >          
+        <div class="row h-100 text-center bg-light" id="custom_bg_s1_col2">
+            <div class="col-md-12 m-auto">
+                <h2> Connexion</h2>
+                <form class="" method="POST" action="index.php?controller=home&action=login">        
+                    <input type="email" placeholder="identifiant email" name="login" required>        
+                    <input type="password"  placeholder="mot de passe" name="password" required>   
+                    <button class="btn btn-primary" type="submit">Se connecter</button>   
+                </form> 
+            </div>              
+        </div>  
+    </div>
+</div>
+
+{% endblock %}

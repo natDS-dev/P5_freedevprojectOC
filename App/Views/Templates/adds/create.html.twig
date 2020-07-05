@@ -1,0 +1,55 @@
+{% extends "admin_template.html.twig" %}
+{% block section1 %}
+
+<div class="container w-75 h-50" >          
+  <div class="row h-100 text-center" id="custom_bg_s1_col1">
+    <div class="col-md-12 m-auto">
+      <h3>Titre section 1</h3>
+      <p class="text-center">
+      </p>
+    </div>              
+  </div>  
+</div>
+{% endblock %} 
+
+{% block section2 %}
+<div class="container w-75 h-75">          
+  <div class="row h-100 text-center bg-light" id="custom_bg_s1_col2">
+    <div class="col-md-12 m-auto">
+      <h3>Créer une annonce</h3>                  
+      <form method="POST" action="index.php?controller=adds&action=create">
+        <div class="form-group">
+          <label for="title"></label>
+          <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" />
+        </div>
+        <p>Si l'adresse pour rendre le service est différente de ton adresse enregistrée, précise cela dans la description</p>
+        
+        <div class="form-group">
+          <label for="description"></label>
+          <textarea class="form-control" placeholder="Description" name="description" id="description" required>{{add.description}}</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="basket_size">Taille de panier</label>
+          <select class="form-control" name="basket_size" id="basket_size" required > 
+            <option value="1"{% if add.basket_size == 1 %} selected{% endif %}>S</option>
+            <option value="2"{% if add.basket_size == 2 %} selected{% endif %}>M</option>
+            <option value="3"{% if add.basket_size == 3 %} selected{% endif %}>L</option>
+          </select>
+        </div>
+        <div class="form-group">  
+          <label for="basket_quantity">Nombre de panier(s)</label>
+          <input class="form-control" type="number" min="1" name="basket_quantity" value="{{add.basket_quantity}}" id="basket_quantity" required />
+        </div>
+        <div class="form-group">  
+          <input type="hidden" name="id" value="{{add.id}}"/>
+        </div>
+          <button class="btn btn-primary" type="submit">Valider</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block javascript %}
+
+{% endblock %}
