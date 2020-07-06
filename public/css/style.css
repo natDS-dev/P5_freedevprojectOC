@@ -4,6 +4,7 @@
 * {
   scrollbar-color: #845f3c  #a5d710;
 }
+
 *::-webkit-scrollbar {
   width: 25px;
 }
@@ -32,18 +33,9 @@ label {
   text-align: center;
 }
 
-.custom_page_title {
-  width: 100%; 
-  padding-top: 0.5em;
-  color: #333;
-}
 
-.custom_title_main_content {
-  position: absolute;
-  top: 5px;
-  
-}
-/*engraved style*/
+
+/*general engraved style for*/
 .custom_engraved_text {
     color: #937d43;
     text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
@@ -51,6 +43,8 @@ label {
 
 /*Body*/
 .custom_body_bg {
+  width:100%;
+  height: auto;
   background: url("../images/background/nature_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -67,7 +61,19 @@ header {
   background-position: center;
   border-bottom: 15px solid #a5d710;
 }
-  
+ 
+/*container page title*/
+.custom_title_main_content {
+  /* position: absolute; */
+  top: 5px;
+}
+
+.custom_page_title {
+  width: 100%; 
+  padding-top: 0.5em;
+  color: #333;
+}
+
 .custom_logo img {
   width: 70%;
 }
@@ -346,7 +352,7 @@ table td::before
 } */
     
     
-table td:last-child 
+/* table td:last-child 
 {
     border-bottom: 0;
 }
@@ -354,4 +360,4 @@ table td:last-child
 }
 
 
-}
+} */
