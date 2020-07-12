@@ -21,18 +21,18 @@
     {% include ("partials/header.html.twig") %} 
 
     <!--MAIN CONTENT-->
-    <div class="custom_main_bg">
+    <div class="custom_main_bg w-100">
       {% include ("partials/admin_nav.html.twig") %} 
       <!--SECTION 1-->
-      <section class="custom_admin_section container-fluid">
-        <div class="row h-100">
+      <section class="container-fluid">
+        <div class="row h-100 justify-content-center">
           <!--Section 1 left part-->
-          <div class="custom_admin_section_bg_left col-md-6 d-flex justify-content-center align-items-center">
-            {% block section1 %}{% endblock %}         
+          <div class="custom_admin_section col-lg-6 d-flex justify-content-center align-items-center">
+            {% block section1L %}{% endblock %}         
           </div>
           <!--Section 1 right part-->
-          <div class="custom_admin_section_bg_right col-md-6 d-flex justify-content-center align-items-center  ">
-            {% block section2 %}{% endblock %}               
+          <div class="custom_admin_section col-lg-6 d-flex justify-content-center align-items-center">
+            {% block section1R %}{% endblock %}               
           </div>              
         </div>         
       </section>

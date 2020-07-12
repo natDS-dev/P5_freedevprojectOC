@@ -1,37 +1,45 @@
-<div class="custom_admin_nav container-fluid d-flex justify-content-end p-1 bg-light">
-  <ul class="nav nav-tabs justify-content-end">
-      <li class="nav-item">
-          <a class="nav-link active" href="index.php?controller=users&action=index">Profil</a>
-      </li>
-      {% if user.role is same as(1) %}
-      <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Annonces</a>
+<nav class="custom_admin_nav nav navbar-expand-lg navbar-light bg-light ">
+  <a class="navbar-brand ml-2 text-dark" href="#">P'tit cabanon</a>
+  <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="text-light">
+      <i class="fa fa-home"></i>
+    </span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="nav nav-tabs">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.php?controller=users&action=index">Profil</a>
+        </li>
+        {% if user.role is same as(1) %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Annonces</a>
+            <div class="dropdown-menu">
+          <a class="dropdown-item" href="index.php?controller=adds&action=create">Créer</a>
+          <a class="dropdown-item" href="index.php?controller=adds&action=myAdds">Toutes mes annonces</a>
+          <a class="dropdown-item" href="#">Mes réponses aux annonces</a>      
+        </div> 
+        </li>
+        {% else %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paniers</a>
           <div class="dropdown-menu">
-        <a class="dropdown-item" href="index.php?controller=adds&action=create">Créer</a>
-        <a class="dropdown-item" href="index.php?controller=adds&action=myAdds">Toutes mes annonces</a>
-        <a class="dropdown-item" href="#">Mes réponses aux annonces</a>      
-      </div> 
-      </li>
-      {% else %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paniers</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="index.php?controller=baskets&action=create">Créer</a>
-          <a class="dropdown-item" href="#">Tous mes paniers</a>
-          <a class="dropdown-item" href="#">Tous mes paniers commandés</a>      
-        </div> 
-      </li>
-      {% endif %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cartes</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="index.php?controller=baskets&action=index">Carte des producteurs </a>
-          <a class="dropdown-item" href="index.php?controller=adds&action=index">Carte des annonces</a>
-        </div> 
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?controller=users&action=logout">Déconnexion</a>
-      </li>               
-  </ul>
-</div>
+            <a class="dropdown-item" href="index.php?controller=baskets&action=create">Créer</a>
+            <a class="dropdown-item" href="#">Tous mes paniers</a>
+            <a class="dropdown-item" href="#">Tous mes paniers commandés</a>      
+          </div> 
+        </li>
+        {% endif %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cartes</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="index.php?controller=baskets&action=index">Carte des producteurs </a>
+            <a class="dropdown-item" href="index.php?controller=adds&action=index">Carte des annonces</a>
+          </div> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?controller=users&action=logout">Déconnexion</a>
+        </li>               
+    </ul>
+  </div>  
+</nav>
 

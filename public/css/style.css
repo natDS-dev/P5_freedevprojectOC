@@ -1,6 +1,7 @@
 /*CUSTOM CSS : ADDITIONAL CSS FOR BOOTSTRAP*/
-/*GENERAL*/
 
+/*GENERAL*/
+/*Scrollbar*/
 * {
   scrollbar-color: #845f3c  #a5d710;
 }
@@ -20,22 +21,28 @@
   box-shadow: -1px 2px 10px 3px rgba(58, 14, 14, 0.3) inset;
 }
 
+/* link hover*/ 
 a, a:hover {
   text-decoration: none;
   font-size: 1em;
 }
 
+/*Forms*/
+/*label*/
 label {
   font-size:20px;
 }
+/*visibility form*/
+.hidden_form {
+  visibility: hidden;
+}
 
+/*alert ( addLog message)*/
 .alert {
   text-align: center;
 }
 
-
-
-/*general engraved style for*/
+/*general engraved style for few titles*/
 .custom_engraved_text {
     color: #937d43;
     text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
@@ -75,7 +82,10 @@ header {
 }
 
 .custom_logo img {
-  width: 70%;
+  width: 30vh;
+  height: auto;
+  position: absolute;
+  top: 2vh;
 }
 
 .custom_brand h1 {
@@ -84,11 +94,12 @@ header {
 
 /* Nav*/
 .custom_nav {
-  margin-top: 2%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px; 
- 
+  background: url("../images/background/clouds2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border:solid 2px white;
+  border-radius: 5px;
 }
 
 .p{
@@ -142,16 +153,17 @@ header {
 
 /*MAIN CONTENT*/
 .custom_main_bg {
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
-  background-color: rgba(255, 255, 255, 0.418);
+  height:auto;
   position: relative;
   padding-top: 15vh;
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.418);
+  
 }
 
 /*Sections general for 3 sections pages (home/infos/who)*/
 .custom_section {
-  width: 100%;
-  height: 85vh;
+ height: 85vh;
 }
 
 /*General row for simple pages (register/connect/contact)*/ 
@@ -162,26 +174,25 @@ header {
 
 /*Section 1*/
 /*s1 col 1*/
-#custom_bg_s1_col1{
+.custom_bg_s1_col1{
+  padding: 15px;
+  border: 15px solid transparent;
+  border-image-source: url("../images/background/wood.png");
+  border-image-repeat: stretch;
+  border-image-slice: 30; 
   background: url("../images/background/nature_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed; 
-  border: 2px solid #a5d710;
   box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
-  border: 15px solid transparent;
-  padding: 15px;
-  border-image-source: url("../images/background/wood.png");
-  border-image-repeat: stretch;
-  border-image-slice: 30;
 }
 
 
-#custom_bg_s1_col2 {
+.custom_bg_s1_col2 {
 
 }
 
-#custom_bg_s2_col1, #custom_bg_s2_col2 {
+.custom_bg_s2_col1,.custom_bg_s2_col2 {
   border-radius:10% 0;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
 }
@@ -192,10 +203,7 @@ header {
   border-radius: 0;
 }
 
-/*REGISTER*/
-.hidden_form {
-  visibility: hidden;
-}
+
 
 
 
@@ -225,7 +233,7 @@ header {
 /*Admin section 1*/
 .custom_admin_section {
   
-  height: 85vh;
+  height:85vh;
   background: url("../images/background/admin_bg_5372.png") no-repeat center;
   background-size: cover;
 }  
@@ -237,7 +245,7 @@ header {
 
 /*Admin index => profile */
 #custom_admin_profile_s1_col1 {
-  width:40%;
+  width:13em;
   border : 10px solid #845f3c;
   box-shadow: #54452c 3px 3px 3px;
 }
@@ -260,8 +268,8 @@ header {
 }
 
 .custom_admin_circle {
-  width: 6em;
-  height: 6em;
+  width: 5em;
+  height: 5em;
   border: 2px solid #845f3c;
   border-radius: 50%;
   box-shadow: #54452c 3px 3px 3px;
@@ -292,13 +300,23 @@ header {
 }
 
 .custom_admin_bg_form {
-  height: 650px;
-  z-index: 2000;
-  background-image: url("../images/background/curtain_form.png");
+  height: 67vh;
+  position: absolute;
+  z-index: 1200;
   background-repeat: no-repeat;
   background-size: cover;
  }
 
+ .custom_admin_window {
+  position: absolute;
+  top: 20vh;
+  left: 0;
+  right: 0;
+ }
+
+ .custom_admin_form{
+  z-index: 2000;
+ }
  /*MY ADDS*/
 
 
