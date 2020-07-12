@@ -7,7 +7,7 @@
 }
 
 *::-webkit-scrollbar {
-  width: 25px;
+  width: 15px;
 }
 *::-webkit-scrollbar-track {
   background: #a5d710;
@@ -219,6 +219,17 @@ header {
   width: 100%;
 }
 
+.custom_admin_title_nav {
+  background-color: #c5a759;
+  box-shadow: #54452c 3px 3px 3px;
+}
+
+.custom_admin_nav_button {
+  border-radius: 20%;
+  border-color: #c5a759;
+  box-shadow: #54452c 3px 3px 3px;
+}
+
 .custom_admin_nav .nav-link.active , .nav-link:focus{
   background-image: url("../images/background/wood.png");
   background-size: cover;
@@ -303,8 +314,6 @@ header {
   height: 67vh;
   position: absolute;
   z-index: 1200;
-  background-repeat: no-repeat;
-  background-size: cover;
  }
 
  .custom_admin_window {
@@ -317,6 +326,25 @@ header {
  .custom_admin_form{
   z-index: 2000;
  }
+
+
+ /*Admin create adds*/
+.custom_admin_bg_adds_create {
+  background: url("../images/background/admin_bg_create_adds_leaves.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+/**/
+.custom_admin_bg_baskets_create {
+  background: url("../images/background/admin_bg_create_baskets_leaves.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+
  /*MY ADDS*/
 
 
@@ -325,6 +353,13 @@ header {
   height: 80%;
   border: solid 3px #845f3c;
   box-shadow: #54452c 3px 3px 3px;
+}
+
+.leaflet-popup-content
+{
+  max-width: 220px;
+  max-height: 250px;
+  overflow-y: scroll;
 }
 
 .custom_legals_mentions {
