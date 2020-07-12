@@ -1,8 +1,14 @@
-{% extends "main_template.html.twig" %}
+{% extends "simple_template.html.twig" %}
 
 
 
-{% block content %}
-Oups ! on est dans les choux !
-
+{% block simplepage %}
+<div class="row h-100 justify-content-center bg-light"> 
+    <div class="custom_section col-lg-12 d-flex justify-content-center align-items-center bg-light">
+        <div class="row justify-content-center align-items-center w-100 h-75" > 
+        <h4 class="text-warning">Erreur 404. Oups ! on est dans les choux !</h4>
+        <img src="./images/persos/error-chou-chêne.png" alt="personnage chou vert qui tombe"/>
+        </div>
+    </div>
+</div>
 {% endblock %}
