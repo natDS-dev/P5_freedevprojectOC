@@ -23,7 +23,18 @@
         <form class="col-12 px-2" method="POST" action="index.php?controller=adds&action=create">
           <div class="form-group">
             <label for="title"></label>
-            <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" />
+            <select class="form-control" name="title" id="title" required >
+            <option value="Jardinage">Jardinage / Entretien espace extérieur</option>
+            <option value="Bricolage">Bricolage / Réparation</option>
+            <option value="Proximité">Entretien domicile (ménage/nettoyage vitre etc.)</option>
+            <option value="Garde">Garde exceptionnelle d'enfant(s)</option>
+            <option value="Administratif">Aide administrative (démarches/courrier etc.)</option>
+            <option value="Cours">Cours / Soutien scolaire / Aide informatique etc.</option>
+            <option value="Transport">Déplacement / Co-voiturage</option>
+            <option value="Animaux">Animal (garde/soin/promenade)</option>
+            <option value="Autres">Autres</option>
+            </select>
+            {# <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" /> #}
           </div>
           <p>Si localisation différente de l'adresse enregistrée, précise cela dans la description</p>
           
