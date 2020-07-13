@@ -196,7 +196,19 @@ header {
   border-radius:10% 0;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
 }
+/*Home*/
 
+.custom_animation_home {
+  position: relative;
+  animation-name: example;
+  animation-duration: 2s;  
+  animation-delay: 1s; 
+}
+
+@keyframes example {
+  from {right: -150px;}
+  to {right: 0px;}
+}
 /*FOOTER*/
 .custom_footer_bg {
   background-color: #633c07b8;
@@ -363,7 +375,7 @@ header {
 }
 
 .custom_legals_mentions {
-overflow-x:scroll;
+overflow-y:scroll;
 }
 
 
