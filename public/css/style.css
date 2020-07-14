@@ -379,7 +379,17 @@ overflow-y:scroll;
 }
 
 
-/* @media screen and (max-width: 600px) {
+/*MEDIA QUERRIES*/
+/*My adds table*/
+
+@media screen and (max-width: 1500px) {
+.custom_admin_adds_table {
+  overflow-y: scroll;
+}
+
+}
+
+@media screen and (max-width: 768px) {
 
   table thead
 {
@@ -414,15 +424,14 @@ table td::before
     content: attr(data-label);
     float: left; 
     text-transform: uppercase;
-} */
+} 
     
     
-/* table td:last-child 
+ table td:last-child 
 {
     border-bottom: 0;
 }
 
-}
+} 
 
 
-} */
