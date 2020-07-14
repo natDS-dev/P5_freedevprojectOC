@@ -18,7 +18,7 @@ class BasketsModel extends Model
 
     public function findMapBaskets()
     {
-        $sql='SELECT baskets.*,users.id AS company_id,users.company AS name,users.address,users.address,users.city,users.zip_code,users.phone,users.lat,users.lng FROM `baskets` INNER JOIN `users` ON users.id=baskets.company_id WHERE baskets.available=1';
+        $sql='SELECT baskets.*,select_value,users.id AS company_id,users.company AS name,users.address,users.address,users.city,users.zip_code,users.phone,users.lat,users.lng FROM `baskets` INNER JOIN `users` ON users.id=baskets.company_id INNER JOIN `categories` ON categories.id=baskets.category WHERE baskets.available=1';
         
         $query=$this->db->getPDO()->prepare($sql);
         $res= $query->execute();

@@ -43,8 +43,6 @@ class AddsController extends Controller
   public function index()
   {
     $data = ['title' => 'Offres'];
-    $lastAdds = $this->model->findLastAdds();
-    $data['lastAdds'] = $lastAdds;
     $data['availableBaskets'] = $this->model->findAvailableBaskets();
     $this->view->render('adds/index', $data);
   }

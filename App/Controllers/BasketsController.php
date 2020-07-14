@@ -26,6 +26,12 @@ class BasketsController extends Controller
     echo json_encode(array_values($mapBaskets)); 
   }
  
+  public function index()
+  {
+    $data = ['title' => 'Paniers'];
+    $this->view->render('baskets/index', $data);
+  }
+
   //Create => or edit basket if id is set and correct
   public function create()
   { 

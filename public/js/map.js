@@ -48,12 +48,13 @@ class Map {
 
                 let isBasket = (this.adds[id].company_id !== undefined);
                 document.getElementById("current_add_title").innerText = this.adds[id].title;
+                document.getElementById("current_add_category").innerText = this.adds[id].select_value;
                 if (!isBasket) {
                     document.getElementById("current_add_description").innerText = "Votre mission : " + this.adds[id].description;
                     document.getElementById("current_add_nb_basket").innerText = "Nombre de paniers : " + this.adds[id].basket_quantity;
                     document.getElementById("current_add_basket_size").innerText = " Taille de panier : " + this.adds[id].basket_size;
                     document.getElementById("add_id").value = this.adds[id].id;
-                    document.getElementById("current_add_category").innerText = this.adds[id].select_value;
+
                     document.getElementById("creator_id").value = this.adds[id].users_id;
                     if (document.getElementById("user_id").value == this.adds[id].users_id) {
                         document.getElementById("error_form").innerText = "Impossible de répondre à ta propre annonce chouchou !";
