@@ -59,6 +59,9 @@ class Map {
                     if (document.getElementById("user_id").value == this.adds[id].users_id) {
                         document.getElementById("error_form").innerText = "Impossible de répondre à ta propre annonce chouchou !";
                         document.getElementById("validation_form").classList.add("hidden_form");
+                    } else if (document.getElementById("user_role").value != 1) {
+                        document.getElementById("error_form").innerText = "Impossible pour un professionnel de répondre à une annonce de particulier !";
+                        document.getElementById("validation_form").classList.add("hidden_form");
                     } else {
                         document.getElementById("validation_form").classList.remove("hidden_form");
                         document.getElementById("error_form").innerText = "";

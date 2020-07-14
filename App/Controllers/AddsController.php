@@ -13,31 +13,25 @@ class AddsController extends Controller
   public function getJSON()
   {
     header('Content-type: application/json');
-    if((int)$_SESSION['user']['role'] !== 1)
-    {
-      echo json_encode(["status" => "error"]);
-    }else{
-      $data=$this->model->findMapAdds();
-      $mapAdds = [];
-      foreach($data as $add){
-        $users_id = (int)$add["users_id"];
-       
-        if(!isset($mapAdds[$users_id]))
-        {
-        $mapAdds[$users_id] = [];          
-        }
-        if ($add["basket_size"] === 1) {
-          $add["basket_size"] = "S";
-        }
-        else if ($add["basket_size"] === 2) {
-            $add["basket_size"] = "M";
-        } else {
-            $add["basket_size"] = "L";
-        }
-        $mapAdds[$users_id][] = $add;
+    $data=$this->model->findMapAdds();
+    $mapAdds = [];
+    foreach($data as $add){
+      $users_id = (int)$add["users_id"];
+      if(!isset($mapAdds[$users_id]))
+      {
+      $mapAdds[$users_id] = [];          
       }
-      echo json_encode(array_values($mapAdds)); 
+      if ($add["basket_size"] === 1) {
+        $add["basket_size"] = "S";
+      }
+      else if ($add["basket_size"] === 2) {
+          $add["basket_size"] = "M";
+      } else {
+          $add["basket_size"] = "L";
+      }
+      $mapAdds[$users_id][] = $add;
     }
+    echo json_encode(array_values($mapAdds)); 
   }
 
   public function index()
@@ -190,10 +184,17 @@ class AddsController extends Controller
       header("Location: index.php?controller=adds&action=index");
       exit;
     }
+
     $addId = isset($_POST["add_id"]) ? strip_tags($_POST["add_id"]) : null;
     $userId = isset($_POST["user_id"]) ? strip_tags($_POST["user_id"]) : null;
     $basketId = isset($_POST["basket_id"]) ? strip_tags($_POST["basket_id"]) : null;
 
+    if($_SESSION["user"]["role"] !== 1 || $userId === $_SESSION["user"]["id"]){
+      $this->addLog("Tu n'as pas le droit de répondre à cette annonce", "alert-danger");
+      header("Location: index.php?controller=adds&action=index");
+      exit;
+    }
+    
     if(is_null($addId) || is_null($userId) || is_null($basketId)){
       $this->addLog("Ouhlala il y a un souci", "alert-danger");
       header("Location: index.php?controller=adds&action=index");

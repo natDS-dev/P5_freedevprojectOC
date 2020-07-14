@@ -10,6 +10,10 @@ if(!empty($controllerName))
         $controllerName = "BackAdmin\\".ucfirst($controllerName);
     }
     $controller = "App\\Controllers\\".$controllerName."Controller";
+}else{
+    //Page par défaut
+    (new HomeController())->index();
+    exit;
 }
 
 if(class_exists($controller))
@@ -51,6 +55,5 @@ if(class_exists($controller))
     (new HomeController())->error(); 
     exit;
 }  
-//Page par défaut
-(new HomeController())->index();
+
   
