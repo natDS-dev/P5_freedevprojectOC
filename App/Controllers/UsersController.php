@@ -48,7 +48,7 @@ class UsersController extends Controller
           exit;
         }
         $fieldValue = strip_tags($_POST[$field]);
-        if(in_array($field,['address','zip_code','city']) && $_SESSION['user'][$field] !== $fieldValue){
+        if(in_array($field,['address','zip_code','city'],true) && $_SESSION['user'][$field] !== $fieldValue){
           $fullAddressChanged = true;
         }else{
           if($_SESSION['user'][$field] !== $fieldValue){

@@ -29,29 +29,30 @@ class BasketsModel extends Model
         }
     }
 
-    public function createBasket($title,$description,$company_id,$available)
+    public function createBasket($title,$category,$description,$company_id,$available)
     {
-        $sql='INSERT INTO `baskets`(title, description, company_id, available) VALUES (:title, :description, :company_id, :available)';
+        $sql='INSERT INTO `baskets`(title,category, description, company_id, available) VALUES (:title,:category, :description, :company_id, :available)';
         $query=$this->db->getPDO()->prepare($sql);
         $res= $query->execute([
-            "title"=>$title,
-            "description"=>$description,
-            "company_id"=>$company_id,
-            "available"=>$available
+            "title" => $title,
+            "category" => $category,
+            "description" => $description,
+            "company_id" => $company_id,
+            "available" => $available
         ]);
         return $res;
     }
 
-    public function editBasket($id,$title,$description,$company_id,$available)
+    public function editBasket($id,$category,$title,$description,$available)
     {
-        $sql='UPDATE `baskets` SET title=:title, description=:description, company_id=:company_id, available=:available WHERE id=:id';
+        $sql='UPDATE `baskets` SET title=:title,category=:category, description=:description, available=:available WHERE id=:id';
         $query=$this->db->getPDO()->prepare($sql);
         $res= $query->execute([
-            "id"=>$id,
-            "title"=>$title,
-            "description"=>$description,
-            "company_id"=>$company_id,
-            "available"=>$available
+            "id" => $id,
+            "title" => $title,
+            "category" => $category,
+            "description" => $description,
+            "available" => $available
         ]);
         return $res;
     }
@@ -67,5 +68,36 @@ class BasketsModel extends Model
         }
     }
 
+    //Effacement du panier
+    public function deleteBasket($id){
+        $query=$this->db->getPDO()->prepare('DELETE FROM `baskets` WHERE id=:id');
+        $query->execute(["id" => $id]);
+        return $query->rowCount() === 1;
+    }
 
+    //Nombre total de paniers d'un utilisateur donné
+    public function userBasketsTotal($userId){
+        $query=$this->db->getPDO()->prepare('SELECT COUNT(*) AS total_baskets FROM baskets WHERE `company_id`=:userId');
+        $res= $query->execute(["userId" => $userId]);
+        if($res){
+            return (int)($query->fetch()['total_baskets']);
+        }else{
+            return 0;
+        }
+    }
+
+    //Renvoi d'une page de paniers pour un utilisateur "donné" => mybaskets
+    public function userBasketsPage($userId,$perPage,$page){
+        $offset = $perPage * ($page - 1);
+        
+        $query=$this->db->getPDO()->prepare('SELECT baskets.*, select_value  FROM baskets INNER JOIN `categories` ON categories.id=baskets.category WHERE `company_id`=:userId ' . 'LIMIT '  . $perPage . ' OFFSET ' . $offset);
+        $res= $query->execute([
+            "userId" => $userId
+        ]);
+        if($res){
+            return $query->fetchAll();
+        }else{
+            return [];
+        }
+    }
 }

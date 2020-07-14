@@ -157,7 +157,7 @@ class AddsController extends Controller
     $basket_quantity = isset($_POST["basket_quantity"])? (int)strip_tags($_POST["basket_quantity"]):null;
 
     //Les champs indispensables ne doivent pas être nul
-    if(in_array(null,[$id,$category,$description,$basket_size,$basket_quantity])){
+    if(in_array(null,[$id,$category,$description,$basket_size,$basket_quantity],true)){
       $this->addLog("Ohla, dans les choux ! des champs ne sont pas valides", "alert-warning");
       header("Location: index.php?controller=adds&action=myAdds");
       exit;
