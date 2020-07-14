@@ -147,8 +147,13 @@ class HomeController extends Controller
         $user = $this->model->findUserByUserEmail(strip_tags($_POST["login"]));
         $_SESSION["user"] = $user;
         $this->addLog("Choux-bidouwouah ! tu es bien connecté(e) ", "alert-success");
-        header("Location: index.php?controller=users&action=index");
-        exit;
+        if($user["role"] === 0){
+          header("Location: index.php?controller=back&action=index");
+          exit;
+        }else{
+          header("Location: index.php?controller=users&action=index");
+          exit;
+        }
       }else{
         $this->addLog("Dans les choux ! petit problème d'identification", "alert-danger");
       }

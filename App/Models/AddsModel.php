@@ -18,7 +18,7 @@ class AddsModel extends Model
 
     public function findMapAdds()
     {
-        $sql='SELECT adds.id,adds.title,adds.description,adds.basket_size,adds.basket_quantity,users.id AS users_id,users.name,users.address,users.zip_code,users.city,users.lat,users.lng FROM `adds` INNER JOIN `users` ON users.id=adds.creator_id WHERE adds.closed=0 ORDER BY users.id';
+        $sql='SELECT adds.id,select_value,adds.title,adds.description,adds.basket_size,adds.basket_quantity,users.id AS users_id,users.name,users.address,users.zip_code,users.city,users.lat,users.lng FROM `adds` INNER JOIN `users` ON users.id=adds.creator_id INNER JOIN `categories` ON categories.id=adds.category WHERE adds.closed=0 ORDER BY users.id';
         
         $query=$this->db->getPDO()->prepare($sql);
         $res= $query->execute();
@@ -42,31 +42,32 @@ class AddsModel extends Model
         }
     }
 
-    public function createAdd($title,$description,$creator_id,$basket_size,$basket_quantity)
+    public function createAdd($category,$title,$description,$creator_id,$basket_size,$basket_quantity)
     {
-        $sql='INSERT INTO `adds`(title, description, creator_id, basket_size, basket_quantity) VALUES (:title, :description, :creator_id, :basket_size, :basket_quantity)';
+        $sql='INSERT INTO `adds`(category,title, description, creator_id, basket_size, basket_quantity) VALUES (:category,:title, :description, :creator_id, :basket_size, :basket_quantity)';
         $query=$this->db->getPDO()->prepare($sql);
         $res= $query->execute([
-            "title"=>$title,
-            "description"=>$description,
-            "creator_id"=>$creator_id,
-            "basket_size"=>$basket_size,
-            "basket_quantity"=>$basket_quantity
+            "category" => $category,
+            "title" => $title,
+            "description" => $description,
+            "creator_id" => $creator_id,
+            "basket_size" => $basket_size,
+            "basket_quantity" => $basket_quantity
         ]);
         return $res;
     }
 
-    public function editAdd($id,$title,$description,$creator_id,$basket_size,$basket_quantity)
+    public function editAdd($id,$category,$title,$description,$basket_size,$basket_quantity)
     {
-        $sql='UPDATE `adds` SET title=:title, description=:description, creator_id=:creator_id, basket_size=:basket_size, basket_quantity=:basket_quantity WHERE id=:id';
+        $sql='UPDATE `adds` SET category=:category,title=:title, description=:description, basket_size=:basket_size, basket_quantity=:basket_quantity WHERE id=:id';
         $query=$this->db->getPDO()->prepare($sql);
         $res= $query->execute([
-            "id"=>$id,
-            "title"=>$title,
-            "description"=>$description,
-            "creator_id"=>$creator_id,
-            "basket_size"=>$basket_size,
-            "basket_quantity"=>$basket_quantity
+            "id" => $id,
+            "category" => $category,
+            "title" => $title,
+            "description" => $description,
+            "basket_size" => $basket_size,
+            "basket_quantity" => $basket_quantity
         ]);
         return $res;
     }
@@ -95,7 +96,7 @@ class AddsModel extends Model
     public function userAddsPage($userId,$perPage,$page){
         $offset = $perPage * ($page - 1);
         
-        $query=$this->db->getPDO()->prepare('SELECT * FROM adds WHERE `creator_id`=:userId ' . 'LIMIT '  . $perPage . ' OFFSET ' . $offset);
+        $query=$this->db->getPDO()->prepare('SELECT adds.*, select_value  FROM adds INNER JOIN `categories` ON categories.id=adds.category WHERE `creator_id`=:userId ' . 'LIMIT '  . $perPage . ' OFFSET ' . $offset);
         $res= $query->execute([
             "userId" => $userId
         ]);

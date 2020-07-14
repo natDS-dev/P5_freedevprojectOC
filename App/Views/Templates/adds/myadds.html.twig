@@ -15,6 +15,7 @@
             <thead>
                 <tr class="text-info">
                     <th scope="col">#</th>
+                    <th scope="col">Catégorie</th>
                     <th scope="col">TITRE</th>
                     <th scope="col">DESCRIPTION</th>
                     <th scope="col">TAILLE DE PANIER</th>
@@ -26,6 +27,7 @@
                 <tr>                
                     {% for add in myAddsPage %}
                     <td>{{add.id}}</td>
+                    <td>{{add.select_value}}</td>
                     <td>{{add.title}}</td>
                     <td>{{add.description}}</td>
                     <td>{% if add.basket_size == 1 %}S{% elseif add.basket_size == 2 %}M{% else %}L{% endif %}</td>
@@ -79,19 +81,14 @@
       <form class="hidden_form " method="POST" action="index.php?controller=adds&action=updateAdd">
       <h3>Modifier une annonce</h3> 
         <div class="form-group">
-            <label for="title"></label>
-            <select class="form-control" name="title" id="title" required >
-            <option value="Jardinage">Jardinage / Entretien espace extérieur</option>
-            <option value="Bricolage">Bricolage / Réparation</option>
-            <option value="Proximité">Entretien domicile (ménage/nettoyage vitre etc.)</option>
-            <option value="Garde">Garde exceptionnelle d'enfant(s)</option>
-            <option value="Administratif">Aide administrative (démarches/courrier etc.)</option>
-            <option value="Cours">Cours / Soutien scolaire / Aide informatique etc.</option>
-            <option value="Transport">Déplacement / Co-voiturage</option>
-            <option value="Animaux">Animal (garde/soin/promenade)</option>
-            <option value="Autres">Autres</option>
+            <label for="category"></label>
+            <select class="form-control" name="category" id="category" required >
+              {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.select_value }}</option>
+              {% endfor %}            
             </select>
-            {# <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" /> #}
+            <label for="title"></label>
+            <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" />
           </div>
         <p>Si l'adresse pour rendre le service est différente de ton adresse enregistrée, précise cela dans la description</p>
         

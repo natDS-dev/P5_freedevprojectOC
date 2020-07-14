@@ -14,12 +14,18 @@ editButtons.forEach(button => {
         //récupération des valeurs cellules du tableau
         const currentLine = e.target.parentElement.parentElement.parentElement;
         const id = currentLine.querySelector("td:nth-of-type(1)").innerText;
-        const title = currentLine.querySelector("td:nth-of-type(2)").innerText;
-        const description = currentLine.querySelector("td:nth-of-type(3)").innerText;
-        const basketSize = currentLine.querySelector("td:nth-of-type(4)").innerText;
-        const basketQuantity = currentLine.querySelector("td:nth-of-type(5)").innerText;
+        const category = currentLine.querySelector("td:nth-of-type(2)").innerText;
+        const title = currentLine.querySelector("td:nth-of-type(3)").innerText;
+        const description = currentLine.querySelector("td:nth-of-type(4)").innerText;
+        const basketSize = currentLine.querySelector("td:nth-of-type(5)").innerText;
+        const basketQuantity = currentLine.querySelector("td:nth-of-type(6)").innerText;
         //remplissage du formulaire avec les valeurs
         formId.value = id;
+        document.querySelectorAll("select#category option").forEach(option => {
+            if (option.innerText === category) {
+                option.selected = true;
+            }
+        });
         formTitle.value = title;
         formDescription.value = description;
         formBasketQuantity.value = basketQuantity;

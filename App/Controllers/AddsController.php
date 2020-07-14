@@ -50,8 +50,9 @@ class AddsController extends Controller
   }
 
   //Create => or edit add if id is set and correct
-  public function create($id=0)
-  { 
+  public function create()
+  {
+     //Vérification du role de l'utilisateur => Les producteurs ne peuvent pas créer d'annonce
     if((int)$_SESSION['user']['role'] !== 1)
     {
       $this->addLog("Oh oh, petit problème", "alert-warning");
@@ -60,31 +61,22 @@ class AddsController extends Controller
     }
     //variable data contenant le titre de la page 
     $data = ['title' => 'Créer une annonce'];
-    //Si id passé dans l'url et différent de 0 =>vérification  
-    if($id !== 0)
-    {
-      //Recherche de l'annonce correspondant à l'id
-      $data['add']=$this->model->findAdd((int)$id);
-      //Vérification => si l'id ne correspond pas à l'id de l'auteur rattaché à l'annonce    
-      if((int)$_SESSION['user']['id'] !== (int)$data['add']['creator_id'])
-      {
-        $this->addLog("Oh oh, petit problème", "alert-warning");
-        unset($data['add']);
-      }
-    }
+   
     //Si les champs de création d'annonce ne sont pas vides
     if(!empty($_POST)){
-      $title = !empty($_POST["title"]) ? strip_tags($_POST["title"]) : null;
+      $category = !empty($_POST["category"]) ? strip_tags($_POST["category"]) : null;
+      $title = !empty($_POST["title"]) ? strip_tags($_POST["title"]) : "";
       $description = !empty($_POST["description"]) ? strip_tags($_POST["description"]) : null;
       $basket_size = !empty($_POST["basket_size"]) ? (int)strip_tags($_POST["basket_size"]) : null;
       $basket_quantity = !empty($_POST["basket_quantity"]) ? (int)strip_tags($_POST["basket_quantity"]) : null;
       
       //Si 1 (ou plusieurs) champs est nul 
-      if(is_null($title) || is_null($description) || is_null($basket_size) || is_null($basket_quantity))
+      if(is_null($category) || is_null($description) || is_null($basket_size) || is_null($basket_quantity))
       {//=> renvoit d'un message d'erreur 
         $this->addLog("Oups tous les champs sont obligatoires","alert-danger");
         //Clé supplémentaire au tableau data pour pré-remplissage auto des champs
         $data['add']= [
+          "category" => (int)$_POST["category"],
           "title" => $_POST["title"],
           "description" => $_POST["description"],
           "basket_size" => $_POST["basket_size"],
@@ -92,18 +84,12 @@ class AddsController extends Controller
         ]; 
       }else{//si tout les champs ok
         $creator_id = (int)$_SESSION["user"]["id"];
-        if (!empty($_POST["id"]))
-        {//si un id il y avait, alors s'agit d'une modification =>message de confirmation modifcation addlog
-          $id=(int)($_POST["id"]);
-          $this->addLog("Top ! l'annonce est bien modifiée","alert-success");
-          $this->model->editAdd($id,$title,$description,$creator_id,$basket_size,$basket_quantity);
-        } else {//sinon (si aucun id) il s'agit d'une création => message de confirmation création addlog
-          $this->addLog("Super! l'annonce est bien créée","alert-success");
-          $this->model->createAdd($title,$description,$creator_id,$basket_size,$basket_quantity);
-        }
+        $this->addLog("Super! l'annonce est bien créée","alert-success");
+        $this->model->createAdd($category,$title,$description,$creator_id,$basket_size,$basket_quantity);
       }  
     } 
-    // On rend la vue correspondante  
+    // On rend la vue correspondante 
+    $data["categories"] = (new \App\Models\CategoriesModel(($this->db)))->findAll(1); 
     $this->view->render('adds/create', $data);    
   }
 
@@ -142,25 +128,61 @@ class AddsController extends Controller
     if($page*$perPage < $myAddsTotal){
       $data["nextPage"] = $page + 1; 
     }
-
+    $data["categories"] = (new \App\Models\CategoriesModel(($this->db)))->findAll(1);
     $this->view->render('adds/myadds', $data);   
   }
 
 
   public function updateAdd(){
-    
+    //Methode uniquement appelée par POST => si POST est vide = exit
+    if(empty($_POST)){
+      $this->addLog("Ohla, dans les choux ! l'annonce n'a pas été mise à jour", "alert-warning");
+      header("Location: index.php?controller=adds&action=myAdds");
+      exit;
+    }
+    //Récupération de l'annonce correspondant à l'id
+    $id = isset($_POST["id"]) ? (int)strip_tags($_POST["id"]) : null; 
+    $add = is_null($id) ? null : $this->model->findAdd($id);
+    //L'annonce doit exister et nous appartenir => impossible de mettre àjour l'annonce d'une autre personne
+    if(is_null($add) || $add["creator_id"] !== $_SESSION["user"]["id"] ){
+      $this->addLog("Ohla, dans les choux ! l'annonce n'a pas été mise à jour", "alert-warning");
+      header("Location: index.php?controller=adds&action=myAdds");
+      exit;
+    }
+    //récupération des valeurs du formulaire de mise à jour 
+    $category = isset($_POST["category"])? (int)strip_tags($_POST["category"]):null;
+    $title = isset($_POST["title"])? strip_tags($_POST["title"]):"";
+    $description = isset($_POST["description"])? strip_tags($_POST["description"]):null;
+    $basket_size = isset($_POST["basket_size"])? (int)strip_tags($_POST["basket_size"]):null;
+    $basket_quantity = isset($_POST["basket_quantity"])? (int)strip_tags($_POST["basket_quantity"]):null;
 
-
+    //Les champs indispensables ne doivent pas être nul
+    if(in_array(null,[$id,$category,$description,$basket_size,$basket_quantity])){
+      $this->addLog("Ohla, dans les choux ! des champs ne sont pas valides", "alert-warning");
+      header("Location: index.php?controller=adds&action=myAdds");
+      exit;
+    }
+    //Mise à jour de l'annonce
+    $this->model->editAdd($id,$category,$title,$description,$basket_size,$basket_quantity);
+    $this->addLog("Parfait, l'annonce a été mise à jour", "alert-success");
+    header("Location: index.php?controller=adds&action=myAdds");
   } 
 
   public function deleteAdd($id) {
-    $res=$this->model->deleteAdd($id);
-    if($res){
-      $this->addLog("Parfait l'annonce a été supprimée", "alert-success");
-    }else{
+    //Récupération de l'annonce correspondant à l'id
+    $add = $this->model->findAdd($id);
+    //L'annonce doit exister et nous appartenir => impossible de supprimer l'annonce d'une autre personne
+    if(is_null($add) || $add["creator_id"] !== $_SESSION["user"]["id"] ){
       $this->addLog("Ohla, dans les choux ! l'annonce n'a pas été supprimée", "alert-danger");
-    }
-    
+    }else{
+      //Suppression de l'annonce
+      $res=$this->model->deleteAdd($id);
+      if($res){
+        $this->addLog("Parfait l'annonce a été supprimée", "alert-success");
+      }else{
+        $this->addLog("Ohla, dans les choux ! l'annonce n'a pas été supprimée", "alert-danger");
+      }
+    }     
     header("Location: index.php?controller=adds&action=myAdds");
   }
 
