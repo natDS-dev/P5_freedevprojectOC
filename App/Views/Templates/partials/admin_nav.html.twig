@@ -7,10 +7,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="nav nav-tabs">
+      {% if user.role is same as(1) or user.role is same as(2) %}
         <li class="nav-item active">
             <a class="nav-link" href="index.php?controller=users&action=index">Profil</a>
         </li>
-        {% if user.role is same as(1) %}
+      {% endif %}
+      {% if user.role is same as(1) %}
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Annonces</a>
             <div class="dropdown-menu">
@@ -19,7 +21,8 @@
           <a class="dropdown-item" href="#">Mes réponses aux annonces</a>      
         </div> 
         </li>
-        {% else %}
+      {% endif %}
+      {% if user.role is same as(2) %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paniers</a>
           <div class="dropdown-menu">
@@ -28,7 +31,8 @@
             <a class="dropdown-item" href="#">Tous mes paniers commandés</a>      
           </div> 
         </li>
-        {% endif %}
+      {% endif %}
+      {% if user.role is same as(1) or user.role is same as(2) %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cartes</a>
           <div class="dropdown-menu">
@@ -36,9 +40,12 @@
             <a class="dropdown-item" href="index.php?controller=adds&action=index">Carte des annonces</a>
           </div> 
         </li>
+      {% endif %}
+      {% if user.role is same as(0) or user.role is same as(1) or user.role is same as(2) %} 
         <li class="nav-item">
           <a class="nav-link" href="index.php?controller=users&action=logout">Déconnexion</a>
-        </li>               
+        </li>
+      {% endif %}              
     </ul>
   </div>  
 </nav>

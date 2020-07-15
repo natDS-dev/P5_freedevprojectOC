@@ -21,7 +21,7 @@
   box-shadow: -1px 2px 10px 3px rgba(58, 14, 14, 0.3) inset;
 }
 
-/* link hover*/ 
+/*link hover*/ 
 a, a:hover {
   text-decoration: none;
   font-size: 1em;
@@ -44,8 +44,8 @@ label {
 
 /*general engraved style for few titles*/
 .custom_engraved_text {
-    color: #937d43;
-    text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+  color: #937d43;
+  text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
 }
 
 /*Body*/
@@ -71,7 +71,6 @@ header {
  
 /*container page title*/
 .custom_title_main_content {
-  /* position: absolute; */
   top: 5px;
 }
 
@@ -81,11 +80,21 @@ header {
   color: #333;
 }
 
+/*Logo*/
+.custom_logo {
+  position: absolute;
+  left: 2vh;
+}
+
+.custom_logo a {
+  z-index:2000;
+}
+
 .custom_logo img {
   width: 30vh;
   height: auto;
-  position: absolute;
-  top: 2vh;
+  z-index: 1900;
+  position: relative;  
 }
 
 .custom_brand h1 {
@@ -123,8 +132,7 @@ header {
   width: 78px;
   height: auto;
   margin-top: -3%;
- transition-duration: 0.2s;
- 
+  transition-duration: 0.2s;
 }
 
 .div a {
@@ -158,12 +166,11 @@ header {
   padding-top: 15vh;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
   background-color: rgba(255, 255, 255, 0.418);
-  
 }
 
 /*Sections general for 3 sections pages (home/infos/who)*/
 .custom_section {
- height: 85vh;
+  height: 85vh;
 }
 
 /*General row for simple pages (register/connect/contact)*/ 
@@ -171,7 +178,6 @@ header {
   height:85vh;
 }
   
-
 /*Section 1*/
 /*s1 col 1*/
 .custom_bg_s1_col1{
@@ -187,7 +193,6 @@ header {
   box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
 }
 
-
 .custom_bg_s1_col2 {
 
 }
@@ -197,7 +202,6 @@ header {
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
 }
 /*Home*/
-
 .custom_animation_home {
   position: relative;
   animation-name: example;
@@ -214,11 +218,6 @@ header {
   background-color: #633c07b8;
   border-radius: 0;
 }
-
-
-
-
-
 
 /*ADMIN PAGES*/
 /*GENERAL*/
@@ -255,7 +254,6 @@ header {
 
 /*Admin section 1*/
 .custom_admin_section {
-  
   height:85vh;
   background: url("../images/background/admin_bg_5372.png") no-repeat center;
   background-size: cover;
@@ -274,20 +272,17 @@ header {
 }
 
 .custom_admin_profile_div_title {
-  
   width:250px;
   background-color: #0fa3b1;
   border-bottom-left-radius: 10px;
   border-top-right-radius: 10px;
   border: solid 3px #845f3c;
   box-shadow: #54452c 3px 3px 3px;
-
 }
 
 .custom_admin_profile_title {
   color: #f9faf8;
   text-shadow: 0px -1px 0px rgba(39, 38, 38, 0.5);
-  
 }
 
 .custom_admin_circle {
@@ -313,7 +308,6 @@ header {
 }
 
 .custom_admin_bg_s1col2 {
-  
   background: url("../images/background/nature_bg.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -335,10 +329,9 @@ header {
   right: 0;
  }
 
- .custom_admin_form{
+ .custom_admin_form {
   z-index: 2000;
  }
-
 
  /*Admin create adds*/
 .custom_admin_bg_adds_create {
@@ -348,14 +341,13 @@ header {
   background-position: bottom;
 }
 
-/**/
+/*Admin create baskets*/
 .custom_admin_bg_baskets_create {
   background: url("../images/background/admin_bg_create_baskets_leaves.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
 }
-
 
  /*MY ADDS*/
 
@@ -368,16 +360,14 @@ header {
 }
 
 .leaflet-popup-content
-{
-  max-width: 220px;
+{ max-width: 220px;
   max-height: 250px;
   overflow-y: scroll;
 }
 
 .custom_legals_mentions {
-overflow-y:scroll;
+  overflow-y:scroll;
 }
-
 
 /*MEDIA QUERRIES*/
 /*My adds table*/
@@ -393,43 +383,41 @@ overflow-y:scroll;
 
   table thead
 {
-    border: none;
-    clip: rect(0,0,0,0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+  border: none;
+  clip: rect(0,0,0,0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
     
 table tr 
-{
-    
-    display: block;
-    margin-bottom: .625em;
+{    
+  display: block;
+  margin-bottom: .625em;
 }
     
 table td 
 {
-    
-    display: block;
-    font-size: .8em;
-    text-align: right;
+  display: block;
+  font-size: .8em;
+  text-align: right;
 }
     
     
 table td::before 
 {   
-    content: attr(data-label);
-    float: left; 
-    text-transform: uppercase;
+  content: attr(data-label);
+  float: left; 
+  text-transform: uppercase;
 } 
     
     
  table td:last-child 
 {
-    border-bottom: 0;
+  border-bottom: 0;
 }
 
 } 

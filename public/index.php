@@ -7,7 +7,7 @@ $controllerName = isset($_GET["controller"]) ? $_GET["controller"] : "";
 if(!empty($controllerName))
 {
     if($controllerName === "back"){
-        $controllerName = "BackAdmin\\".ucfirst($controllerName);
+        $controllerName = "BackDev\\".ucfirst($controllerName);
     }
     $controller = "App\\Controllers\\".$controllerName."Controller";
 }else{
@@ -25,13 +25,13 @@ if(class_exists($controller))
         header("Location: index.php?controller=home&action=login");
         exit;
     }
-    //Accès admin
+    //Accès dev
     if(isset($_SESSION["user"]) && $_SESSION["user"]["role"] === 0){
         $action = isset($_GET["action"])? $_GET["action"] : "";
         
-        //Si connecté en admin accès à admin et logout       
-        if($controllerName !== "BackAdmin\\Back" && $action !== "logout") {
-            (new $controller())->addLog("Redirection vers l'admin","alert-warning");
+        //Si connecté en dev accès à dev et logout       
+        if($controllerName !== "BackDev\\Back" && $action !== "logout") {
+            (new $controller())->addLog("Redirection vers le tableau de bord développeur","alert-warning");
             header("Location: index.php?controller=back&action=index");
             exit;   
         }else{          
