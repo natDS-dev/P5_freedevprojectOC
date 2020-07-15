@@ -21,11 +21,18 @@ if(class_exists($controller))
     //Si non connecté accès à "home" seulement
     if($controllerName !== "home" && !isset($_SESSION["user"]))
     {
-        (new $controller())->addLog("Vous devez être connecté","alert-danger");
+        (new $controller())->addLog("Oh oh... Tu dois être connecté","alert-danger");
         header("Location: index.php?controller=home&action=login");
         exit;
     }
     //Accès dev
+    //Si l'user est connecté mais n'est pas dév
+    if($controllerName == "BackDev\\Back" && $_SESSION["user"]["role"] != 0){
+        (new $controller())->addLog("Tu ne peux pas accéder à cette page","alert-danger");
+        header("Location: index.php?controller=home&action=index");
+        exit;
+    }
+
     if(isset($_SESSION["user"]) && $_SESSION["user"]["role"] === 0){
         $action = isset($_GET["action"])? $_GET["action"] : "";
         

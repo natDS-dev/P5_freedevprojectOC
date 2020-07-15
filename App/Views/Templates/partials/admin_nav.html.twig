@@ -1,5 +1,5 @@
 <nav class="custom_admin_nav nav navbar-expand-lg navbar-light bg-light ">
-  <div class="custom_admin_title_nav custom_engraved_text navbar-brand m-2 p-1 text-dark" href="#">P'tit cabanon</div>
+  <div class="custom_admin_title_nav custom_engraved_text navbar-brand m-2 p-1 text-dark" href="#">{% if user.role is same as(1) or user.role is same as(2) %}P'tit cabanon{% else %}QG du Dév'{% endif %}</div>
   <button class="custom_admin_nav_button navbar-toggler m-1 bg-primary" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="text-light">
       <i class="fa fa-home text-light"></i>
