@@ -5,19 +5,21 @@ use App\Controllers\HomeController;
 
 $controllerName = isset($_GET["controller"]) ? $_GET["controller"] : "";
 if(!empty($controllerName))
-{
+{  
     if($controllerName === "back"){
-        $controllerName = "BackDev\\".ucfirst($controllerName);
+        $controller = "App\\Controllers\\BackDev\\BackController";
+     
+    }else{ 
+        $controller = "App\\Controllers\\".ucfirst($controllerName)."Controller";
     }
-    $controller = "App\\Controllers\\".$controllerName."Controller";
-}else{
+}else{ 
     //Page par défaut
     (new HomeController())->index();
     exit;
 }
 
 if(class_exists($controller))
-{
+{   
     //Si non connecté accès à "home" seulement
     if($controllerName !== "home" && !isset($_SESSION["user"]))
     {
@@ -27,7 +29,7 @@ if(class_exists($controller))
     }
     //Accès dev
     //Si l'user est connecté mais n'est pas dév
-    if($controllerName == "BackDev\\Back" && $_SESSION["user"]["role"] != 0){
+    if($controllerName === "back" && $_SESSION["user"]["role"] !== 0){
         (new $controller())->addLog("Tu ne peux pas accéder à cette page","alert-danger");
         header("Location: index.php?controller=home&action=index");
         exit;
@@ -37,11 +39,12 @@ if(class_exists($controller))
         $action = isset($_GET["action"])? $_GET["action"] : "";
         
         //Si connecté en dev accès à dev et logout       
-        if($controllerName !== "BackDev\\Back" && $action !== "logout") {
+        if($controllerName !== "back" && $action !== "logout") {
             (new $controller())->addLog("Redirection vers le tableau de bord développeur","alert-warning");
             header("Location: index.php?controller=back&action=index");
             exit;   
-        }else{          
+        }else{   
+                   
             if(method_exists($controller,$action))
             {
                 $param = isset($_GET["param"]) ? (int)$_GET["param"]:0;

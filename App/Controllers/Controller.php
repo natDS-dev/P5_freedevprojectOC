@@ -18,4 +18,9 @@ class Controller
   {
     $this->view->addLog($message,$alertBootstrap);
   }
+  public function sendMail($to,$subject,$message){
+    $devMail = "no-reply@3flans6choux.desmet-webdev.fr";
+    mail($to, $subject, $message ,"From:" . $devMail);
+  }
+
 }

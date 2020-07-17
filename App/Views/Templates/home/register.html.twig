@@ -23,39 +23,39 @@
           </div>
             <form class="custom_register_form hidden_form h-75 pt-2 bg-info" method="POST" action="index.php?controller=home&action=register" id="register_form">
                 <div class="form-group">
-                  <label for="company"></label>
-                  <input type="text" placeholder="Nom entreprise" name="company" value="{{newUser.company}}" id="input_company" required /> <label for="name"></label>
-                  <input type="text" placeholder="Votre prénom" name="name" value="{{newUser.name}}"  required />
+                  <label for="input_company"></label>
+                  <input type="text" placeholder="Nom entreprise" name="company" value="{{newUser.company}}" id="input_company" required />
+                  <label for="name"></label>
+                  <input type="text" placeholder="Votre prénom" name="name" id="name" value="{{newUser.name}}"  required />
                   <label for="surname"></label>
-                  <input type="text" placeholder="Votre nom" name="surname" value="{{ newUser.surname}}" required />
+                  <input type="text" placeholder="Votre nom" name="surname" id="surname" value="{{ newUser.surname}}" required />
                 </div>
                 
                 <div class="form-group">
                   <label for="address"></label>
-                  <input type="text" placeholder="Adresse" name="address"value="{{newUser.address}}"  required />
+                  <input type="text" placeholder="Adresse" name="address" id="address" value="{{newUser.address}}"  required />
                   <label for="zip_code"></label>
-                  <input type="text" placeholder="Code postal" name="zip_code" value="{{newUser.zip_code}}" required />
+                  <input type="text" placeholder="Code postal" name="zip_code" id="zip_code" value="{{newUser.zip_code}}" required />
                   <label for="city"></label>
-                  <input type="text" placeholder="Ville" name="city" value="{{newUser.city}}" required />
+                  <input type="text" placeholder="Ville" name="city" id="city" value="{{newUser.city}}" required />
                 </div>
                 <div class="form-group">
                   <label for="phone"></label>
-                  <input type="text" placeholder="n° tel" name="phone" value="{{newUser.phone}}" required />
+                  <input type="text" placeholder="n° tel" name="phone" id="phone" value="{{newUser.phone}}" required />
                   <label for="email"></label>
-                  <input type="email" placeholder="email" name="email" value="{{newUser.email}}" required />
+                  <input type="email" placeholder="email" name="email" id="email" value="{{newUser.email}}" required />
                 </div>
                 <div class="form-group">
                   <label for="password"></label>
-                  <input type="password" placeholder="mot de passe" name="password" required />
+                  <input type="password" placeholder="mot de passe" name="password" id="password" required />
                 </div>
                 <div class="form-group">
-                  <label for="role"></label>
-                  <input type="hidden" name="role" value="{{newUser.role}}" id="role_user" required />
+                  <input type="hidden" name="role" id="role_user" value="{{newUser.role}}"/>
                 </div>
                   <!--1 = particulier -->
                 <div class="form-group">
                   <label for="description"></label>
-                  <textarea placeholder="Description" name="profile">{{newUser.name}}</textarea>
+                  <textarea placeholder="Description" name="profile" id="description">{{newUser.name}}</textarea>
                 </div>
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="accepted" id="rgpd" name="rgpd" required>

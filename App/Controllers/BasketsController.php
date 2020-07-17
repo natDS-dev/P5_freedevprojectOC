@@ -4,7 +4,7 @@ use App\Models\BasketsModel;
 
 class BasketsController extends Controller
 {
-    public function __construct()
+  public function __construct()
   {
     parent::__construct();
     $this->model = new BasketsModel($this->db);

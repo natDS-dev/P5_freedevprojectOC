@@ -117,6 +117,7 @@ class HomeController extends Controller
           { 
             //redirection accueil + message session
             $this->addLog("Inscription ok, connecte-toi ", "alert-success");
+            $this->sendMail($email,"Inscription sur 3Flans, 6Choux","Cher ${name}, ton inscription est bien prise en compte");
             header("Location: index.php?controller=home&action=login");
             exit;
           } else {

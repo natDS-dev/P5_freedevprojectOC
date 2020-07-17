@@ -1,6 +1,8 @@
 <?php
 namespace App\Controllers;
 use App\Models\AddsModel;
+use App\Models\UsersModel;
+use App\Models\BasketsModel;
 
 class AddsController extends Controller
 {
@@ -203,6 +205,14 @@ class AddsController extends Controller
     $this->model->confirmAdd($addId, $userId, $basketId);
     $this->model->closeAdd($addId);
     $this->addLog("Youhoou, merci pour ton engagement!", "alert-success");
+    
+    /*Envoi mail*/
+    $add = (new AddsModel($this->db))->findAdd($addId);
+    $addCreator = (new UsersModel($this->db))->findUser((int)$add["creator_id"]);
+    $addValidator = (new UsersModel($this->db))->findUser($userId);
+    $basket = (new BasketsModel($this->db))->findbasket($basketId);
+    $basketCreator = (new UsersModel($this->db))->findUser((int)$basket["company_id"]);
+    dump($add,$addCreator,$addValidator,$basket,$basketCreator);
     header("Location: index.php?controller=adds&action=index");
   }
 }

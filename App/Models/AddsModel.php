@@ -75,7 +75,7 @@ class AddsModel extends Model
         }
     }
 
-    //Nombre total d'annonce d'utilisateur donné
+    //Nombre total d'annonce d'un utilisateur donné
     public function userAddsTotal($userId){
         $query=$this->db->getPDO()->prepare('SELECT COUNT(*) AS total_adds FROM adds WHERE `creator_id`=:userId');
         $res= $query->execute(["userId" => $userId]);

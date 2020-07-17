@@ -82,5 +82,15 @@ class UsersModel extends Model
         return $badgeStats;
     }
 
+    public function findUser($id)
+    {
+        $query=$this->db->getPDO()->prepare('SELECT * FROM `users` WHERE id=:id');
+        $res= $query->execute(["id" => $id]);
+        if($res){
+            return $query->fetch();
+        }else{
+            return null;
+        }
+    }
 
 }
