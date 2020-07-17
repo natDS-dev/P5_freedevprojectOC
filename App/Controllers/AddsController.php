@@ -181,6 +181,7 @@ class AddsController extends Controller
   }
 
   public function validation(){
+    
     if(empty($_POST)){
       $this->addLog("Oh oh, petit problème", "alert-danger");
       header("Location: index.php?controller=adds&action=index");
@@ -191,6 +192,7 @@ class AddsController extends Controller
     $userId = isset($_POST["user_id"]) ? strip_tags($_POST["user_id"]) : null;
     $basketId = isset($_POST["basket_id"]) ? strip_tags($_POST["basket_id"]) : null;
 
+    /*Pour ne pas pouvoir répondre à sa propre annonce OU qu'un professionnel (de rôle 2) ne puisse répondre*/  
     if($_SESSION["user"]["role"] !== 1 || $userId === $_SESSION["user"]["id"]){
       $this->addLog("Tu n'as pas le droit de répondre à cette annonce", "alert-danger");
       header("Location: index.php?controller=adds&action=index");
@@ -206,13 +208,30 @@ class AddsController extends Controller
     $this->model->closeAdd($addId);
     $this->addLog("Youhoou, merci pour ton engagement!", "alert-success");
     
-    /*Envoi mail*/
+    /*Envoi de mail automatique aux 3 partie à la validation de mission*/
+    /*Pour envoi mail :Récupération des données créateur annonce/validateur annonce/entreprise choisie pour rétribution*/
     $add = (new AddsModel($this->db))->findAdd($addId);
     $addCreator = (new UsersModel($this->db))->findUser((int)$add["creator_id"]);
     $addValidator = (new UsersModel($this->db))->findUser($userId);
     $basket = (new BasketsModel($this->db))->findbasket($basketId);
     $basketCreator = (new UsersModel($this->db))->findUser((int)$basket["company_id"]);
-    dump($add,$addCreator,$addValidator,$basket,$basketCreator);
+    
+    if ($add[basket_size] === 1) {
+      $add[basket_size] = "S";
+    }
+    else if ($add[basket_size] === 2) {
+        $add[basket_size] = "M";
+    } else {
+        $add[basket_size] = "L";
+    }
+    /*Mail au créateur de l'annonce*/
+    $this->sendMail($addCreator[email],"Hey ! tu as reçu un coup de pouce sur 3Flans, 6Choux !","Cher $addCreator[name], ta mission : $add[title] vient d'être acceptée par $addValidator[name] $addValidator[surname] en échange de $add[basket_quantity] panier(s) de taille $add[basket_size] que tu prendras chez $basketCreator[company]  $basketCreator[address] - $basketCreator[city] - $basketCreator[phone]. Contacte le rapidement pour vous organiser. Tu peux le joindre au $addValidator[phone] . A bientôt sur 3Flans, 6 Choux");
+
+    /*Mail a l'utilisateur qui accepte la mission*/
+    $this->sendMail($addValidator[email],"Au top ! tu viens de t'engager pour une mission sur 3Flans, 6Choux !","Cher $addValidator[name], bravo pour ton engagement, tu viens d'accepter la mission de $addCreator[name]. Tu t'engages à : $add[title], $add[description]. La contrepartie que tu as choisie est : $add[basket_quantity] panier(s) de taille $add[basket_size] chez $basketCreator[company] ( $basketCreator[address] - $basketCreator[city] - $basketCreator[phone]). Contacte rapidement $addCreator[name] pour vous organiser. Tu peux le joindre au $addCreator[phone].Nous comptons sur toi !. A bientôt sur 3Flans, 6 Choux");
+    /*Mail au producteur chez qui le panier a été commandé*/
+    $this->sendMail($basketCreator[email],"Un panier vient d'être validé sur 3Flans, 6Choux !","Cher $basketCreator[name], $addValidator[name] vient de choisir ton entreprise pour sa rétribution en échange du service qu'il va rendre à $addCreator[name]. Nombre de panier(s) : $add[basket_quantity] - Taille de panier : $add[basket_size]. Nous comptons sur eux et sur toi !. A bientôt sur 3Flans, 6 Choux");
+    // dump($add,$addCreator,$addValidator,$basket,$basketCreator);
     header("Location: index.php?controller=adds&action=index");
   }
 }
