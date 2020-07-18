@@ -93,4 +93,29 @@ class UsersModel extends Model
         }
     }
 
+    public function  setToken($email,$token){
+        $query=$this->db->getPDO()->prepare('UPDATE `users` SET recovery_token=:token WHERE email=:email');
+        $res= $query->execute([
+            "email" => $email,
+            "token" => $token
+        ]);
+        return $query->rowCount() === 1;
+    }
+
+    public function  getToken($email){
+        $query=$this->db->getPDO()->prepare('SELECT `recovery_token` FROM `users` WHERE email=:email');
+        $res= $query->execute([
+            "email" => $email
+        ]);
+        return $query->fetch()["recovery_token"];
+    }
+
+    public function updatePassword($email,$newPassword){
+        $query=$this->db->getPDO()->prepare('UPDATE `users` SET recovery_token="", password=:newPassword WHERE email=:email');
+        $res= $query->execute([
+            "email" => $email,
+            "newPassword" => $newPassword
+        ]);
+        return $query->rowCount() === 1;
+    }
 }

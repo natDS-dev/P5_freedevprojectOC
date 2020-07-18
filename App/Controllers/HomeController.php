@@ -161,4 +161,76 @@ class HomeController extends Controller
     }
     $this->view->render("home/login", $data);
   }
+
+  public function forgetPassword(){
+   if(!empty($_POST["email"])){
+     $token = uniqid();
+     $email = strip_tags($_POST["email"]);
+     $this->model = new UsersModel($this->db);
+     $res = $this->model->setToken($email, $token);
+     if($res){
+        //envoi mail auto
+        $to = $email;
+        $subject = "Réinitialisation de ton mot de passe" ;
+        $url ="https://" . $_SERVER["HTTP_HOST"] . "/index.php?controller=home&action=updatePassword&param=" . $token;
+        $message = 'Clique sur le lien suivant : <a href="'.$url.'">'.$url.'</a>';
+        $this->sendMail($to,$subject,$message);
+        $this->addLog("Un email t'a été envoyé", "alert-success");
+     }else{
+       $this->addLog("Cette adresse email n'existe pas", "alert-danger");
+     }
+   } 
+    $this->view->render("home/forgetpassword",["title"=>"Mot de passe oublié"]); 
+  }
+
+  
+  public function updatePassword() {
+    $data =  ["title"=>"Mot de passe oublié"];
+    $this->model = new UsersModel($this->db);
+    //Token ipératif pour réinitialisation du mot de passe
+
+    if(!isset($_GET["param"])){
+      $this->addLog("Une erreur de token est survenue", "alert-danger");
+    }else{
+      $token = strip_tags($_GET["param"]);
+      $data["token"] = $token;
+    }
+
+    if(!empty($_POST)){
+      $error = false;
+      $email = isset($_POST["email"])?strip_tags($_POST["email"]):null;
+      $password = isset($_POST["password"])?strip_tags($_POST["password"]):null;
+      $password2 = isset($_POST["password2"])?strip_tags($_POST["password2"]):null;
+
+      if(in_array(null,[$email,$password,$password2],true)){
+        $this->addLog("Tous les champs sont obligatoires", "alert-danger");
+        $error = true;
+      }else{
+        if($password !== $password2){
+          $this->addLog("Les mots de passe sont différents", "alert-warning");
+          $error = true;
+        }
+      }
+
+      if(!is_null($email)){
+        $token2 = $this->model->getToken($email);
+        if($token2 !== $_POST["token"]){
+          $this->addLog("Problème technique oups", "alert-warning");
+          $error = true;
+        }
+      }
+      if(!$error){
+        $newPassword = password_hash($password,PASSWORD_DEFAULT);
+        $res = $this->model->updatePassword($email,$newPassword);        
+        if($res){
+          $this->addLog("Super, ton mot de passe est bien mis à jour ", "alert-success");
+          header('Location: index.php?controller=home&action=login');
+          exit;
+        }else{
+          $this->addLog("Il y a eu un problème", "alert-warning");
+        }
+      }
+    }
+    $this->view->render("home/updatepassword",$data);
+  }
 }
