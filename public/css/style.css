@@ -206,6 +206,14 @@ header {
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
 }
 /*Home*/
+/* .custom_brand_title {
+  background-image: url("../images/background/nature_bg.png");
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+} */
+
 .custom_animation_home {
   position: relative;
   animation-name: example;

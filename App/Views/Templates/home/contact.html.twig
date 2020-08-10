@@ -1,7 +1,73 @@
-{% extends "main_template.html.twig" %}
+{% extends "simple_template.html.twig" %}
+{% block simplepage %}
 
+<div class="row h-100 justify-content-center" >
+    <div class="custom_section col-10 d-flex justify-content-center align-items-center bg-light">
+        <div class="container w-100 h-100 pt-3" > 
+            <h2 class="text-center text-primary">Contacte-nous ! </h2> 
+            <form id="contact-form" method="post" action="" role="form">
+                <div class="messages"></div>
+                <div class="controls">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="form_name">Prénom *</label>
+                                <input id="form_name" type="text" name="name" class="form-control" placeholder="Ton prénom *" required="required" data-error="Merci d'entrer ton prénom">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="form_lastname">Nom *</label>
+                                <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Ton nom*" required="required" data-error="Merci d'entrer ton nom">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="form_email">Email *</label>
+                                <input id="form_email" type="email" name="email" class="form-control" placeholder="Entre ton email *" required="required" data-error="Un email valide est demandé">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="form_subject">Objet *</label>
+                                <select id="form_need" name="need" class="form-control" required="required" data-error="Spécifie ta demande">
+                                    <option value=""></option>
+                                    <option value="Request website">Question générale sur le fonctionnement du site</option>
+                                    <option value="Request retributions">Question sur les rétributions </option>
+                                    <option value="Request">Signaler un problème </option>
+                                    <option value="Autre">Autre</option>
+                                </select>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="form_message">Message *</label>
+                                <textarea id="form_message" name="message" class="form-control" placeholder="Message *" rows="4" required="required" data-error="Stp, laisse un message"></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <input type="submit" class="btn btn-success btn-send" value="J'envoie mon message">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-muted">
+                                <strong>*</strong> Les champs sont obligatoires
+                        </div>
+                    </div>
+                </div>
 
-{% block content %}
-Contactez-moi yeah !
-
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
