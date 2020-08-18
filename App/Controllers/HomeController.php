@@ -22,6 +22,22 @@ class HomeController extends Controller
   public function contact()
   {
     $data = ['title' => 'Contact'];
+    if (!empty($_POST)){
+      $name = empty($_POST["name"])? null :strip_tags($_POST["name"]);
+      $surname = empty($_POST["surname"])? null :strip_tags($_POST["surname"]);
+      $email = empty($_POST["email"])? null :strip_tags($_POST["email"]);
+      $subject = empty($_POST["subject"])? null :strip_tags($_POST["subject"]);
+      $message = empty($_POST["message"])? null :strip_tags($_POST["message"]);
+
+      if(in_array(null,[$name,$surname,$email,$subject,$message])){
+        $this->addLog("Tous les champs sont obligatoires","alert-warning");
+      }else{
+        $to="natachadesmet@yahoo.fr";        
+        $message="Vous avez reçu un message de ".$name. " " . $surname. ": ".$message;
+        $this->sendMail($to,$subject,$message);
+        $this->addLog("Ton message a bien été envoyé","alert-success");
+      }
+    }
     $this->view->render("home/contact", $data);
   }
 

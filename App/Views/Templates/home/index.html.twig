@@ -83,30 +83,29 @@
 
 {% block section3 %}
 <div class="row h-100 justify-content-center">
-    <!--Section 1 left part-->
-    <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
-        <div class="container w-75 h-75">
-            <div class="custom_bg_s3_col1 row h-100 text-center">
-                <div class="col-md-10 m-auto bg-primary">
-                    <h2 class="text-center text-light">3 flans, 6 choux :</h2>
-                    <h3>Une autre façon de voir local</h3>
+    <!--Section 3 left part-->
+    <div class="custom_section col-lg-10 d-flex justify-content-center align-items-center bg-light">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="..." alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="..." alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="./images/persos/chou-chêne.png" alt="Third slide">
                 </div>
             </div>
+            <a class="carousel-control-prev bg-dark" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only bg-dark">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only text-dark">Next</span>
+            </a>
         </div>
-    </div>
-    <!--Section 1 right part-->
-    <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
-        <div class="container w-100 h-75">
-            <div class="custom_bg_s3_col2 row h-100 justify-content-center align-items-center bg-light">
-                <div class="col-lg-6 p-0 text-center ">
-                    <h1 class="text-primary">Bienvenue</h1>
-                    <h2>Ici chez nous, c'est troc'n'roll ! </h2>
-                </div>
-                <div class="col-lg-6">
-                    <img class=" d-flex mx-auto img-fluid mt-4" src="./images/persos/chou-chêne.png" alt="personnage chou avec un panier et des sabots bois">
-                </div>
-            </div>
-        </div>
-    </div>
+    </div>   
 </div>
 {% endblock %}

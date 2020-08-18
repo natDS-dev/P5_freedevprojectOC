@@ -5,7 +5,7 @@
     <div class="custom_section col-10 d-flex justify-content-center align-items-center bg-light">
         <div class="container w-100 h-100 pt-5" > 
             <h2 class="text-center text-primary">Contacte-nous !</h2> 
-            <form id="contact-form" method="post" action="" role="form">
+            <form id="contact-form" method="post" action="index.php?controller=home&action=contact" role="form">
                 <div class="messages"></div>
                 <div class="controls">
                     <div class="row">
@@ -28,14 +28,14 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="form_email">Email *</label>
-                                <input id="form_email" type="email" name="email" class="form-control" placeholder="Entre ton email *" required="required" data-error="Un email valide est demandé">
+                                <input id="form_email" type="email" name="email" class="form-control" placeholder="Entre ton email *" required data-error="Un email valide est demandé">
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="form_subject">Objet *</label>
-                                <select id="form_need" name="need" class="form-control" required="required" data-error="Spécifie ta demande">
+                                <select id="form_need" name="subject" class="form-control" required data-error="Spécifie ta demande">
                                     <option value=""></option>
                                     <option value="Request website">Question générale sur le fonctionnement du site</option>
                                     <option value="Request retributions">Question sur les rétributions </option>
@@ -50,7 +50,7 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="form_message">Message *</label>
-                                <textarea id="form_message" name="message" class="form-control" placeholder="Message *" rows="4" required="required" data-error="Stp, laisse un message"></textarea>
+                                <textarea id="form_message" name="message" class="form-control" placeholder="Message *" rows="4" required data-error="Stp, laisse un message"></textarea>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
