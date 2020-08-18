@@ -213,6 +213,10 @@ header {
   -webkit-background-clip: text;
   color: transparent;
 } */
+.custom_bg_home_main_title {
+  background-color:#0fa3b1e5;
+  border: solid 4px white;
+}
 
 .custom_animation_home {
   position: relative;

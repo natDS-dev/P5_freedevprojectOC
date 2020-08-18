@@ -25,6 +25,12 @@ class HomeController extends Controller
     $this->view->render("home/contact", $data);
   }
 
+  public function infos()
+  {
+    $data = ['title' => 'Infos'];
+    $this->view->render("home/infos", $data);
+  }
+
   public function who()
   {
     $data = ['title' => 'Qui ?'];
