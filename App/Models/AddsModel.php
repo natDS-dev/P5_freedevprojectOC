@@ -17,6 +17,19 @@ class AddsModel extends Model
         }
     }
 
+    public function findAllAdds()
+    {
+        $sql='SELECT adds.*,users.name,users.address FROM `adds` INNER JOIN `users` ON users.id=adds.creator_id WHERE closed=0';
+        
+        $query=$this->db->getPDO()->prepare($sql);
+        $res= $query->execute();
+        if($res){
+            return $query->fetchAll();
+        }else{
+            return null;
+        }
+    }
+
     //Renvoi 5 dernières annonces de manière générale
     public function findLastAdds()
     {

@@ -9,18 +9,33 @@
                 <div class="card-header">Nombre de paniers</div>
                 <div class="card-body">
                     <h5 class="card-title">Professionnels</h5>
-                    <p class="card-text">
-                        {% for add in lastAdds %}
+                    {% for add in adds %}
+                        <p class="card-text">
                             {{add.title}} {{add.name}} {{add.address}} 
-                        {% endfor %}
-                    </p>
+                    
+                        <a href="index.php?controller=back&action=deleteAdd&param={{add.id}}" onclick="confirm('Souhaites-tu supprimer cette annonce ?')">Supprimer
+                        </a>
+                        </p>
+                        {% else %}
+                        <p>Aucune annonce à modérer</p> 
+                    {% endfor %}
                 </div>
             </div>
             <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
                 <div class="card-header">Nombre d'annonces</div>
                 <div class="card-body">
                     <h5 class="card-title">Particuliers</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                     {% for basket in baskets %}
+                        <p class="card-text">
+                            {{basket.title}} {{basket.company}} {{basket.description}} 
+                    
+                        <a href="index.php?controller=back&action=deleteBasket&param={{basket.id}}" onclick="confirm('Souhaites-tu supprimer ce panier ?')">Supprimer
+                        </a>
+                        </p>
+                        {% else %}
+                        <p>Aucun panier à modérer</p> 
+                    {% endfor %}
+                    </p>
                 </div>
             </div>
         </div>

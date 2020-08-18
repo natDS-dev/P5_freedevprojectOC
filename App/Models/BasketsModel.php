@@ -3,6 +3,19 @@ namespace App\Models;
 
 class BasketsModel extends Model
 {
+    public function findAllBaskets()
+    {
+        $sql='SELECT baskets.*,users.company,users.address FROM `baskets` INNER JOIN `users` ON users.id=baskets.company_id';
+        
+        $query=$this->db->getPDO()->prepare($sql);
+        $res= $query->execute();
+        if($res){
+            return $query->fetchAll();
+        }else{
+            return null;
+        }
+    }
+
     public function findLastBaskets()
     {
         $sql='SELECT baskets.*,users.company,users.address FROM `baskets` INNER JOIN `users` ON users.id=baskets.company_id WHERE baskets.available=1 LIMIT 5';
