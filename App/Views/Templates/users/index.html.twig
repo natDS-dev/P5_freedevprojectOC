@@ -21,18 +21,18 @@
         <div class="row w-100 h-25 d-flex text-center m-2">
             <div class="row d-flex justify-content-center align-items-center m-auto">        
                 <div class="custom_admin_circle d-flex justify-content-center align-items-center bg-light">
-                <a href="#">
-                    <i class="custom_admin_icon_badge fa fa-newspaper fa-3x text-light" title="Annonce(s) en cours"></i>
-                    <span class="custom_admin_badges badge badge-primary">{{badges.createdAdds}}</span>
+                    <div>
+                        <i class="custom_admin_icon_badge fa fa-newspaper fa-3x text-light" title="Annonce(s) en cours"></i>
+                        <span class="custom_admin_badges badge badge-primary">{{badges.createdAdds}}</span>
                     </div>
-                </a>                           
+                </div>                                               
             </div>
             <div class="row d-flex justify-content-center align-items-center m-auto">
                 <div class="custom_admin_circle d-flex justify-content-center align-items-center bg-light">
-                    <a href="#">
+                    <div>
                         <i class="custom_admin_icon_badge fa fa-hands-helping fa-3x text-light" title="Missions réalisées"></i>
                         <span class="custom_admin_badges badge badge-primary">{{badges.acceptedAdds}}</span>
-                    </a>
+                    </div>
                 </div> 
             </div>
             {% else %}

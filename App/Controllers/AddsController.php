@@ -216,13 +216,13 @@ class AddsController extends Controller
     $basket = (new BasketsModel($this->db))->findbasket($basketId);
     $basketCreator = (new UsersModel($this->db))->findUser((int)$basket["company_id"]);
     
-    if ($add[basket_size] === 1) {
-      $add[basket_size] = "S";
+    if ($add["basket_size"] === 1) {
+      $add["basket_size"] = "S";
     }
-    else if ($add[basket_size] === 2) {
-        $add[basket_size] = "M";
+    else if ($add["basket_size"] === 2) {
+        $add["basket_size"] = "M";
     } else {
-        $add[basket_size] = "L";
+        $add["basket_size"] = "L";
     }
     /*Mail au créateur de l'annonce*/
     $this->sendMail($addCreator['email'],"Hey ! tu as reçu un coup de pouce sur 3Flans, 6Choux !","Cher ${addCreator['name']}, ta mission : ${add['title']} vient d'être acceptée par ${addValidator['name']} ${addValidator['surname']} en échange de ${add['basket_quantity']} panier(s) de taille ${add['basket_size']} que tu prendras chez ${basketCreator['company']}  ${basketCreator['address']} - ${basketCreator['city']} - ${basketCreator['phone']}. Contacte le rapidement pour vous organiser. Tu peux le joindre au ${addValidator['phone']} . A bientôt sur 3Flans, 6 Choux");

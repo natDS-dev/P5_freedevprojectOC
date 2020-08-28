@@ -3,9 +3,9 @@ namespace App\Models;
 
 class UsersModel extends Model
 {
-    public function createNewUser($name, $surname, $company, $address, $zipcode, $city,	$phone,	$email,	$password, $role, $profile, $lat, $lng)
+    public function createNewUser($name, $surname, $company, $address, $zipcode, $city,	$phone,	$email,	$password, $role, $profile, $lat, $lng,$recoveryToken)
     {
-         $query=$this->db->getPDO()->prepare('INSERT INTO `users` (name, surname, company, address, zip_code,	city,	phone,	email,	password, role, profile, lat, lng) VALUES (:name, :surname, :company, :address, :zip_code,	:city,	:phone,	:email,	:password, :role, :profile, :lat, :lng)');
+         $query=$this->db->getPDO()->prepare('INSERT INTO `users` (name, surname, company, address, zip_code,	city,	phone,	email,	password, role, profile, lat, lng, recovery_token) VALUES (:name, :surname, :company, :address, :zip_code,	:city,	:phone,	:email,	:password, :role, :profile, :lat, :lng, :token)');
          return $query->execute([ 
             "name"=>$name,
             "surname"=>$surname,
@@ -19,7 +19,8 @@ class UsersModel extends Model
             "role"=>$role,
             "profile"=>$profile,
             "lat"=>$lat,
-            "lng"=>$lng
+            "lng"=>$lng,
+            "token"=>$recoveryToken
          ]);
     }
 
@@ -116,6 +117,29 @@ class UsersModel extends Model
             "email" => $email,
             "newPassword" => $newPassword
         ]);
+        return $query->rowCount() === 1;
+    }
+
+    public function findAllUsersByUserRole($role = "*"){
+        $query=$this->db->getPDO()->prepare('SELECT * FROM `users` WHERE `role`=:role');
+        $res= $query->execute(["role"=>$role]);
+        if($res){
+            return $query->fetchAll();
+        }else{
+            return null;
+        }
+    }
+
+
+    public function banUser($id){
+        $query=$this->db->getPDO()->prepare('UPDATE `users` SET `banned`= 1 WHERE id=:id');
+        $query->execute(["id"=> $id]);
+        return $query->rowCount() === 1;
+    }
+
+    public function unbanUser($id){
+        $query=$this->db->getPDO()->prepare('UPDATE `users` SET `banned`= 0 WHERE id=:id');
+        $query->execute(["id"=> $id]);
         return $query->rowCount() === 1;
     }
 }

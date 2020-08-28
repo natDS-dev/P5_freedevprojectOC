@@ -133,8 +133,9 @@ class HomeController extends Controller
         } else {
           $lat = (float)json_decode($myURL)[0]->lat;
           $lng = (float)json_decode($myURL)[0]->lon;
-          $password = password_hash($password, PASSWORD_DEFAULT);      
-          $res = $this->model->createNewUser($name, $surname, $company, $address, $zipcode,	$city,	$phone,	$email,	$password, $role, $profile, $lat, $lng);
+          $password = password_hash($password, PASSWORD_DEFAULT);
+          $recoveryToken = "";      
+          $res = $this->model->createNewUser($name, $surname, $company, $address, $zipcode,	$city,	$phone,	$email,	$password, $role, $profile, $lat, $lng,$recoveryToken);
           if($res) 
           { 
             //redirection accueil + message session
@@ -168,6 +169,11 @@ class HomeController extends Controller
       if (!is_null($passwordHash) && password_verify(strip_tags($_POST["password"]), $passwordHash))
       {
         $user = $this->model->findUserByUserEmail(strip_tags($_POST["login"]));
+        if($user["banned"]){
+          $this->addLog("Ton compte est suspendu, contacte-nous !", "alert-danger");
+          header("Location: index.php?controller=home&action=login");
+          exit;
+        }
         $_SESSION["user"] = $user;
         $this->addLog("Choux-bidouwouah ! tu es bien connecté(e) ", "alert-success");
         if($user["role"] === 0){

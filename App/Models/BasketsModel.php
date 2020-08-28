@@ -5,7 +5,9 @@ class BasketsModel extends Model
 {
     public function findAllBaskets()
     {
-        $sql='SELECT baskets.*,users.company,users.address FROM `baskets` INNER JOIN `users` ON users.id=baskets.company_id';
+        $sql='SELECT baskets.*,users.company,users.address FROM `baskets` INNER JOIN `users` ON users.id=baskets.company_id LEFT JOIN `validations` ON baskets.id = validations.basket_id  
+        GROUP BY baskets.id 
+        HAVING COUNT(validations.id) = 0';
         
         $query=$this->db->getPDO()->prepare($sql);
         $res= $query->execute();

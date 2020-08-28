@@ -103,7 +103,7 @@ class AddsModel extends Model
     public function userAddsPage($userId,$perPage,$page){
         $offset = $perPage * ($page - 1);
         
-        $query=$this->db->getPDO()->prepare('SELECT adds.*, select_value  FROM adds INNER JOIN `categories` ON categories.id=adds.category WHERE `creator_id`=:userId ' . 'LIMIT '  . $perPage . ' OFFSET ' . $offset);
+        $query=$this->db->getPDO()->prepare('SELECT adds.*, select_value  FROM adds INNER JOIN `categories` ON categories.id=adds.category WHERE `creator_id`=:userId ' . ' ORDER BY adds.id DESC  LIMIT '  . $perPage . ' OFFSET ' . $offset);
         $res= $query->execute([
             "userId" => $userId
         ]);

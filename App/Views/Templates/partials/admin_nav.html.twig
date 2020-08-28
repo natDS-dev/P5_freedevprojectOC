@@ -16,10 +16,9 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Annonces</a>
             <div class="dropdown-menu">
-          <a class="dropdown-item" href="index.php?controller=adds&action=create">Créer</a>
-          <a class="dropdown-item" href="index.php?controller=adds&action=myAdds">Toutes mes annonces</a>
-          <a class="dropdown-item" href="#">Mes réponses aux annonces</a>      
-        </div> 
+              <a class="dropdown-item" href="index.php?controller=adds&action=create">Créer</a>
+              <a class="dropdown-item" href="index.php?controller=adds&action=myAdds">Toutes mes annonces</a>
+          </div> 
         </li>
       {% endif %}
       {% if user.role is same as(2) %}
@@ -27,8 +26,7 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Paniers</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="index.php?controller=baskets&action=create">Créer</a>
-            <a class="dropdown-item" href="index.php?controller=baskets&action=mybaskets">Tous mes paniers</a>
-            <a class="dropdown-item" href="#">Tous mes paniers commandés</a>      
+            <a class="dropdown-item" href="index.php?controller=baskets&action=mybaskets">Tous mes paniers</a>                 
           </div> 
         </li>
       {% endif %}
