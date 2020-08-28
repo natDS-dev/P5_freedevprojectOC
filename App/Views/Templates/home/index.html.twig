@@ -39,47 +39,44 @@
 
 {% block section2 %}
 <div class="row h-100 justify-content-center">
-    <!--Section 2 large part-->
-    
-        <div class="custom_section h-75 m-2 col-lg-12 d-flex justify-content-center align-items-center ">
-            <div class="container-fluid ">
-                <div class="custom_bg_home_inscription_title jumbotron row text-center m-auto">
-                    <div class="container">
-                        <h1 class="display-4 text-secondary">Le <span class="text-primary"> "goût" </span>du service !</h1><hr>
-                        <h5 class="font-weight-bold text-primary">3 Flans, 6 Choux</h5>
-                        <p class="lead"> est pour le moment ouvert à la zone de Morlaix communauté (29)</p>
-                    </div>               
-                </div>                
-            </div>            
-        </div>
-        <!--Section 2 left part-->
-        <div class="custom_section h-50 col-lg-6 d-flex justify-content-center align-items-center">
-            <div class="container w-75 h-75">
-                <div class="custom_bg_home_inscription_title jumbotron row h-100 text-center">            
-                    <div class="container h-50 w-100">
-                        <h1 class="display-4 text-secondary">Le "goût" de rendre service !</h1><hr>
-                        <h5 class="font-weight-bold text-primary">3 Flans, 6 Choux</h5>
-                        <p class="lead"> est pour le moment réservé à la zone de Morlaix communauté (29)</p>
-                    </div>       
-                </div>
+    <!--Section 2 large part-->    
+    <div class="custom_section h-75 m-2 col-lg-12 d-flex justify-content-center align-items-center ">
+        <div class="container-fluid ">
+            <div class="custom_bg_home_inscription_title jumbotron row text-center m-auto">
+                <div class="container">
+                    <h1 class="display-4 text-secondary">Le <span class="text-primary"> "goût" </span>du service !</h1><hr>
+                    <h5 class="font-weight-bold text-primary">3 Flans, 6 Choux</h5>
+                    <p class="lead"> est pour le moment ouvert à la zone de Morlaix communauté (29)</p>
+                </div>               
+            </div>                
+        </div>            
+    </div>
+    <!--Section 2 left part-->
+    <div class="custom_section h-50 col-lg-6 d-flex justify-content-center align-items-center">
+        <div class="container w-75 h-75">
+            <div class="custom_bg_home_inscription_title jumbotron row h-100 text-center">            
+                <div class="container h-50 w-100">
+                    <h1 class="display-4 text-secondary">Le "goût" de rendre service !</h1><hr>
+                    <h5 class="font-weight-bold text-primary">3 Flans, 6 Choux</h5>
+                    <p class="lead"> est pour le moment réservé à la zone de Morlaix communauté (29)</p>
+                </div>       
             </div>
         </div>
+    </div>
     <!--Section 2 right part-->
     <div class="custom_section h-50 col-lg-6 d-flex justify-content-center align-items-center">
-            <div class="container w-75 h-75">
-                <div class="custom_bg_home_inscription_title jumbotron row h-100 text-center">            
-                    <div class="container h-50 w-100">
-                        <h1 class="display-4 text-secondary">Le "goût" de rendre service !</h1><hr>
-                        <h5 class="font-weight-bold text-primary">3 Flans, 6 Choux</h5>
-                        <p class="lead"> est pour le moment réservé à la zone de Morlaix communauté (29)</p>
-                    </div>       
-                </div>
+        <div class="container w-75 h-75">
+            <div class="custom_bg_home_inscription_title jumbotron row h-100 text-center">            
+                <div class="container h-50 w-100">
+                    <h1 class="display-4 text-secondary">Le "goût" de rendre service !</h1><hr>
+                    <h5 class="font-weight-bold text-primary">3 Flans, 6 Choux</h5>
+                    <p class="lead"> est pour le moment réservé à la zone de Morlaix communauté (29)</p>
+                </div>       
             </div>
         </div>
-    
-
-            
+    </div>            
 </div>
+{% endblock %}
 {# <div class="row h-100 justify-content-around text-center">
     <div class="custom_section col-lg-12 p-0 d-flex justify-content-center align-items-center">
         <div class="custom_bg_home_inscription_title row jumbotron m-4">
@@ -98,13 +95,17 @@
         </div>
     </div>    
 </div> #}
-
+{% block section3 %}
+  
 <div class="row h-100 justify-content-around text-center">
+    <!--Section 3 large part-->
+    <div class="row h-25 col-lg-12  justify-content-center align-items-center bg-light">
+        <h1 class="display-4 pt-5 text-secondary">S'inscrire, c'est simple comme <br/>"mon chou" !</h1>
+    </div>
+    <!--Section 3 left part--> 
     <div class="row h-75 col-lg-12 justify-content-around badge-light">
-
-    
         <div class="custom_section col-lg-4 p-0 d-flex justify-content-center align-items-center">
-            <div class="row justify-content-center align-items-center w-100 h-75">
+            <div class="row justify-content-center align-items-center">
             
                 <div class="card w-75 mb-4 box-shadow">
                     <div class="card-header bg-info">
@@ -113,7 +114,7 @@
                     <div class="card-body text-left">
                         <h5 class="text-center"><b>"Je donne un coup de pouce"</b></h5>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>• Je regarde les annonces sur la carte prévue à cette effet</li>                           
+                            <li>• Je regarde les annonces grâce à la carte prévue à cette effet</li>                           
                             <li>• Je réponds à l'annonce et décide, parmi la liste proposée, chez quel producteur je prendrais le(s) panier(s) offert(s) par le déposant</li>
                             <li class="text-center"><b><p class="text-primary"> + </br>• Je peux aussi déposer une demande de service</b></p></li>
                         </ul>
@@ -124,9 +125,9 @@
                 </div>
             </div>
         </div>
-        <!--Section 2 center part-->
+        <!--Section 3 center part-->
         <div class="custom_section col-lg-4 p-0 d-flex justify-content-around align-items-center">
-            <div class="row justify-content-center align-items-center w-100 h-75">
+            <div class="row justify-content-center align-items-center">
             
                 <div class="card w-75 mb-4 box-shadow">
                     <div class="card-header bg-info">
@@ -145,12 +146,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-    
-    
-        <!--Section 2 right part-->
+        </div>   
+        <!--Section 3 right part-->
         <div class="custom_section col-lg-4 p-0 d-flex justify-content-center align-items-center">
-            <div class="row justify-content-center align-items-center w-100 h-75">
+            <div class="row justify-content-center align-items-center">
             
                 <div class="card w-75 mb-4 box-shadow">
                     <div class="card-header bg-primary">
@@ -159,7 +158,7 @@
                     <div class="card-body text-left">
                         <h5 class="text-center"><b>"Je propose mes produits pour les rétributions"</b></h5>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>• Je propose un ou plusieurs produits</li>                           
+                            <li>• Je propose mes produits</li>                           
                             <li>• Je décide et énonce ce que contiendra 1 panier selon les différentes tailles S/M/L. Ex : 1 panier de légumes variés - taille S : 1kg de pomme de terre et 3 courgettes,...</li>
                             <li class="text-center"><b><p class="text-primary"> + </br>• Je peux mettre les photos de mes produits</b></p></li>
                         </ul>
@@ -175,9 +174,9 @@
 </div>
 {% endblock %}
 
-{% block section3 %}
+{% block section4 %}
 <div class="row h-100 justify-content-center">
-    <!--Section 3 left part-->
+    <!--Section 4 left part-->
     <div class="custom_section col-lg-12  d-flex justify-content-center align-items-center bg-info">
         
     </div>   

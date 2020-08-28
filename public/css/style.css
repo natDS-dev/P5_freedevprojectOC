@@ -172,14 +172,21 @@ header {
   background-color: rgba(255, 255, 255, 0.418);
 }
 
-/*Sections general for 3 sections pages (home/infos/who)*/
-.custom_section {
-  height: 85vh;
+/*FOOTER*/
+.custom_footer_bg {
+  background-color: #633c07b8;
+  border-radius: 0;
 }
 
-/*General row for simple pages (register/connect/contact)*/ 
+/*SIMPLE & SECTIONS TEMPLATE GENERAL*/
+/*Simple template : General row for simple pages (register/connect/contact)*/ 
 .custom_simple_page_main {
   height:85vh;
+}
+
+/*Sections template : Sections general for 3,4 sections pages (home/infos/who)*/
+.custom_section {
+  height: 85vh;
 }
   
 /*Section 1*/
@@ -205,8 +212,9 @@ header {
   border-radius:10% 0;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
 }
-/*Home*/
 
+/*SECTIONS PAGES*/
+/*Home*/
 .custom_bg_home_main_title {
   background-color:#0fa3b1e5;
   border: solid 4px white;
@@ -227,13 +235,8 @@ header {
 .custom_bg_home_inscription_title{
   background-color: #ffffffc9;
 }
-/*FOOTER*/
-.custom_footer_bg {
-  background-color: #633c07b8;
-  border-radius: 0;
-}
-/*SINGLE PAGES (info - qui - contact - mentions légales)*/
 
+/*SINGLE PAGES (info - qui - contact - mentions légales)*/
 /*Mentions légales*/
 .custom_legals_mentions {
   overflow-y:scroll;
@@ -369,9 +372,7 @@ header {
   background-position: bottom;
 }
 
- /*MY ADDS*/
-
-
+ 
  /*MAP*/
 #map {
   height: 80%;
@@ -393,8 +394,13 @@ header {
 
 .custom_dev_section {
   height:85vh;
+  margin-top: 5vh;
   /* background: url("../images/background/dev_bg2.png") no-repeat center;
   background-size: cover; */
+}
+
+.custom_dev_dashboard_card {
+  overflow-y: scroll
 }
 
 /*MEDIA QUERRIES*/
@@ -409,7 +415,7 @@ header {
 
 @media screen and (max-width: 768px) {
 
-  table thead
+table thead
 {
   border: none;
   clip: rect(0,0,0,0);

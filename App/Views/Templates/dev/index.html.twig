@@ -1,85 +1,95 @@
 {% extends "admin_template.html.twig" %}
 {% block section1L %}
-    <div class="container-fluid h-100 pt-5" >          
-        <div class="row justify-content-center align-items-center m-3">
-            <h3 class="custom_engraved_text text-center">Mon dashboard</h3>            
-        </div>
-        <div class="row h-75 justify-content-center align-items-center m-3">
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">Nombre d'annonces</div>
-                <div class="card-body">
-                    <h5 class="card-title">Particuliers</h5>
-                    {% for add in adds %}
-                        <p class="card-text">
-                            {{add.title}} {{add.name}} {{add.address}} 
-                    
-                        <a href="index.php?controller=back&action=deleteAdd&param={{add.id}}" onclick="confirm('Souhaites-tu supprimer cette annonce ?')">Supprimer
-                        </a>
-                        </p>
-                        {% else %}
-                        <p>Aucune annonce à modérer</p> 
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">Nombre de paniers</div>
-                <div class="card-body">
-                    <h5 class="card-title">Professionnels</h5>
-                     {% for basket in baskets %}
-                        <p class="card-text">
-                            {{basket.title}} {{basket.company}} {{basket.description}} 
-                    
-                        <a href="index.php?controller=back&action=deleteBasket&param={{basket.id}}" onclick="confirm('Souhaites-tu supprimer ce panier ?')">Supprimer
-                        </a>
-                        </p>
-                        {% else %}
-                        <p>Aucun panier à modérer</p> 
-                    {% endfor %}
+<div class="container-fluid h-100 pt-5" >          
+    <div class="row justify-content-center align-items-center m-3">
+        <h3 class="custom_engraved_text text-center">Les annonces</h3>            
+    </div>
+    <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center bg-light">
+        <div class="card h-50 text-secondary my-3">
+            <div class="card-header text-light bg-info">Nombre d'annonces</div>
+            <div class="custom_dev_dashboard_card card-body">
+                <h5 class="card-title">Particuliers</h5>
+                {% for add in adds %}
+                    <p class="card-text">
+                        {{add.title}} {{add.name}} {{add.address}} 
+                
+                    <a href="index.php?controller=back&action=deleteAdd&param={{add.id}}" onclick="confirm('Souhaites-tu supprimer cette annonce ?')">Supprimer
+                    </a>
                     </p>
-                </div>
-            </div>
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">Nombre d'utilisateurs</div>
-                <div class="card-body">
-                    <h5 class="card-title">Utilisateurs</h5>
-                    {% for user in users %}
-                        <p class="card-text">
-                            {{user.name}} {{user.banned}}
-                    
-                        {% if user.banned %}
-                            <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
-                            </a>
-                        {% else %} 
-                            <a href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
-                            </a>
-                        {% endif %}
-                        </p>
                     {% else %}
-                        <p>Aucun utilisateur à modérer</p> 
-                    {% endfor %}
-                </div>
+                    <p>Aucune annonce à modérer</p> 
+                {% endfor %}
             </div>
-            <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                <div class="card-header">Nombre professionnels</div>
-                <div class="card-body">
-                    <h5 class="card-title">Professionnels</h5>
-                    {% for user in usersPro %}
-                        <p class="card-text">
-                            {{user.name}} {{user.banned}}
-                    
-                        {% if user.banned %}
-                            <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
-                            </a>
-                        {% else %} 
-                            <a href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
-                            </a>
-                        {% endif %}
-                        </p>
+        </div>
+        <div class="card h-50 text-secondary my-3">
+            <div class="card-header text-light bg-info">Nombre de paniers</div>
+            <div class="custom_dev_dashboard_card card-body">
+                <h5 class="card-title">Professionnels</h5>
+                    {% for basket in baskets %}
+                    <p class="card-text">
+                        {{basket.title}} {{basket.company}} {{basket.description}} 
+                
+                    <a href="index.php?controller=back&action=deleteBasket&param={{basket.id}}" onclick="confirm('Souhaites-tu supprimer ce panier ?')">Supprimer
+                    </a>
+                    </p>
                     {% else %}
-                        <p>Aucun utilisateur à modérer</p> 
-                    {% endfor %}
-                </div>
+                    <p>Aucun panier à modérer</p> 
+                {% endfor %}
+                </p>
             </div>
         </div>
     </div>
+</div>
+{% endblock %}
+
+{% block section1R %}
+<div class="container-fluid h-100 pt-5" > 
+    <div class="row justify-content-center align-items-center m-3">
+        <h3 class="custom_engraved_text text-center">Les utilisateurs</h3>            
+    </div>         
+    <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center bg-light">
+        <div class="card h-50 text-secondary my-3">
+            <div class="card-header text-light bg-info">Nombre d'utilisateurs</div>
+            <div class="custom_dev_dashboard_card card-body">
+                <h5 class="card-title">Utilisateurs</h5>
+                {% for user in users %}
+                    <p class="card-text">
+                        {{user.name}} {{user.banned}}
+                
+                    {% if user.banned %}
+                        <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
+                        </a>
+                    {% else %} 
+                        <a href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
+                        </a>
+                    {% endif %}
+                    </p>
+                {% else %}
+                    <p>Aucun utilisateur à modérer</p> 
+                {% endfor %}
+            </div>
+        </div>
+        <div class="card h-50 text-secondary my-3">
+            <div class="card-header text-light bg-info">Nombre professionnels</div>
+            <div class="custom_dev_dashboard_card card-body">
+                <h5 class="card-title">Professionnels</h5>
+                {% for user in usersPro %}
+                    <p class="card-text">
+                        {{user.name}} {{user.banned}}
+                
+                    {% if user.banned %}
+                        <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
+                        </a>
+                    {% else %} 
+                        <a href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
+                        </a>
+                    {% endif %}
+                    </p>
+                {% else %}
+                    <p>Aucun utilisateur à modérer</p> 
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
