@@ -54,7 +54,7 @@
                 <h5 class="card-title">Utilisateurs</h5>
                 {% for user in users %}
                     <p class="card-text">
-                        {{user.name}} {{user.banned}}
+                        {{user.name}}  {{user.banned}}
                 
                     {% if user.banned %}
                         <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
