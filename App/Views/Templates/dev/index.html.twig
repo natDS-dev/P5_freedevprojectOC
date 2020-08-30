@@ -4,7 +4,7 @@
     <div class="row justify-content-center align-items-center m-3">
         <h3 class="custom_engraved_text text-center">Les annonces</h3>            
     </div>
-    <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center bg-light">
+    <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center">
         <div class="card h-50 text-secondary my-3">
             <div class="card-header text-light bg-info">Nombre d'annonces</div>
             <div class="custom_dev_dashboard_card card-body">
@@ -47,20 +47,22 @@
     <div class="row justify-content-center align-items-center m-3">
         <h3 class="custom_engraved_text text-center">Les utilisateurs</h3>            
     </div>         
-    <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center bg-light">
+    <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center">
         <div class="card h-50 text-secondary my-3">
-            <div class="card-header text-light bg-info">Nombre d'utilisateurs</div>
+            <div class="card-header text-light bg-primary">
+                <h5 class="my-0 font-weight-bold text-light">Liste particuliers</h5>
+            </div>
             <div class="custom_dev_dashboard_card card-body">
                 <h5 class="card-title">Utilisateurs</h5>
                 {% for user in users %}
                     <p class="card-text">
-                        {{user.name}}  {{user.banned}}
+                        {{user.name}} {{user.surname}} {{user.email}} {{user.banned}}
                 
                     {% if user.banned %}
                         <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
                         </a>
                     {% else %} 
-                        <a href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
+                        <a class="text-right" href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
                         </a>
                     {% endif %}
                     </p>
@@ -70,7 +72,9 @@
             </div>
         </div>
         <div class="card h-50 text-secondary my-3">
-            <div class="card-header text-light bg-info">Nombre professionnels</div>
+            <div class="card-header text-light bg-primary">
+                <h5 class="my-0 font-weight-bold text-light">Liste professionnels</h5>
+            </div>
             <div class="custom_dev_dashboard_card card-body">
                 <h5 class="card-title">Professionnels</h5>
                 {% for user in usersPro %}
