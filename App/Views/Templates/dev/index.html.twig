@@ -70,6 +70,24 @@
                     <p>Aucun utilisateur à modérer</p> 
                 {% endfor %}
             </div>
+            <div class="custom_dev_dashboard_card card-body">
+                <h5 class="card-title"> Stat annonces Utilisateurs</h5>
+                {% for stat in adds_stats %}
+                    <p class="card-text">
+                        {{stat.select_value}} {{stat.adds_count}}  
+                    </p>
+                    
+                {% endfor %}
+            </div>
+            <div class="custom_dev_dashboard_card card-body">
+                <h5 class="card-title"> Stat annonces pro</h5>
+                {% for stat in baskets_stats %}
+                    <p class="card-text">
+                        {{stat.select_value}}  {{stat.baskets_count}}  
+                    </p>
+                    
+                {% endfor %}
+            </div>
         </div>
         <div class="card h-50 text-secondary my-3">
             <div class="card-header text-light bg-primary">

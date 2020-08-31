@@ -52,7 +52,7 @@ class Map {
                 if (!isBasket) {
                     document.getElementById("current_add_description").innerText = "Votre mission : " + this.adds[id].description;
                     document.getElementById("current_add_nb_basket").innerText = "Nombre de paniers : " + this.adds[id].basket_quantity;
-                    document.getElementById("current_add_basket_size").innerText = " Taille de panier : " + this.adds[id].basket_size;
+                    document.getElementById("current_add_basket_size").innerText = " - Taille de panier : " + this.adds[id].basket_size;
                     document.getElementById("add_id").value = this.adds[id].id;
 
                     document.getElementById("creator_id").value = this.adds[id].users_id;

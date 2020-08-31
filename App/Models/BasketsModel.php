@@ -115,4 +115,16 @@ class BasketsModel extends Model
             return [];
         }
     }
+
+    public function findBasketsStats(){
+        $sql= 'SELECT categories.*,COUNT(baskets.id) AS baskets_count FROM categories 
+        LEFT JOIN baskets ON categories.id=baskets.category GROUP BY categories.id HAVING role = 2';
+        $query=$this->db->getPDO()->prepare($sql);
+        $res= $query->execute();
+        if($res){
+            return $query->fetchAll();
+        }else{
+            return null;
+        }
+    }
 }

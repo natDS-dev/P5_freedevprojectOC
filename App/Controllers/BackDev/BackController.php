@@ -11,8 +11,10 @@ class BackController extends \App\Controllers\Controller
         $data = ['title' => 'QG du dev'];
         $this->model = new AddsModel($this->db); 
         $data["adds"] = $this->model->findAllAdds(); 
+        $data["adds_stats"] = $this->model->findAddsStats();
         $this->model = new BasketsModel($this->db); 
         $data["baskets"] = $this->model->findAllBaskets();
+        $data["baskets_stats"] = $this->model->findBasketsStats();
         $this->model = new UsersModel($this->db); 
         $data["users"] = $this->model->findAllUsersByUserRole(1);  
         $data["usersPro"] = $this->model->findAllUsersByUserRole(2);    

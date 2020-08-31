@@ -151,4 +151,16 @@ class AddsModel extends Model
             "basketId" => $basketId
         ]);
     }
+
+    public function findAddsStats(){
+        $sql= 'SELECT categories.*,COUNT(adds.id) AS adds_count FROM categories 
+        LEFT JOIN adds ON categories.id=adds.category GROUP BY categories.id HAVING role = 1';
+        $query=$this->db->getPDO()->prepare($sql);
+        $res= $query->execute();
+        if($res){
+            return $query->fetchAll();
+        }else{
+            return null;
+        }
+    } 
 }
