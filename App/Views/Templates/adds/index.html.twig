@@ -22,16 +22,16 @@
 {% block section1R %}
 <div class="row h-75 w-100">
     <div class="container-fluid d-flex flex-column justify-content-center mt-2 p-0 h-100 w-100">
-        <h1 class="custom_engraved_text text-center"  id="current_add_name">Clique sur un marqueur de la carte...</h1>
-        <h3 class="custom_engraved_text text-center"  id="current_add_category">Puis sur "voir" afin d'avoir le détail d'une annonce</h3>
+        <h1 class="custom_engraved_text text-center"  id="current_add_name">Clique sur un marqueur...</h1>
+        <h3 class="custom_engraved_text text-center"  id="current_add_category">Puis sur "voir" pour lire l'annonce</h3>
         <h3 class="custom_engraved_text text-light" id="current_add_title"></h3>
-        <h4 class="custom_engraved_text text-light" id="current_add_description">Si tu es certain de t'engager pour la mission proposée : Choisis le producteur chez qui tu prendras ta rétribution (paniers) et clique sur "Je m'engage".Un email d'engagement vous sera envoyé à chacun.</h4>
-        <div class="d-flex">
-            <h5 class="custom_engraved_text text-light" id="current_add_nb_basket"></h5>
-            <h5 class="custom_engraved_text text-light" id="current_add_basket_size"> </h5>
-        </div>
+        <h5 class="custom_engraved_text text-light" id="current_add_description">Si tu es sûr(e) de t'engager pour la mission proposée : Choisis le producteur chez qui tu prendras ta rétribution, clique sur "Je m'engage".Un email vous sera envoyé à chacun.</h5>
+        <h5 class="custom_engraved_text text-light" id="current_add_nb_basket"></h5>
+        <h5 class="custom_engraved_text text-light" id="current_add_basket_size"> </h5>
         <p class="font-weight-bold text-danger" id="error_form"></p>
-        <form class="hidden_form" method="POST" action="index.php?controller=adds&action=validation" id="validation_form">
+        <form class="hidden_form pb-4" method="POST" action="index.php?controller=adds&action=validation" id="validation_form">
+            <a href="index.php?controller=baskets&action=index" class="custom_engraved_text font-italic">>> Accès carte producteurs <<</a>
+            <h6>Choisis un producteur pour ta rétribution</h6>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Paniers</label>

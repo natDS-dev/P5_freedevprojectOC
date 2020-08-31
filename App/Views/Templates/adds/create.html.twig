@@ -4,9 +4,9 @@
 <div class="container w-75 h-50" >          
   <div class="row h-100 text-center" >
     <div class="col-md-12 m-auto">
-      <h3>Titre section 1</h3>
-      <p class="text-center">
-      </p>
+      <h3>Créer une annonce c'est simple !</h3>
+      <h5 class="custom_engraved_text text-center text-light ">Il te suffit simplement de remplir le formulaire ci-contre, de décrire en quelques mots le service dont tu as besoin et de choisir le nombre et la taille de panier producteur que tu offriras en contrepartie <br>...Puis 1 clic sur "valider" et le tour est joué !
+      </h5>
     </div>              
   </div>  
 </div>
@@ -17,7 +17,7 @@
   <div class="custom_admin_bg_adds_create row h-100 pb-5 justify-content-center align-items-center">
     <div class="col-lg-12 m-auto">
       <div class="col-lg-6 h-25 pb-1 m-auto text-center "> 
-        <h3>Créer une annonce</h3>
+        <h3>Je crée une annonce</h3>
       </div>
       <div  class="col-lg-12 h-75 px-0">                  
         <form class="col-12 px-2" method="POST" action="index.php?controller=adds&action=create">
@@ -32,13 +32,12 @@
             <label for="title"></label>
             <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" />
           </div>
-          <p>Si localisation différente de l'adresse enregistrée, précise cela dans la description</p>
-          
+          <p>Si localisation différente de l'adresse enregistrée, précise cela dans la description</p>          
           <div class="form-group">
             <label for="description"></label>
             <textarea class="form-control" placeholder="Description" name="description" id="description" required>{{add.description}}</textarea>
           </div>
-
+          <p>Rétribution :</p>
           <div class="form-group col-12 d-flex
           p-0 text-center">
             <label for="basket_size" class="col-form-label col-3 p-1">Taille de panier</label>
