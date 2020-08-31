@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 30 août 2020 à 09:40
+-- Généré le :  lun. 31 août 2020 à 07:18
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -42,14 +42,15 @@ CREATE TABLE IF NOT EXISTS `adds` (
   PRIMARY KEY (`id`),
   KEY `creator_id` (`creator_id`),
   KEY `category` (`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `adds`
 --
 
 INSERT INTO `adds` (`id`, `created_at`, `title`, `category`, `description`, `closed`, `creator_id`, `basket_size`, `basket_quantity`) VALUES
-(1, '2020-08-30 11:31:34', 'Taille de haie', 1, 'Bonjour, j\'aurais besoin d\'une personne pour tailler la haie de laurier entourant mon jardin. Taille haie à disposition.Merci', 0, 2, 2, 2);
+(1, '2020-08-30 11:31:34', 'Taille de haie', 1, 'Bonjour, j\'aurais besoin d\'une personne pour tailler la haie de laurier entourant mon jardin. Taille haie à disposition.Merci', 0, 2, 2, 2),
+(2, '2020-08-30 21:25:55', 'Montage barrière', 2, 'Bonjour, j\'aurais besoin de l\'aide d\'une personne pour monter une barrière dans mon jardin.Merci', 0, 4, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,14 @@ CREATE TABLE IF NOT EXISTS `baskets` (
   PRIMARY KEY (`id`),
   KEY `company_id` (`company_id`),
   KEY `category` (`category`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `baskets`
+--
+
+INSERT INTO `baskets` (`id`, `company_id`, `title`, `category`, `description`, `available`) VALUES
+(1, 3, 'Fruits de saison', 11, 'Panier taille S :  6 pommes -  100g de framboises / panier taille M : 10 pommes - 150g de framboises / panier taille L : 15 pommes - 200g framboises', 1);
 
 -- --------------------------------------------------------
 
@@ -129,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `banned` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
@@ -138,7 +146,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `name`, `surname`, `company`, `address`, `zip_code`, `city`, `phone`, `email`, `password`, `recovery_token`, `role`, `profile`, `lat`, `lng`, `register_date`, `banned`) VALUES
 (1, 'Natacha', 'De smet', '', '11 rue bel air', '29600', 'St martin des champs', '0623523032', 'natachadesmet@yahoo.fr', '$2y$10$n4Mh.GotRp/.sxIhKnacFOZOIzhvFtJ99LcUwKUdoQLklqMh0q2g2', '', 0, 'admin', 48.5696, -3.83997, '2020-08-27 13:16:23', 0),
 (2, 'Jean', 'Forteroche', '', '10 rue courte', '29600', 'Morlaix', '22211553', 'jeannotbzh@yopmail.com', '$2y$10$gkCfjfM6Q5Uo5tO74.w22OMi.mrL07YQkUylCQa6T3nCaMzSeex9W', '', 1, 'Écrivain ', 48.5764, -3.83018, '2020-08-28 05:09:31', 0),
-(3, 'Michou', 'Romanesco', 'Choux & Co', '12 rampe saint augustin', '29600', 'Morlaix', '55444223', 'chouxbzh@yopmail.com', '$2y$10$X4Defxz0ulwsgkUq0saZUuxjh6aY2dM3vOt./A7RJcBMHFvhvdXTa', '', 2, 'Producteur de choux et autres légumes', 48.5725, -3.83637, '2020-08-28 05:15:44', 0);
+(3, 'Michou', 'Romanesco', 'Choux & Co', '12 rampe saint augustin', '29600', 'Morlaix', '55444223', 'chouxbzh@yopmail.com', '$2y$10$X4Defxz0ulwsgkUq0saZUuxjh6aY2dM3vOt./A7RJcBMHFvhvdXTa', '', 2, 'Producteur de choux et autres légumes', 48.5725, -3.83637, '2020-08-28 05:15:44', 0),
+(4, 'Guigui', 'LEQUI', '', '5 Rue de Kerfraval', '29600', 'Morlaix', '5522888', 'guiguibzh@yopmail.com', '$2y$10$AqNCdzvtZrBBBwa2Jc2pguWxlTPMCmOFabV.UH9DmPpNyVy/PXl8S', '', 1, 'Particulier', 48.5842, -3.81614, '2020-08-30 19:24:28', 0);
 
 -- --------------------------------------------------------
 
