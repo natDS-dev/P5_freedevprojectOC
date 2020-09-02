@@ -237,6 +237,20 @@ header {
 }
 
 /*SINGLE PAGES (info - qui - contact - mentions légales)*/
+
+/*Infos*/
+.custom_animation_infos {
+  position: relative;
+  animation-name: example;
+  animation-duration: 2s;  
+  animation-delay: 1s; 
+}
+
+@keyframes example {
+  from {left: -150px;}
+  to {left: 0px;}
+}
+
 /*Mentions légales*/
 .custom_legals_mentions {
   overflow-y:scroll;
