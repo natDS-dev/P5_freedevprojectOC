@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 31 août 2020 à 07:18
+-- Généré le :  mer. 02 sep. 2020 à 08:10
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -42,15 +42,16 @@ CREATE TABLE IF NOT EXISTS `adds` (
   PRIMARY KEY (`id`),
   KEY `creator_id` (`creator_id`),
   KEY `category` (`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `adds`
 --
 
 INSERT INTO `adds` (`id`, `created_at`, `title`, `category`, `description`, `closed`, `creator_id`, `basket_size`, `basket_quantity`) VALUES
-(1, '2020-08-30 11:31:34', 'Taille de haie', 1, 'Bonjour, j\'aurais besoin d\'une personne pour tailler la haie de laurier entourant mon jardin. Taille haie à disposition.Merci', 0, 2, 2, 2),
-(2, '2020-08-30 21:25:55', 'Montage barrière', 2, 'Bonjour, j\'aurais besoin de l\'aide d\'une personne pour monter une barrière dans mon jardin.Merci', 0, 4, 3, 2);
+(1, '2020-08-30 11:31:34', 'Taille de haie', 1, 'Bonjour, j\'aurais besoin d\'une personne pour tailler la haie de laurier entourant mon jardin. Taille haie à disposition.Merci', 1, 2, 2, 2),
+(3, '2020-08-31 11:57:56', 'Rédaction lettre', 5, 'Bonjour, j\'aurais besoin d\'une personne pour m\'aider à rédiger un courrier administratif.Je vous remercie', 0, 2, 2, 1),
+(4, '2020-08-31 12:20:42', 'Pose de parquet ', 2, 'Bonjour, j\'aurais besoin d\'un bon bricoleur pouvant m\'aider à poser du parquet dans un salon de 40m2.Merci', 0, 4, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -166,7 +167,14 @@ CREATE TABLE IF NOT EXISTS `validations` (
   KEY `user_id` (`user_id`),
   KEY `add_id` (`add_id`),
   KEY `basket_id` (`basket_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `validations`
+--
+
+INSERT INTO `validations` (`id`, `user_id`, `add_id`, `basket_id`, `accepted_date`) VALUES
+(1, 4, 1, 1, '2020-08-31 11:54:52');
 
 --
 -- Contraintes pour les tables déchargées
