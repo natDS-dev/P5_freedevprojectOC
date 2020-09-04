@@ -4,6 +4,7 @@ use App\Models\AddsModel;
 use App\Models\UsersModel;
 use App\Models\BasketsModel;
 
+//Héritage de class, class fille hérite des méthodes de class Controller mère/parent - Child class extends parent class 
 class AddsController extends Controller
 {
   public function __construct()
@@ -68,9 +69,9 @@ class AddsController extends Controller
       
       //Si 1 (ou plusieurs) champs est nul - if 1 or few fields are null
       if(is_null($category) || is_null($description) || is_null($basket_size) || is_null($basket_quantity))
-      {//=> renvoit d'un message d'erreur 
+      {//=> renvoit d'un message d'erreur - error message 
         $this->addLog("Oups tous les champs sont obligatoires","alert-danger");
-        //Clé supplémentaire au tableau data pour pré-remplissage auto des champs
+        //Clé supplémentaire au tableau data pour pré-remplissage auto des champs - Additionnal key for automatic filling fields
         $data['add']= [
           "category" => (int)$_POST["category"],
           "title" => $_POST["title"],
@@ -139,7 +140,7 @@ class AddsController extends Controller
     //Récupération de l'annonce correspondant à l'id - Recover corresponding add by id
     $id = isset($_POST["id"]) ? (int)strip_tags($_POST["id"]) : null; 
     $add = is_null($id) ? null : $this->model->findAdd($id);
-    //L'annonce doit exister et nous appartenir => impossible de mettre àjour l'annonce d'une autre personne
+    //L'annonce doit exister et nous appartenir => impossible de mettre à jour l'annonce d'une autre personne - Add should exist & be our =>not possible to update someone else add
     if(is_null($add) || $add["creator_id"] !== $_SESSION["user"]["id"] ){
       $this->addLog("Ohla, dans les choux ! l'annonce n'a pas été mise à jour", "alert-warning");
       header("Location: index.php?controller=adds&action=myAdds");

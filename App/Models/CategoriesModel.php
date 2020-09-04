@@ -3,6 +3,7 @@ namespace App\Models;
 
 class CategoriesModel extends Model
 {
+    //Renvoi des catégories par rôle - Sends categories by user role
     public function findAll($role)
     {
         $sql='SELECT* FROM `categories` WHERE role=:role ORDER BY `select_value`';

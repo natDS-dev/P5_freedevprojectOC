@@ -3,8 +3,10 @@ namespace App\Controllers;
 use App\Models\UsersModel;
 use App\Models\AddsModel;
 
+//Héritage de class, class fille hérite des méthodes de class Controller mère/parent - Child class extends parent class 
 class HomeController extends Controller
 {
+  //Fonction pour titre de la page + dernières annonces (pour Version 2) - title & last adds function for the future website 
   public function index()
   {
     $this->model = new AddsModel($this->db);
@@ -13,12 +15,14 @@ class HomeController extends Controller
     $this->view->render("home/index", $data);
   }
 
+  // Page d'erreur - Error page
   public function error()
   {
     $data = ['title' => 'Erreur 404'];
     $this->view->render("home/error", $data);
   }
 
+  //Vérification des champs du formulaire de contact + envoi de mail - Check fields of contact form & send automatic mail 
   public function contact()
   {
     $data = ['title' => 'Contact'];
@@ -59,6 +63,7 @@ class HomeController extends Controller
     $this->view->render("home/mentions", $data);
   }
   
+  //Fonction enregistrement nouvel utilisateur - New user register function
   public function register()
   {
     if (isset($_SESSION["user"]))
@@ -68,9 +73,9 @@ class HomeController extends Controller
     }
     $this->model = new UsersModel($this->db);
     $data = ['title' => 'Inscription'];
-    //SI LE FORM A ETE ENVOYE
+    //Si le formulaire a été envoyé  - If the form have been sent
     if (!empty($_POST)){
-      //condition ? si vraie : si fausse
+      //condition ? si vraie : si fausse - condition ? if true : if false
       if(!isset($_POST["rgpd"]) || $_POST["rgpd"] !== "accepted"){
         $this->addLog("Tu dois accepter les conditions stp", "alert-warning");
         $rgpd = null;
@@ -99,7 +104,7 @@ class HomeController extends Controller
       $email = isset($_POST["email"]) ? strip_tags($_POST["email"]) : null;
       $password = isset($_POST["password"]) ? strip_tags($_POST["password"]) : null;
       $profile = isset($_POST["profile"]) ? strip_tags($_POST["profile"]) : null;
-      //verifier qu'aucun champs n'est nul
+      //verifier qu'aucun champs n'est nul - Checking that any fields are null
       if (is_null($name) || is_null($surname) || is_null($company) || is_null($role)
       || is_null($address) || is_null($zipcode) || is_null($city) || is_null($phone)
       || is_null($email) || is_null($password) || is_null($role) || is_null($profile)|| is_null($rgpd)) {
@@ -138,7 +143,7 @@ class HomeController extends Controller
           $res = $this->model->createNewUser($name, $surname, $company, $address, $zipcode,	$city,	$phone,	$email,	$password, $role, $profile, $lat, $lng,$recoveryToken);
           if($res) 
           { 
-            //redirection accueil + message session
+            //redirection accueil + message session - Redirect to home + session message
             $this->addLog("Inscription ok, connecte-toi ", "alert-success");
             $this->sendMail($email,"Inscription sur 3Flans, 6Choux","Cher ${name}, ton inscription est bien prise en compte");
             header("Location: index.php?controller=home&action=login");
@@ -156,7 +161,7 @@ class HomeController extends Controller
   public function login()
   {
     $this->model = new UsersModel($this->db);
-    //Si connecté => home
+    //Si connecté => home - If connected redirect home
     if (isset($_SESSION["user"]))
     {
       header("Location: index.php?controller=users&action=index");
@@ -190,6 +195,7 @@ class HomeController extends Controller
     $this->view->render("home/login", $data);
   }
 
+  //Fonction mot de passe oublié (token) - Forget password function (token)
   public function forgetPassword(){
    if(!empty($_POST["email"])){
      $token = uniqid();
@@ -197,7 +203,7 @@ class HomeController extends Controller
      $this->model = new UsersModel($this->db);
      $res = $this->model->setToken($email, $token);
      if($res){
-        //envoi mail auto
+        //envoi mail auto - Send automatic mail  
         $to = $email;
         $subject = "Réinitialisation de ton mot de passe" ;
         $url ="https://" . $_SERVER["HTTP_HOST"] . "/index.php?controller=home&action=updatePassword&param=" . $token;
@@ -211,7 +217,7 @@ class HomeController extends Controller
     $this->view->render("home/forgetpassword",["title"=>"Mot de passe oublié"]); 
   }
 
-  
+  // Mise à jour du mot de passe - Update password
   public function updatePassword() {
     $data =  ["title"=>"Mot de passe oublié"];
     $this->model = new UsersModel($this->db);

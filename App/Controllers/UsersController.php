@@ -2,6 +2,7 @@
 namespace App\Controllers;
 use App\Models\UsersModel;
 
+//Héritage de class, class fille hérite des méthodes de class Controller mère/parent - Child class extends parent class 
 class UsersController extends Controller
 {
   public function __construct()
@@ -20,6 +21,7 @@ class UsersController extends Controller
     $this->view->render("users/index", $data);
   }
 
+  //Fonction déconnexion - Logout function
   public function logout()
   {
     unset($_SESSION["user"]);
@@ -27,6 +29,7 @@ class UsersController extends Controller
     header("Location: index.php?controller=home&action=login");
   }
 
+  //Mise à jour profil utilisateur - Update user infos
   public function updateUser(){
     if(!empty($_POST)){
       $fields=[
@@ -40,7 +43,7 @@ class UsersController extends Controller
         'profile',
       ];
       $fullAddressChanged = false;
-      //On vérifie si tous les champs sont remplis
+      //Vérification que tous les champs sont remplis - Check if all fields are filled
       foreach($fields as $field){
         if(!isset($_POST[$field]) || empty($_POST[$field])){
           $this->addLog('Oh oh un ou plusieurs champs sont incorrects ','alert-danger');
@@ -107,7 +110,7 @@ class UsersController extends Controller
     if(isset($_POST['password'])  && !empty($_POST['password'])){
       $_SESSION['user']['password'] = password_hash(strip_tags($_POST['password']), PASSWORD_DEFAULT);     
     }
-    //mise à jour utilisateur  
+    //mise à jour utilisateur  - Update user
     $this->model->updateUser($_SESSION['user']['id'], $_SESSION['user']['name'], $_SESSION['user']['surname'], $_SESSION['user']['company'], $_SESSION['user']['address'], $_SESSION['user']['zip_code'], $_SESSION['user']['city'],	$_SESSION['user']['phone'],	$_SESSION['user']['email'],	$_SESSION['user']['password'], $_SESSION['user']['profile'], $lat, $lng);
     $this->addLog("Super ton profil est à jour", "alert-success");
     header("Location: index.php?controller=users&action=index");
