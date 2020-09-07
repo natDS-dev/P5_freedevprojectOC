@@ -3,6 +3,7 @@ session_start();
 require_once '../vendor/autoload.php';
 use App\Controllers\HomeController;
 
+//Format d'url : index.php?controller=x&action=y&param=z  
 $controllerName = isset($_GET["controller"]) ? $_GET["controller"] : "";
 if(!empty($controllerName))
 {  

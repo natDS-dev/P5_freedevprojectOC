@@ -38,7 +38,7 @@ class AddsController extends Controller
     echo json_encode(array_values($mapAdds)); 
   }
 
-  //Offre paniers - basket adds
+  //Page index(carte) offre paniers -Map page for basket adds
   public function index()
   {
     $data = ['title' => 'Offres'];
@@ -46,7 +46,7 @@ class AddsController extends Controller
     $this->view->render('adds/index', $data);
   }
 
-  //Fonction création ou édition d'annonce selon si l'id est existant et correct - Create => or edit add if id is set and correct
+  //Fonction création ou édition d'annonce - Create or edit add
   public function create()
   {
      //Vérification du role de l'utilisateur => Les producteurs ne peuvent pas créer d'annonce - Check user role => professionals could'nt create add (only basket)
@@ -56,7 +56,7 @@ class AddsController extends Controller
       header("Location: index.php?controller=home&action=index");
       exit;
     }
-    //variable data contenant le titre de la page - Data variable with page title
+    
     $data = ['title' => 'Créer une annonce'];
    
     //Si les champs de création d'annonce ne sont pas vides - If adds form fields aren't empty
@@ -69,9 +69,9 @@ class AddsController extends Controller
       
       //Si 1 (ou plusieurs) champs est nul - if 1 or few fields are null
       if(is_null($category) || is_null($description) || is_null($basket_size) || is_null($basket_quantity))
-      {//=> renvoit d'un message d'erreur - error message 
+      {//=> renvoi d'un message d'erreur - error message 
         $this->addLog("Oups tous les champs sont obligatoires","alert-danger");
-        //Clé supplémentaire au tableau data pour pré-remplissage auto des champs - Additionnal key for automatic filling fields
+        //Clé supplémentaire au tableau data pour pré-remplissage auto des champs en cas d'erreur sur formulaire - Additionnal key for automatic filling fields in case of error
         $data['add']= [
           "category" => (int)$_POST["category"],
           "title" => $_POST["title"],

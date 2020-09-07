@@ -19,7 +19,7 @@ class BasketsModel extends Model
         }
     }
 
-    //Renvoi 5 dernièrs paniers de manière générale - Sends 5 last baskets
+    //Renvoit les 5 derniers paniers de manière générale - Sends 5 last baskets
     public function findLastBaskets()
     {
         $sql='SELECT baskets.*,users.company,users.address FROM `baskets` INNER JOIN `users` ON users.id=baskets.company_id WHERE baskets.available=1 LIMIT 5';

@@ -5,7 +5,7 @@ close => open!!
 -Création de paniers avoir les tailles
 -Validation des annonces /paniers avant publication
 -Messagerie interne
--Localisation non obligatoire
+-Localisation non obligatoire =>par défaut
 ------------------------------------------------------------------
 CORE
 ---------------------
@@ -16,6 +16,7 @@ FONCTIONNALITES
 (!!Réflexion => le producteur doit pouvoir dire il y a ceci dans un panier S, cela dans un panier M, et L"!!)
 1-revoir RGPD
 !!!2-Limiter caractères annonces + paniers!!!
+3- Enlever "QUI" ou compléter
 
 --------------------------------------
 Validateurs w3c achecker
@@ -25,9 +26,7 @@ OK sauf -> CSS "scrollbar-color" et bootstrap
 
 CSS / MISE EN PAGE - CONTENU
 
-1-"Aucune annonce à afficher" => dans mes annonces particuliers/pro
-
-!!revoir page myadds formulaire de modification =>responsive !!!!
+!!revoir page INFOS CONTENU !!!!
 
 1-Créer pages statiques : infos / / contact + contenu pour toutes
 2- Contenu page home
@@ -36,21 +35,7 @@ Particuliers : - liste annonces / liste offres répondus
 Professionnels : -liste paniers dispo + paniers "brouillon" / liste paniers commandés =validations
 4-modifier les noms balises menu principal "div" etc
 
-
-
-
-
-<?php
-  if (!empty($_POST['email'])
-  && !empty($_POST['name'])
-  && !empty($_POST['message'])) {
-    //Email information
-    $adminMail = "natachadesmet@yahoo.fr";
-    $name = strip_tags($_POST['name']);
-    $email = strip_tags($_POST['email']);
-    $message = strip_tags($_POST['message']);
-    
-    //send email
-    mail($adminMail, "Envoi de mail automatique via formulaire de contact", $message . ' - ' . $name, "From:" . $email);
-    header('Location: ');
-  } +ADDlOG
+DOSSIER
+Parler de TWIG et Composer
+ajouter des screen responsive
+ajout fonctionnalités futures

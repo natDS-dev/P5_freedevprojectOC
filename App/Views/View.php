@@ -1,6 +1,5 @@
 <?php
 namespace App\Views;
-
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 
@@ -30,6 +29,7 @@ class View
         echo $this->twigEnvironment->render($template . ".html.twig", $data);
     }
 
+    //Message de log/alert - Main log message function
     public function addLog($message, $alertBootstrap)
     {
         if (!isset($_SESSION["logs"])) 

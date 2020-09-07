@@ -1,4 +1,5 @@
 {% extends "admin_template.html.twig" %}
+{# Vue carte des annonces - Map adds view #}
 {% block stylesheet %}
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -48,14 +49,12 @@
             <input type="hidden" id="creator_id"/>
             <button class="btn btn-info">Je m'engage</button> 
         </form>
-      
-
     </div> 
 </div>
 {% endblock %}          
 
 {% block javascript %}
-     <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script> 
+    <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script> 
     <script src="js/map.js"></script> 
     <script>new Map("index.php?controller=adds&action=getJSON", "images/map/marker_indiv.png");</script>
 {% endblock %}

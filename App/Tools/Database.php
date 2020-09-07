@@ -3,6 +3,7 @@ namespace App\Tools;
 use PDO;
 use PDOException;
 
+//Connexion bdd via interface PDO- DB connect through PDO interface
 class Database 
 {
     private $pdo;

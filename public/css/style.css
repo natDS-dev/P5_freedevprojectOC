@@ -222,12 +222,12 @@ header {
 
 .custom_animation_home {
   position: relative;
-  animation-name: example;
+  animation-name: home_animation;
   animation-duration: 2s;  
   animation-delay: 1s; 
 }
 
-@keyframes example {
+@keyframes home_animation {
   from {right: -150px;}
   to {right: 0px;}
 }
@@ -241,12 +241,12 @@ header {
 /*Infos*/
 .custom_animation_infos {
   position: relative;
-  animation-name: example;
+  animation-name: infos_animation;
   animation-duration: 2s;  
   animation-delay: 1s; 
 }
 
-@keyframes example {
+@keyframes infos_animation {
   from {left: -150px;}
   to {left: 0px;}
 }
