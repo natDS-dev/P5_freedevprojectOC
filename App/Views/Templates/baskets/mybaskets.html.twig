@@ -9,39 +9,38 @@
     </div>  
         
     <div class="custom_admin_adds_table row h-75 justify-content-center align-items-center">
-        
         <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr class="text-info">
-                    <th scope="col">#</th>
-                    <th scope="col">Catégorie</th>
-                    <th scope="col">TITRE</th>
-                    <th scope="col">DESCRIPTION</th>
-                    <th scope="col">DISPONIBLE ?</th>
-                    <th scope="col">ACTION ?</th>
-                </tr>
-            </thead>
-            <tbody>
+          <table class="table">
+              <thead>
+                  <tr class="text-info">
+                      <th scope="col">#</th>
+                      <th scope="col">Catégorie</th>
+                      <th scope="col">TITRE</th>
+                      <th scope="col">DESCRIPTION</th>
+                      <th scope="col">DISPONIBLE ?</th>
+                      <th scope="col">ACTION ?</th>
+                  </tr>
+              </thead>
+              <tbody>
+              {% for basket in myBasketsPage %}
                 <tr>                
-                    {% for basket in myBasketsPage %}
-                    <td>{{basket.id}}</td>
-                    <td>{{basket.select_value}}</td>
-                    <td>{{basket.title}}</td>
-                    <td>{{basket.description}}</td>
-                    <td>{% if basket.available is same as(0) %}Non{% else %}Oui{% endif %}</td>
-                    <td>
-                      <p>
-                          <a href="#" class="edit_basket">Modifier</a>
-                      </p>
-                      <p>
-                          <a href="index.php?controller=baskets&action=deleteBasket&param={{basket.id}}" class="delete_basket">Supprimer</a>
-                      </p>
-                    </td>
+                  <td>{{basket.id}}</td>
+                  <td>{{basket.select_value}}</td>
+                  <td>{{basket.title}}</td>
+                  <td>{{basket.description}}</td>
+                  <td>{% if basket.available is same as(0) %}Non{% else %}Oui{% endif %}</td>
+                  <td>
+                    <p>
+                      <a href="#" class="edit_basket">Modifier</a>
+                    </p>
+                    <p>
+                      <a href="index.php?controller=baskets&action=deleteBasket&param={{basket.id}}" class="delete_basket">Supprimer</a>
+                    </p>
+                  </td>
                 </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+              {% endfor %}
+              </tbody>
+          </table>
         </div>
     </div>              
     
@@ -63,9 +62,6 @@
     </div>
 </div>
 
-
-
-
 {% endblock %}
 
 {% block section1R %}
@@ -74,6 +70,7 @@
     <div class="col-md-12 m-auto">                 
       <form class="hidden_form " method="POST" action="index.php?controller=baskets&action=updateBasket">
       <h3>Modifier un panier</h3> 
+      <div class="text-warning bg-light" id="formAlert"></div>
         <div class="form-group">
           <label for="category"></label>
           <select class="form-control" name="category" id="category" required >
@@ -82,7 +79,7 @@
             {% endfor %}            
           </select>
           <label for="title"></label>
-          <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{basket.title}}" />
+          <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{basket.title}}" required/>
         </div>
         <div class="form-group">
           <label for="description"></label>

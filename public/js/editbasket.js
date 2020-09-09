@@ -5,8 +5,20 @@ const formTitle = document.getElementById("title"),
     formOptions = document.querySelectorAll("select#category option"),
     formDescription = document.getElementById("description"),
     formAvailable = document.querySelectorAll("select#available option"),
-    formId = document.getElementById("id");
+    formId = document.getElementById("id"),
+    formAlert = document.getElementById("formAlert");
 
+//Vérification données formulaire de modification paniers - Verify form datas when baskets are modified
+document.querySelector("form").addEventListener("submit", e => {
+    if (formTitle.value === "" || formTitle.value.length > 35) {
+        e.preventDefault();
+        formAlert.innerText = "Le titre est obligatoire et ne doit pas être supérieur à 35 caractères ";
+    }
+    if (formDescription.value === "" || formDescription.value.length > 255) {
+        e.preventDefault();
+        formAlert.innerText = "La description est obligatoire et ne doit pas être supérieur à 255 caractères ";
+    }
+});
 //gestion du clic
 editButtons.forEach(button => {
     button.addEventListener("click", e => {

@@ -1,7 +1,7 @@
 {% extends "admin_template.html.twig" %}
 {% block section1L %}
 
-<div class="container w-75 h-50" >          
+<div class="container w-75" >          
   <div class="row h-100 text-center" >
     <div class="col-md-12 m-auto">
       <h3>Créer une annonce c'est simple !</h3>
@@ -30,12 +30,12 @@
               {% endfor %}            
             </select>
             <label for="title"></label>
-            <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" />
+            <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" maxlength="100" required/>
           </div>
           <p>Si localisation différente de l'adresse enregistrée, précise cela dans la description</p>          
           <div class="form-group">
             <label for="description"></label>
-            <textarea class="form-control" placeholder="Description" name="description" id="description" required>{{add.description}}</textarea>
+            <textarea class="form-control" placeholder="Description" name="description" id="description" maxlength="255" required>{{add.description}}</textarea>
           </div>
           <p>Rétribution :</p>
           <div class="form-group col-12 d-flex p-0 text-center">

@@ -233,7 +233,7 @@ header {
 }
 
 .custom_bg_home_inscription_title{
-  background-color: #ffffffc9;
+  background-color: #ffffff;
 }
 
 /*SINGLE PAGES (info - qui - contact - mentions légales)*/
@@ -249,6 +249,10 @@ header {
 @keyframes infos_animation {
   from {left: -150px;}
   to {left: 0px;}
+}
+/*Qui*/
+.custom_who{
+  overflow-y:scroll;
 }
 
 /*Mentions légales*/

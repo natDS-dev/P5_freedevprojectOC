@@ -6,8 +6,32 @@ const formTitle = document.getElementById("title"),
     formDescription = document.getElementById("description"),
     formBasketSize = document.getElementById("basket_size"),
     formBasketQuantity = document.getElementById("basket_quantity"),
-    formId = document.getElementById("id");
+    formId = document.getElementById("id"),
+    formAlert = document.getElementById("formAlert");
 
+
+// Vérification données formulaire de modification annonces - Verify form datas when adds are modified
+document.querySelector("form").addEventListener("submit", e => {
+    if (formTitle.value === "" || formTitle.value.length > 35) {
+        e.preventDefault();
+        formAlert.innerText = "Le titre est obligatoire et ne doit pas être supérieur à 35 caractères ";
+    }
+    if (formDescription.value === "" || formDescription.value.length > 255) {
+        e.preventDefault();
+        formAlert.innerText = "La description est obligatoire et ne doit pas être supérieur à 255 caractères ";
+    }
+
+    if (formBasketSize.value === "") {
+        e.preventDefault();
+        formAlert.innerText = "La taille de panier est obligatoire";
+    }
+
+    if (formBasketQuantity.value === "" || formBasketQuantity.value < 1) {
+        e.preventDefault();
+        formAlert.innerText = "Le nombre de panier est obligatoire";
+    }
+
+});
 //gestion du clic
 editButtons.forEach(button => {
     button.addEventListener("click", e => {

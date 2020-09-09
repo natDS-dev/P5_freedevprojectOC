@@ -17,8 +17,8 @@
     <div class="container w-100 h-100" >          
       <div class="custom_bg_s1_col2 row h-100 text-center bg-light">
         <div class="col-lg-12 m-auto">
-          <h2 class="text-primary">Pour t'inscrire rien de plus simple chouchou !</h2>
-          <p>Clique sur le statut qui te correspond</p>  
+          <h2 class="text-primary">Inscris-toi en 2mn !</h2>
+          <p class="mb-1">Clique sur le statut qui te correspond</p>  
           <div class="h-25" >
             <button class= "btn btn-primary mb-1" id ="btn_individual">Particulier</button> 
             <button class= "btn  btn-secondary" id ="btn_professional">Professionnel</button> 
@@ -32,7 +32,6 @@
                   <label for="surname"></label>
                   <input type="text" placeholder="Votre nom" name="surname" id="surname" value="{{ newUser.surname}}" required />
                 </div>
-                
                 <div class="form-group mb-1">
                   <label for="address"></label>
                   <input type="text" placeholder="Adresse" name="address" id="address" value="{{newUser.address}}"  required />
@@ -41,7 +40,7 @@
                   <label for="city"></label>
                   <input type="text" placeholder="Ville" name="city" id="city" value="{{newUser.city}}" required />
                 </div>
-                <div class="form-group mb-1">
+                <div class="form-group d-flex justify-content-center mb-1">
                   <label for="phone"></label>
                   <input type="text" placeholder="n° tel" name="phone" id="phone" value="{{newUser.phone}}" required />
                   <label for="email"></label>
