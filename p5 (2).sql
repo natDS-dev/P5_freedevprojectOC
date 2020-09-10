@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 02 sep. 2020 à 08:10
+-- Généré le :  jeu. 10 sep. 2020 à 12:46
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `adds` (
   PRIMARY KEY (`id`),
   KEY `creator_id` (`creator_id`),
   KEY `category` (`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `adds`
@@ -51,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `adds` (
 INSERT INTO `adds` (`id`, `created_at`, `title`, `category`, `description`, `closed`, `creator_id`, `basket_size`, `basket_quantity`) VALUES
 (1, '2020-08-30 11:31:34', 'Taille de haie', 1, 'Bonjour, j\'aurais besoin d\'une personne pour tailler la haie de laurier entourant mon jardin. Taille haie à disposition.Merci', 1, 2, 2, 2),
 (3, '2020-08-31 11:57:56', 'Rédaction lettre', 5, 'Bonjour, j\'aurais besoin d\'une personne pour m\'aider à rédiger un courrier administratif.Je vous remercie', 0, 2, 2, 1),
-(4, '2020-08-31 12:20:42', 'Pose de parquet ', 2, 'Bonjour, j\'aurais besoin d\'un bon bricoleur pouvant m\'aider à poser du parquet dans un salon de 40m2.Merci', 0, 4, 3, 2);
+(4, '2020-08-31 12:20:42', 'parquet', 2, 'Bonjour, j\'aurais besoin d\'un bon bricoleur pouvant m\'aider à poser du parquet dans un salon de 40m2.Merci', 0, 4, 3, 5),
+(5, '2020-09-09 09:06:51', 'Installation imprimante', 6, 'Bonjour, j\'ai besoin d\'aide pour installer mon imprimante.Merci bien', 0, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -67,17 +68,18 @@ CREATE TABLE IF NOT EXISTS `baskets` (
   `category` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `available` tinyint(1) NOT NULL DEFAULT '1',
+  `picture` varchar(255) NOT NULL DEFAULT 'default.picture.png',
   PRIMARY KEY (`id`),
   KEY `company_id` (`company_id`),
   KEY `category` (`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `baskets`
 --
 
-INSERT INTO `baskets` (`id`, `company_id`, `title`, `category`, `description`, `available`) VALUES
-(1, 3, 'Fruits de saison', 11, 'Panier taille S :  6 pommes -  100g de framboises / panier taille M : 10 pommes - 150g de framboises / panier taille L : 15 pommes - 200g framboises', 1);
+INSERT INTO `baskets` (`id`, `company_id`, `title`, `category`, `description`, `available`, `picture`) VALUES
+(1, 3, 'Fruits de saison', 11, 'Panier taille S : 5 pommes - 100g de framboises / panier taille M : 10 pommes - 150g de framboises / panier taille L : 15 pommes - 200g framboises', 1, 'basket_1.png');
 
 -- --------------------------------------------------------
 

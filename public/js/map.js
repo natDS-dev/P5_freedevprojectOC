@@ -9,6 +9,7 @@ class Map {
         this.markerCluster = new L.markerClusterGroup();
         this.iconMarker = marker;
         this.req = urlSource;
+        //Appel ajax pour affichage marqueurs et données popup - Ajax call to display markers & adds datas
         this.ajaxGet(this.req, (response) => {
             JSON.parse(response).forEach((adds) => {
                 let lat = adds[0].lat;
@@ -38,14 +39,12 @@ class Map {
                 });
                 this.marker.bindPopup(popup);
             });
-
         });
         document.addEventListener("click", e => {
             if (e.target.classList.contains("add_link")) {
                 e.preventDefault();
                 let id = e.target.id;
                 document.getElementById("current_add_name").innerText = this.adds[id].name;
-
                 let isBasket = (this.adds[id].company_id !== undefined);
                 document.getElementById("current_add_title").innerText = this.adds[id].title;
                 document.getElementById("current_add_category").innerText = this.adds[id].select_value;
@@ -69,6 +68,9 @@ class Map {
                 } else {
                     document.getElementById("current_add_zip_city").innerText = this.adds[id].address + " - " + this.adds[id].zip_code + " " + this.adds[id].city;
                     document.getElementById("current_add_description").innerText = "Nous proposons : " + this.adds[id].description;
+                    const img = document.getElementById("current_add_picture");
+                    img.src = "images/uploads/basketPictures/" + this.adds[id].picture;
+                    img.style.display = "initial";
                 }
             }
         })
@@ -90,5 +92,3 @@ class Map {
         req.send(null);
     }
 }
-
-

@@ -63,17 +63,22 @@ class BasketsModel extends Model
     }
 
     //Mise à jour d'un panier - Update one basket
-    public function editBasket($id,$category,$title,$description,$available)
-    {
-        $sql='UPDATE `baskets` SET title=:title,category=:category, description=:description, available=:available WHERE id=:id';
-        $query=$this->db->getPDO()->prepare($sql);
-        $res= $query->execute([
+    public function editBasket($id,$category,$title,$description,$available,$picture)
+    {   $params=[
             "id" => $id,
             "title" => $title,
             "category" => $category,
             "description" => $description,
             "available" => $available
-        ]);
+        ]; 
+        $sql='UPDATE `baskets` SET title=:title,category=:category, description=:description, available=:available';
+        if(!is_null($picture)){
+            $sql.=',picture=:picture';
+            $params["picture"]=$picture;
+        } 
+        $sql.=' WHERE id=:id';
+        $query=$this->db->getPDO()->prepare($sql);
+        $res= $query->execute($params);
         return $res;
     }
 

@@ -1,18 +1,18 @@
 {% extends "admin_template.html.twig" %}
 
 {% block section1L %}
-<div class="container-fluid h-100 pt-5" >          
-  <div class="container mt-3 mx-auto">
-    <h3 class="custom_engraved_text text-center">Mes annonces</h3>
-    <p class="mb-1">Nombre total d'annonces : {{myAddsTotal}}
-    </p>
-  </div>  
-  {% if myAddsTotal is same as(0) %}
-    <h3 class="text-center">Aucune annonce en cours</h3>
-  {% else %}
-    <div class="custom_admin_adds_table row h-75 justify-content-center align-items-center">
-      <div class="table-responsive">
-        <table class="table">
+  <div class="container-fluid h-100 pt-5" >          
+    <div class="container mt-3 mx-auto">
+      <h3 class="custom_engraved_text text-center">Mes annonces</h3>
+      <p class="mb-1">Nombre total d'annonces : {{myAddsTotal}}
+      </p>
+    </div>  
+    {% if myAddsTotal is same as(0) %}
+      <h3 class="text-center">Aucune annonce en cours</h3>
+    {% else %}
+      <div class="custom_admin_adds_table row h-75 justify-content-center align-items-center">
+        <div class="table-responsive">
+          <table class="table">
             <thead>
                 <tr class="text-info">
                     <th scope="col">#</th>
@@ -25,65 +25,64 @@
                 </tr>
             </thead>
             <tbody> 
-            {% for add in myAddsPage %}
-              <tr>           
-                <td>{{add.id}}</td>
-                <td>{{add.select_value}}</td>
-                <td>{{add.title}}</td>
-                <td>{{add.description}}</td>
-                <td>
-                  {% if add.basket_size == 1 %}S{% elseif add.basket_size == 2 %}M{% else %}L{% endif %}
-                </td>
-                <td>{{add.basket_quantity}}</td>
-                <td>
-                  {% if add.closed is same as(0) %}
-                    <p>
-                      <a href="#" class="edit_add">Modifier</a>
-                    </p>
-                    <p>
-                      <a href="index.php?controller=adds&action=deleteAdd&param={{add.id}}" class="delete_add">Supprimer</a>
-                    </p>
-                  {% else %}  
+              {% for add in myAddsPage %}
+                <tr>           
+                  <td>{{add.id}}</td>
+                  <td>{{add.select_value}}</td>
+                  <td>{{add.title}}</td>
+                  <td>{{add.description}}</td>
+                  <td>
+                    {% if add.basket_size == 1 %}S{% elseif add.basket_size == 2 %}M{% else %}L{% endif %}
+                  </td>
+                  <td>{{add.basket_quantity}}</td>
+                  <td>
+                    {% if add.closed is same as(0) %}
+                      <p>
+                        <a href="#" class="edit_add">Modifier</a>
+                      </p>
+                      <p>
+                        <a href="index.php?controller=adds&action=deleteAdd&param={{add.id}}" class="delete_add">Supprimer</a>
+                      </p>
+                    {% else %}  
                       <p>Cette annonce est terminée</p> 
-                  {% endif %}
+                    {% endif %}
               {% else %}
-                  <p>Aucune annonce</p> 
-                </td>
+                    <p>Aucune annonce</p> 
+                  </td>
                 </tr>
-            {% endfor %}
+              {% endfor %}
             </tbody>
-        </table>
+          </table>
         </div>
-    </div>              
-    
-    <div class="row justify-content-center mb-2"> 
+      </div>              
+      
+      <div class="row justify-content-center mb-2"> 
         <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item{% if previousPage is same as(0) %} disabled{% endif %}">
-                <a class="page-link" {% if previousPage is same as(0) %}tabindex="-1"{% endif %} href="index.php?controller=adds&action=myAdds&param={{previousPage}}">Previous</a>
-                </li>
-                
-                <li class="page-item">
-                <a class="page-link" href="#">{{page}}</a>
-                </li>
-                <li class="page-item{% if nextPage is null %} disabled{% endif %}">
-                <a class="page-link" {% if nextPage is null %}tabindex="-1"{% endif %} href="index.php?controller=adds&action=myAdds&param={{nextPage}}">Next</a>
-                </li>
-            </ul>
+          <ul class="pagination">
+            <li class="page-item{% if previousPage is same as(0) %} disabled{% endif %}">
+              <a class="page-link" {% if previousPage is same as(0) %}tabindex="-1"{% endif %} href="index.php?controller=adds&action=myAdds&param={{previousPage}}">Previous</a>
+            </li>            
+            <li class="page-item">
+              <a class="page-link" href="#">{{page}}</a>
+            </li>
+            <li class="page-item{% if nextPage is null %} disabled{% endif %}">
+              <a class="page-link" {% if nextPage is null %}tabindex="-1"{% endif %} href="index.php?controller=adds&action=myAdds&param={{nextPage}}">Next</a>
+            </li>
+          </ul>
         </nav>
-    </div>
-  {% endif %}
-</div>
+      </div>
+    {% endif %}
+  </div>
 {% endblock %}
 
 {% block section1R %}
-<div class="container">          
-  <div class="row h-100 text-center" id="custom_bg_s1_col2">
-    <div class="col-md-12 m-auto">                 
-      <form class="hidden_form " method="POST" action="index.php?controller=adds&action=updateAdd">
-      <h3>Modifier une annonce</h3> 
-      <div class="text-warning bg-light" id="formAlert"></div>
-        <div class="form-group">
+  <div class="container">          
+    <div class="row h-100 text-center" id="custom_bg_s1_col2">
+      <div class="col-md-12 m-auto">                 
+        <form class="hidden_form " method="POST" action="index.php?controller=adds&action=updateAdd">
+          <h3>Modifier une annonce</h3> 
+          <div class="text-warning bg-light" id="formAlert"></div>
+          <div class="form-group">
             <label for="category"></label>
             <select class="form-control" name="category" id="category" required >
               {% for category in categories %}
@@ -93,37 +92,34 @@
             <label for="title"></label>
             <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{add.title}}" required>
           </div>
-        {# <p>Si l'adresse pour rendre le service est différente de ton adresse enregistrée, précise cela dans la description</p> #}
-        
-        
-        <div class="form-group">
-          <label for="description"></label>
-          <textarea class="form-control" placeholder="Description" name="description" id="description" required>{{add.description}}</textarea>
-        </div>
-<div class="container-fluid d-flex justify-content-around">
-        <div class="form-group">
-          <label for="basket_size">Taille panier</label>
-          <select class="form-control" name="basket_size" id="basket_size" required > 
-            <option value="1"{% if add.basket_size == 1 %} selected{% endif %}>S</option>
-            <option value="2"{% if add.basket_size == 2 %} selected{% endif %}>M</option>
-            <option value="3"{% if add.basket_size == 3 %} selected{% endif %}>L</option>
-          </select>
-        </div>
-        <div class="form-group">  
-          <label for="basket_quantity">Nombre panier(s)</label>
-          <input class="form-control" type="number" min="1" name="basket_quantity" value="{{add.basket_quantity}}" id="basket_quantity" required />
-        </div>
-</div>
-        <div class="form-group">  
-          <input type="hidden" name="id" id="id" value="{{add.id}}"/>
-        </div>
+          <div class="form-group">
+            <label for="description"></label>
+            <textarea class="form-control" placeholder="Description" name="description" id="description" required>{{add.description}}</textarea>
+          </div>
+          <div class="container-fluid d-flex justify-content-around">
+            <div class="form-group">
+              <label for="basket_size">Taille panier</label>
+              <select class="form-control" name="basket_size" id="basket_size" required > 
+                <option value="1"{% if add.basket_size == 1 %} selected{% endif %}>S</option>
+                <option value="2"{% if add.basket_size == 2 %} selected{% endif %}>M</option>
+                <option value="3"{% if add.basket_size == 3 %} selected{% endif %}>L</option>
+              </select>
+            </div>
+            <div class="form-group">  
+              <label for="basket_quantity">Nombre panier(s)</label>
+              <input class="form-control" type="number" min="1" name="basket_quantity" value="{{add.basket_quantity}}" id="basket_quantity" required />
+            </div>
+          </div>
+          <div class="form-group">  
+            <input type="hidden" name="id" id="id" value="{{add.id}}"/>
+          </div>
           <button class="btn btn-primary" type="submit">Valider</button>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}
 
 {% block javascript %}
-<script src="js/editadd.js"></script> 
+  <script src="js/editadd.js"></script> 
 {% endblock %}

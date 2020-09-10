@@ -204,10 +204,6 @@ header {
   box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
 }
 
-.custom_bg_s1_col2 {
-
-}
-
 .custom_bg_s2_col1,.custom_bg_s2_col2 {
   border-radius:10% 0;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.6);
@@ -232,12 +228,11 @@ header {
   to {right: 0px;}
 }
 
-.custom_bg_home_inscription_title{
+.custom_bg_home_inscription_title {
   background-color: #ffffff;
 }
 
 /*SINGLE PAGES (info - qui - contact - mentions légales)*/
-
 /*Infos*/
 .custom_animation_infos {
   position: relative;
@@ -300,11 +295,6 @@ header {
   background-size: cover;
 }  
 
-/*Admin section 1 left*/
-.custom_admin_section_bg_left  {
-  
-}
-
 /*Admin index => profile */
 #custom_admin_profile_s1_col1 {
   width:13em;
@@ -344,10 +334,6 @@ header {
   margin: 8px;
 }
 
-.custom_admin_section_bg_right  {
-  
-}
-
 .custom_admin_bg_s1col2 {
   background: url("../images/background/nature_bg.png");
   background-repeat: no-repeat;
@@ -363,7 +349,7 @@ header {
   z-index: 1200;
  }
 
- .custom_admin_window {
+.custom_admin_window {
   position: absolute;
   top: 20vh;
   left: 0;
@@ -390,6 +376,18 @@ header {
   background-position: bottom;
 }
 
+/*Admin edit baskets*/
+.custom_edit_picture {
+  max-width : 100px;
+  height: auto;
+}
+
+/*Admin map */
+#current_add_picture {
+  display: none;
+  max-width: 100px;
+  height: auto;
+}
  
  /*MAP*/
 #map {
@@ -398,8 +396,8 @@ header {
   box-shadow: #54452c 3px 3px 3px;
 }
 
-.leaflet-popup-content
-{ max-width: 220px;
+.leaflet-popup-content {
+  max-width: 220px;
   max-height: 250px;
   overflow-y: scroll;
 }
@@ -413,8 +411,6 @@ header {
 .custom_dev_section {
   height:85vh;
   margin-top: 5vh;
-  /* background: url("../images/background/dev_bg2.png") no-repeat center;
-  background-size: cover; */
 }
 
 .custom_dev_dashboard_card {
@@ -423,55 +419,42 @@ header {
 
 /*MEDIA QUERRIES*/
 /*My adds table*/
-
 @media screen and (max-width: 1500px) {
-.custom_admin_adds_table {
-  overflow-y: scroll;
-}
-
+  .custom_admin_adds_table {
+    overflow-y: scroll;
+  }
 }
 
 @media screen and (max-width: 768px) {
-
-table thead
-{
-  border: none;
-  clip: rect(0,0,0,0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-    
-table tr 
-{    
-  display: block;
-  margin-bottom: .625em;
-}
-    
-table td 
-{
-  display: block;
-  font-size: .8em;
-  text-align: right;
-}
-    
-    
-table td::before 
-{   
-  content: attr(data-label);
-  float: left; 
-  text-transform: uppercase;
+  table thead {
+    border: none;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+      
+  table tr {    
+    display: block;
+    margin-bottom: .625em;
+  }
+      
+  table td {
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+      
+  table td::before {   
+    content: attr(data-label);
+    float: left; 
+    text-transform: uppercase;
+  } 
+      
+  table td:last-child {
+    border-bottom: 0;
+  }
 } 
-    
-    
- table td:last-child 
-{
-  border-bottom: 0;
-}
-
-} 
-
-

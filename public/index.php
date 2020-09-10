@@ -1,5 +1,6 @@
 <?php
 session_start();
+//Appel au dossier vendor et au fichier autoload pour le chargement automatique des class par Composer - Ask vendor folder & autoload file for Composer autoloading classes
 require_once '../vendor/autoload.php';
 use App\Controllers\HomeController;
 

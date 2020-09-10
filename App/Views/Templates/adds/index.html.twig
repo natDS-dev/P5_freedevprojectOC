@@ -12,45 +12,45 @@
 {% endblock %}
 
 {% block section1L %}
-<div class="container w-100 h-75 ">
-    <div class="row justify-content-center align-items-center m-3">
-        <h2 class="custom_engraved_text text-center">Demandes de coup d'pouce</h2>
+    <div class="container w-100 h-75 ">
+        <div class="row justify-content-center align-items-center m-3">
+            <h2 class="custom_engraved_text text-center">Demandes de coup d'pouce</h2>
+        </div>
+        <div class="row justify-content-center align-items-center m-3" id="map"></div>
     </div>
-    <div class="row justify-content-center align-items-center m-3" id="map"></div>
-</div>
 {% endblock %}
 
 {% block section1R %}
-<div class="row h-75 w-100">
-    <div class="container-fluid d-flex flex-column justify-content-center mt-2 p-0 h-100 w-100">
-        <h1 class="custom_engraved_text text-center"  id="current_add_name">Clique sur un marqueur...</h1>
-        <h3 class="custom_engraved_text text-center"  id="current_add_category">Puis sur "voir" pour lire l'annonce</h3>
-        <h3 class="custom_engraved_text text-light" id="current_add_title"></h3>
-        <h5 class="custom_engraved_text text-light" id="current_add_description">Si tu es sûr(e) de t'engager pour la mission proposée : Choisis le producteur chez qui tu prendras ta rétribution, clique sur "Je m'engage".Un email vous sera envoyé à chacun.</h5>
-        <h5 class="custom_engraved_text text-light" id="current_add_nb_basket"></h5>
-        <h5 class="custom_engraved_text text-light" id="current_add_basket_size"> </h5>
-        <p class="font-weight-bold text-danger" id="error_form"></p>
-        <form class="hidden_form pb-4" method="POST" action="index.php?controller=adds&action=validation" id="validation_form">
-            <a href="index.php?controller=baskets&action=index" class="custom_engraved_text font-italic">>> Accès carte producteurs <<</a>
-            <h6>Choisis un producteur pour ta rétribution</h6>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Paniers</label>
+    <div class="row h-75 w-100">
+        <div class="container-fluid d-flex flex-column justify-content-center mt-2 p-0 h-100 w-100">
+            <h1 class="custom_engraved_text text-center"  id="current_add_name">Clique sur un marqueur...</h1>
+            <h3 class="custom_engraved_text text-center"  id="current_add_category">Puis sur "voir" pour lire l'annonce</h3>
+            <h3 class="custom_engraved_text text-light" id="current_add_title"></h3>
+            <h5 class="custom_engraved_text text-light" id="current_add_description">Si tu es sûr(e) de t'engager pour la mission proposée : Choisis le producteur chez qui tu prendras ta rétribution, clique sur "Je m'engage".Un email vous sera envoyé à chacun.</h5>
+            <h5 class="custom_engraved_text text-light" id="current_add_nb_basket"></h5>
+            <h5 class="custom_engraved_text text-light" id="current_add_basket_size"> </h5>
+            <p class="font-weight-bold text-danger" id="error_form"></p>
+            <form class="hidden_form pb-4" method="POST" action="index.php?controller=adds&action=validation" id="validation_form">
+                <a href="index.php?controller=baskets&action=index" class="custom_engraved_text font-italic">>> Accès carte producteurs <<</a>
+                <h6>Choisis un producteur pour ta rétribution</h6>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Paniers</label>
+                    </div>
+                    <select class="custom-select" name="basket_id">
+                        {% for basket in availableBaskets %}
+                        <option value="{{basket.id}}">{{basket.company}} - {{basket.title}} ({{basket.city}}, {{basket.zip_code}})</option>  
+                        {% endfor %}                  
+                    </select>
                 </div>
-                <select class="custom-select" name="basket_id">
-                    {% for basket in availableBaskets %}
-                    <option value="{{basket.id}}">{{basket.company}} - {{basket.title}} ({{basket.city}}, {{basket.zip_code}})</option>  
-                    {% endfor %}                  
-                </select>
-            </div>
-            <input type="hidden" value="{{user.id}}" name="user_id" id="user_id"/>
-            <input type="hidden" value="{{user.role}}" name="user_role" id="user_role"/>
-            <input type="hidden" name="add_id" id="add_id"/>
-            <input type="hidden" id="creator_id"/>
-            <button class="btn btn-info">Je m'engage</button> 
-        </form>
-    </div> 
-</div>
+                <input type="hidden" value="{{user.id}}" name="user_id" id="user_id"/>
+                <input type="hidden" value="{{user.role}}" name="user_role" id="user_role"/>
+                <input type="hidden" name="add_id" id="add_id"/>
+                <input type="hidden" id="creator_id"/>
+                <button class="btn btn-info">Je m'engage</button> 
+            </form>
+        </div> 
+    </div>
 {% endblock %}          
 
 {% block javascript %}

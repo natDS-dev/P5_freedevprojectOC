@@ -141,6 +141,17 @@ class BasketsController extends Controller
     $title = isset($_POST["title"])? strip_tags($_POST["title"]):"";
     $description = isset($_POST["description"])? strip_tags($_POST["description"]):null;
     $available =  isset($_POST["available"])? (int)strip_tags($_POST["available"]):null;
+    if(isset($_FILES["picture"])) {
+      if($basket["picture"] !== "default.picture.png"){
+        $path= "images/uploads/basketPictures/".$basket["picture"];
+        if(file_exists($path)){
+           unlink($path);
+        }
+      }
+      $pictureFileName = $this->uploadPicture($id,"picture"); 
+    }else{
+      $pictureFileName = null;
+    }
     //Les champs indispensables ne doivent pas être nul - Eseentials fiels shouldn't be null
     if(in_array(null,[$id,$category,$description,$available],true)){
       $this->addLog("Ohla, dans les choux ! des champs ne sont pas valides", "alert-warning");
@@ -148,7 +159,7 @@ class BasketsController extends Controller
       exit;
     }
     //Mise à jour du panier -Basket update
-    $this->model->editBasket($id,$category,$title,$description,$available);
+    $this->model->editBasket($id,$category,$title,$description,$available,$pictureFileName);
     $this->addLog("Parfait, le panier a été mis à jour", "alert-success");
     header("Location: index.php?controller=baskets&action=myBaskets");
   } 
@@ -171,4 +182,20 @@ class BasketsController extends Controller
     header("Location: index.php?controller=baskets&action=myBaskets");
   }
 
+  public function uploadPicture($basketId,$formFileName) 
+  { 
+    $fileName = (isset($_FILES[$formFileName]) && $_FILES[$formFileName]['error'] == 0) ? $_FILES[$formFileName] : null; 
+   
+    if (!is_null($fileName) && $fileName['size'] <= 1000000)
+    {  
+        $extension = pathinfo($fileName['name'])['extension'];
+        if (in_array($extension, ['jpg', 'jpeg', 'gif', 'png']))
+        {
+            $pictureFilename = "basket_".$basketId . "." . $extension;
+            move_uploaded_file($fileName['tmp_name'], 'images/uploads/basketPictures/' . $pictureFilename);
+            return $pictureFilename;
+        }
+    }
+    return null;
+  }
 }
