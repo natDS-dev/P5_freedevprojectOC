@@ -181,7 +181,8 @@ class BasketsController extends Controller
     }     
     header("Location: index.php?controller=baskets&action=myBaskets");
   }
-
+  
+  //Téléchargement image panier producteur - Upload professionnal basket picture
   public function uploadPicture($basketId,$formFileName) 
   { 
     $fileName = (isset($_FILES[$formFileName]) && $_FILES[$formFileName]['error'] == 0) ? $_FILES[$formFileName] : null; 

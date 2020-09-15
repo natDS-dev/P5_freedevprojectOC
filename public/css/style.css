@@ -245,6 +245,23 @@ header {
   from {left: -150px;}
   to {left: 0px;}
 }
+
+.custom_animation_infos2 {
+  position: relative;
+  animation-name: infos_animation2;
+  animation-duration: 2s;  
+  animation-delay: 3s; 
+}
+
+@keyframes infos_animation2 {
+  from {right: -150px;}
+  to {right: 0px;}
+}
+ 
+.custom_text_infos {
+  overflow:auto;
+}
+
 /*Qui*/
 .custom_who{
   overflow-y:scroll;

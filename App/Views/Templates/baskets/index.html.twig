@@ -11,27 +11,27 @@
 {% endblock %}
 
 {% block section1L %}
-<div class="container w-100 h-75 ">
-    <div class="row justify-content-center align-items-center m-3">
-        <h2 class="custom_engraved_text text-center">Les paniers producteur</h2>
+    <div class="container w-100 h-75 ">
+        <div class="row justify-content-center align-items-center m-3">
+            <h2 class="custom_engraved_text text-center">Les paniers producteur</h2>
+        </div>
+        <div class="row justify-content-center align-items-center m-3" id="map"></div>
     </div>
-    <div class="row justify-content-center align-items-center m-3" id="map"></div>
-</div>
 {% endblock %}
 
 {% block section1R %}
-<div class="container-fluid d-flex flex-column justify-content-center p-0 h-75 w-100">
-    <h1 class="custom_engraved_text text-center" id="current_add_name">Clique sur un marqueur de la carte...</h1>
-    <h3 class="custom_engraved_text text-center font-italic" id="current_add_zip_city">Puis sur "voir" afin d'avoir le détail d'un panier producteur</h3>
-    <h3 class="custom_engraved_text" id="current_add_category"></h3>
-    <h3 class="custom_engraved_text text-light" id="current_add_title"></h3>    
-    <h4 class="custom_engraved_text text-light" id="current_add_description" ></h4>
-    <img id="current_add_picture" alt="image panier">
-</div> 
+    <div class="container-fluid d-flex flex-column justify-content-center p-0 h-75 w-100">
+        <h1 class="custom_engraved_text text-center" id="current_add_name">Clique sur un marqueur de la carte...</h1>
+        <h3 class="custom_engraved_text text-center font-italic" id="current_add_zip_city">Puis sur "voir" afin d'avoir le détail d'un panier producteur</h3>
+        <h3 class="custom_engraved_text" id="current_add_category"></h3>
+        <h3 class="custom_engraved_text text-light" id="current_add_title"></h3>    
+        <h4 class="custom_engraved_text text-light" id="current_add_description" ></h4>
+        <img id="current_add_picture" alt="image panier">
+    </div> 
 {% endblock %}          
 
 {% block javascript %}
-     <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script> 
+    <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script> 
     <script src="js/map.js"></script> 
     <script>new Map("index.php?controller=baskets&action=getJSON", "images/map/marker_pro.png");</script>
 {% endblock %}

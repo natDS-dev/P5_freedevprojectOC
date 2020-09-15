@@ -1,117 +1,110 @@
 {% extends "sections_template.html.twig" %}
-
-
 {% block section1 %}
-{# <h3>J'espère que tu es en forme {{user.name}} !</h3>
-{% for add in lastAdds %}
-{{add.title}} {{add.name}} {{add.address}} 
-{% endfor %} #}
-
-<div class="row h-100 justify-content-center">
-    <!--Section 1 left part-->
-    <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
-        <div class="container w-75 h-75">
-            <div class="custom_bg_s1_col1 row h-100 text-center">            
-                <div class="custom_bg_home_main_title col-md-10 row justify-content-center align-items-center h-75 m-auto">
-                    <h2 class="text-center"><span class="text-light font-weight-bolder">Quand se rendre service<br><span class="text-dark">booste</span><br> l'économie locale !</span></h2>           
+    <div class="row h-100 justify-content-center">
+        <!--Section 1 left part-->
+        <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
+            <div class="container w-75 h-75">
+                <div class="custom_bg_s1_col1 row h-100 text-center">            
+                    <div class="custom_bg_home_main_title col-md-10 row justify-content-center align-items-center h-75 m-auto">
+                        <h2 class="text-center"><span class="text-light font-weight-bolder">Quand se rendre service<br><span class="text-dark">booste</span><br> l'économie locale !</span></h2>           
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Section 1 right part-->
+        <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
+            <div class="container w-100 h-75">
+                <div class="custom_animation_home custom_bg_s1_col2 row h-100 justify-content-center align-items-center">
+                    <div class="col-lg-6 p-0 text-center ">
+                        <h2 class="mb-3">"Chez<span class="font-italic font-weight-bold text-primary"> 3 Flans, 6 Choux </span> c'est troc'n'roll !"</h2>
+                        <hr class="w-100 text-light m-1">
+                        <h4 class="p-2">Aide ton voisin, sois rétribué en panier de produits locaux !</h4>
+                        <a class="p-1 text-light bg-info" href="index.php?controller=home&action=infos">Plus d'infos</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <img class="d-flex mx-auto img-fluid" src="./images/persos/chou-chêne.png" alt="personnage chou avec un panier et des sabots bois">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--Section 1 right part-->
-    <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
-        <div class="container w-100 h-75">
-            <div class="custom_animation_home custom_bg_s1_col2 row h-100 justify-content-center align-items-center">
-                <div class="col-lg-6 p-0 text-center ">
-                    <h2 class="mb-3">"Chez<span class="font-italic font-weight-bold text-primary"> 3 Flans, 6 Choux </span> c'est troc'n'roll !"</h2>
-                    <hr class="w-100 text-light m-1">
-                    <h4 class="p-2">Aide ton voisin, sois rétribué en panier de produits locaux !</h4>
-                    <a class="p-1 text-light bg-info" href="index.php?controller=home&action=infos">Plus d'infos</a>
-                </div>
-                <div class="col-lg-6">
-                    <img class="d-flex mx-auto img-fluid" src="./images/persos/chou-chêne.png" alt="personnage chou avec un panier et des sabots bois">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 {% endblock %}
 
 {% block section2 %}
-<div class="row h-100 justify-content-center ">
-    <!--Section 2 large part-->    
-    <div class="custom_section h-50 my-3 col-lg-12 d-flex justify-content-center align-items-center ">
-        <div class="container-fluid ">
-            <div class="custom_bg_home_inscription_title jumbotron row text-center m-auto p-1">
-                <div class="container">
-                    <h1 class="display-4 text-secondary">Le <span class="text-primary"> "goût" </span>du service autrement <span class="text-primary">"bon" !</span></h1>
-                    <h3 class="text-secondary font-italic">Ici, sans même parler d'argent, on peut favoriser l'économie locale en se rendant service !</h3><br>
-                    <h4 class=" w-75 p-2 m-auto text-light bg-info">Inscription gratuite</h4><hr>    
-                    <p class="lead text-dark"><span class="font-weight-bold text-primary">3 Flans, 6 Choux</span><br> est pour le moment ouvert à la zone de Morlaix communauté (29)</p>
-                </div>               
-            </div>                
-        </div>            
-    </div>
-    <!--Section 2 left part-->
-    <div class="custom_section h-50 my-4 col-lg-6 d-flex justify-content-center align-items-center">
-        <div class="container-fluid">
-            <div class="custom_bg_home_inscription_title jumbotron row h-100 p-2 m-auto text-center">            
-                <div class="container-fluid">
-                    <h3 class="font-weight-bold mt-3 text-primary">Chez 3 Flans, 6 Choux</h3>
-                    <p class="lead font-weight-bold text-secondary">Nous mettons l'accent sur les besoins essentiels !</p><hr>
-                    <div class="jumbotron p-2 border-0 mt-2 mx-1 bg-primary">
-                        <h2 class="text-light font-weight-bold">Tu es un particulier ?</h2>
-                    </div>
-                    <h3>Demander ou rendre service<br> fera de toi<br> un(e) acteur/actrice de l'économie locale !</h3><br>
-                    <h3 class="display-4 text-primary font-italic">"Et ce n'est pas du flan !"</h3><br> 
-                    <a class="p-1 text-light bg-info" href="index.php?controller=home&action=infos">>> Plus d'infos <<</a>
-                </div>       
+    <div class="row h-100 justify-content-center ">
+        <!--Section 2 large part-->    
+        <div class="custom_section h-50 my-3 col-lg-12 d-flex justify-content-center align-items-center ">
+            <div class="container-fluid ">
+                <div class="custom_bg_home_inscription_title jumbotron row text-center m-auto p-1">
+                    <div class="container">
+                        <h1 class="display-4 text-secondary">Le <span class="text-primary"> "goût" </span>du service autrement <span class="text-primary">"bon" !</span></h1>
+                        <h3 class="text-secondary font-italic">Ici, sans même parler d'argent, on peut favoriser l'économie locale en se rendant service !</h3><br>
+                        <h4 class=" w-75 p-2 m-auto text-light bg-info">Inscription gratuite</h4><hr>    
+                        <p class="lead text-dark"><span class="font-weight-bold text-primary">3 Flans, 6 Choux</span><br> est pour le moment ouvert à la zone de Morlaix communauté (29)</p>
+                    </div>               
+                </div>                
+            </div>            
+        </div>
+        <!--Section 2 left part-->
+        <div class="custom_section h-50 my-4 col-lg-6 d-flex justify-content-center align-items-center">
+            <div class="container-fluid">
+                <div class="custom_bg_home_inscription_title jumbotron row h-100 p-2 m-auto text-center">            
+                    <div class="container-fluid">
+                        <h3 class="font-weight-bold mt-3 text-primary">Chez 3 Flans, 6 Choux</h3>
+                        <p class="lead font-weight-bold text-secondary">Nous mettons l'accent sur les besoins essentiels !</p><hr>
+                        <div class="jumbotron p-2 border-0 mt-2 mx-1 bg-primary">
+                            <h2 class="text-light font-weight-bold">Tu es un particulier ?</h2>
+                        </div>
+                        <h3>Demander ou rendre service<br> fera de toi<br> un(e) acteur/actrice de l'économie locale !</h3><br>
+                        <h3 class="display-4 text-primary font-italic">"Et ce n'est pas du flan !"</h3><br> 
+                        <a class="p-1 text-light bg-info" href="index.php?controller=home&action=infos">>> Plus d'infos <<</a>
+                    </div>       
+                </div>
             </div>
         </div>
-    </div>
-    <!--Section 2 right part-->
-    <div class="custom_section h-50 my-4 col-lg-6 d-flex justify-content-center align-items-center">
-        <div class="container-fluid">
-            <div class="custom_bg_home_inscription_title jumbotron row h-100 p-2 m-auto text-center">            
-                <div class="container-fluid">
-                    <h3 class="font-weight-bold mt-3 text-primary">Chez 3 Flans, 6 Choux</h3>
-                    <p class="lead font-weight-bold text-secondary">Nous mettons en avant nos producteurs locaux !</p><hr>
-                    <div class="jumbotron p-2 border-0 mt-2 mx-1 bg-primary">
-                        <h2 class="text-light font-weight-bold">Tu es un producteur local ?</h2> 
-                    </div>
-                    <h3>Faire découvrir tes produits et les proposer  comme "panier rétribution" pour des services, permettra de te faire connaître</h3><br>
-                    <h3 class="display-4 text-primary font-italic">"N'est-ce pas chou ?"</h3><br>
-                    <a class="p-1 text-light bg-info" href="index.php?controller=home&action=infos"> >> Plus d'infos << </a>  
-                </div>       
+        <!--Section 2 right part-->
+        <div class="custom_section h-50 my-4 col-lg-6 d-flex justify-content-center align-items-center">
+            <div class="container-fluid">
+                <div class="custom_bg_home_inscription_title jumbotron row h-100 p-2 m-auto text-center">            
+                    <div class="container-fluid">
+                        <h3 class="font-weight-bold mt-3 text-primary">Chez 3 Flans, 6 Choux</h3>
+                        <p class="lead font-weight-bold text-secondary">Nous mettons en avant nos producteurs locaux !</p><hr>
+                        <div class="jumbotron p-2 border-0 mt-2 mx-1 bg-primary">
+                            <h2 class="text-light font-weight-bold">Tu es un producteur local ?</h2> 
+                        </div>
+                        <h3>Faire découvrir tes produits et les proposer  comme "panier rétribution" pour des services, permettra de te faire connaître</h3><br>
+                        <h3 class="display-4 text-primary font-italic">"N'est-ce pas chou ?"</h3><br>
+                        <a class="p-1 text-light bg-info" href="index.php?controller=home&action=infos"> >> Plus d'infos << </a>  
+                    </div>       
+                </div>
             </div>
         </div>
-    </div>
-    {# <div class="custom_section h-50 my-4 col-lg-6 d-flex justify-content-center align-items-center">
-        <div class="container-fluid">
-            <div class="custom_bg_home_inscription_title jumbotron row h-100 text-center">            
-                <div class="container h-50 w-100">
-                    <h1 class="display-5 text-secondary">Je demande ou rend service <br> = <br> Je suis acteur/actrice de l'économie locale</h1><hr>
-                    <h5 class="font-weight-bold text-primary">Chez 3 Flans, 6 Choux</h5>
-                    <p class="lead">La rétribution pour chaque service est alimentaire, les produits proviennent de nos producteurs locaux (Morlaix communauté - 29)</p>
-                </div>       
+        {# <div class="custom_section h-50 my-4 col-lg-6 d-flex justify-content-center align-items-center">
+            <div class="container-fluid">
+                <div class="custom_bg_home_inscription_title jumbotron row h-100 text-center">            
+                    <div class="container h-50 w-100">
+                        <h1 class="display-5 text-secondary">Je demande ou rend service <br> = <br> Je suis acteur/actrice de l'économie locale</h1><hr>
+                        <h5 class="font-weight-bold text-primary">Chez 3 Flans, 6 Choux</h5>
+                        <p class="lead">La rétribution pour chaque service est alimentaire, les produits proviennent de nos producteurs locaux (Morlaix communauté - 29)</p>
+                    </div>       
+                </div>
             </div>
-        </div>
-    </div>             #}
-</div>
+        </div>             #}
+    </div>
 {% endblock %}
 
 {% block section3 %}
-<div class="row h-100 justify-content-center">
-    <!--Section 1 left part-->
-    <div class="custom_section col-lg-12 d-flex justify-content-center align-items-center bg-light">
-        <div class="container w-75 h-75">
-            <div class="custom_bg_s1_col1 row h-100 text-center">
-            
-                <div class="custom_bg_home_main_title col-md-10 row justify-content-center align-items-center h-75 m-auto">
-                    <h3 class="text-center font-weight-bolder text-light">Nos partenaires !<br><span class=" font-italic text-dark">"choux-ting" en cours...</span></h3>           
+    <div class="row h-100 justify-content-center">
+        <!--Section 1 left part-->
+        <div class="custom_section col-lg-12 d-flex justify-content-center align-items-center bg-light">
+            <div class="container w-75 h-75">
+                <div class="custom_bg_s1_col1 row h-100 text-center">
+                
+                    <div class="custom_bg_home_main_title col-md-10 row justify-content-center align-items-center h-75 m-auto">
+                        <h3 class="text-center font-weight-bolder text-light">Nos partenaires !<br><span class=" font-italic text-dark">"choux-ting" en cours...</span></h3>           
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

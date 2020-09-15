@@ -1,59 +1,58 @@
 {% extends "admin_template.html.twig" %}
 {% block section1L %}
-
-<div class="container w-75 h-50" >          
-  <div class="row h-100 text-center" id="custom_bg_s1_col1">
-    <div class="col-md-12 m-auto">
-      <h3>Créer un panier c'est simple !</h3>
-      <h5 class="custom_engraved_text text-center text-light ">Il te suffit simplement de remplir le formulaire ci-contre, de décrire que contiendra ton panier selon les différentes tailles S,M et L et de préciser la disponibilité<br>...Puis 1 clic sur "valider" et le tour est joué !
-      </h5>
-      <p class="text-center">
-      </p>
-    </div>              
-  </div>  
-</div>
+  <div class="container w-75 h-50" >          
+    <div class="row h-100 text-center" id="custom_bg_s1_col1">
+      <div class="col-md-12 m-auto">
+        <h3>Créer un panier c'est simple !</h3>
+        <h5 class="custom_engraved_text text-center text-light ">Il te suffit simplement de remplir le formulaire ci-contre, de décrire que contiendra ton panier selon les différentes tailles S,M et L et de préciser la disponibilité<br>...Puis 1 clic sur "valider" et le tour est joué !
+        </h5>
+        <p class="text-center">
+        </p>
+      </div>              
+    </div>  
+  </div>
 {% endblock %} 
 
 {% block section1R %}
-<div class="container-fluid h-100 px-0">          
-  <div class="custom_admin_bg_baskets_create row h-100 pb-5 justify-content-center align-items-center">
-    <div class="col-lg-12 m-auto">
-      <div class="col-lg-6 h-25 pb-1 m-auto text-center">
-        <h3>Créer un panier</h3>   
-      </div> 
-      <div  class="col-lg-12 h-75 px-0">               
-        <form class="col-12 px-2" method="POST" action="index.php?controller=baskets&action=create">
-          <div class="form-group">
-            <label for="category"></label>
-            <select class="form-control" name="category" id="category" required >
-              {% for category in categories %}
-                <option value="{{ category.id }}" 
-                {% if basket.category == category.id %} selected {% endif %}>{{ category.select_value }}</option>
-              {% endfor %}            
-            </select>
-            <label for="title"></label>
-            <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{basket.title}}" />
-          </div>
-          <div class="form-group">
-            <label for="description"></label>
-            <textarea class="form-control" placeholder="Description" name="description" id="description" required>{{basket.description}}</textarea>
-          </div>
-          <div class="form-group">
-            <label class="col-form-label" for="available">Disponibilité</label>
-            <select class="form-control" name="available" id="available" required > 
-              <option value="1"{% if  basket.available is same as(1) %} selected{% endif %}>Oui</option>
-              <option value="0"{% if  basket.available is same as(0) %} selected{% endif %}>Non</option>
-            </select>
-          </div>
-          <div class="form-group">  
-            <input type="hidden" name="id" value="{{basket.id}}"/>
-          </div>
-          <div class="row justify-content-center">
-            <button class="btn btn-primary mb-1" type="submit">Valider</button>
-          </div>
-        </form>
+  <div class="container-fluid h-100 px-0">          
+    <div class="custom_admin_bg_baskets_create row h-100 pb-5 justify-content-center align-items-center">
+      <div class="col-lg-12 m-auto">
+        <div class="col-lg-6 h-25 pb-1 m-auto text-center">
+          <h3>Créer un panier</h3>   
+        </div> 
+        <div  class="col-lg-12 h-75 px-0">               
+          <form class="col-12 px-2" method="POST" action="index.php?controller=baskets&action=create">
+            <div class="form-group">
+              <label for="category"></label>
+              <select class="form-control" name="category" id="category" required >
+                {% for category in categories %}
+                  <option value="{{ category.id }}" 
+                  {% if basket.category == category.id %} selected {% endif %}>{{ category.select_value }}</option>
+                {% endfor %}            
+              </select>
+              <label for="title"></label>
+              <input class="form-control" type="text" placeholder="Titre" name="title" id="title" value="{{basket.title}}" />
+            </div>
+            <div class="form-group">
+              <label for="description"></label>
+              <textarea class="form-control" placeholder="Description" name="description" id="description" required>{{basket.description}}</textarea>
+            </div>
+            <div class="form-group">
+              <label class="col-form-label" for="available">Disponibilité</label>
+              <select class="form-control" name="available" id="available" required > 
+                <option value="1"{% if  basket.available is same as(1) %} selected{% endif %}>Oui</option>
+                <option value="0"{% if  basket.available is same as(0) %} selected{% endif %}>Non</option>
+              </select>
+            </div>
+            <div class="form-group">  
+              <input type="hidden" name="id" value="{{basket.id}}"/>
+            </div>
+            <div class="row justify-content-center">
+              <button class="btn btn-primary mb-1" type="submit">Valider</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>
 {% endblock %}

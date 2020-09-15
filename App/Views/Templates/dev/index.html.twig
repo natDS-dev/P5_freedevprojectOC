@@ -1,136 +1,136 @@
 {% extends "admin_template.html.twig" %}
 {% block section1L %}
-<div class="container-fluid h-100 pt-5" >          
-    <div class="row justify-content-center align-items-center m-3">
-        <h3 class="custom_engraved_text text-center">Les annonces</h3>            
-    </div>
-    <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center">
-        <div class="card h-50 text-secondary my-3">
-            <div class="card-header text-light bg-info">
-                <h5 class="my-0 font-weight-bold text-light">Liste des annonces</h5>
+    <div class="container-fluid h-100 pt-5" >          
+        <div class="row justify-content-center align-items-center m-3">
+            <h3 class="custom_engraved_text text-center">Les annonces</h3>            
+        </div>
+        <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center">
+            <div class="card h-50 text-secondary my-3">
+                <div class="card-header text-light bg-info">
+                    <h5 class="my-0 font-weight-bold text-light">Liste des annonces</h5>
+                </div>
+                <div class="custom_dev_dashboard_card card-body">
+                    <h5 class="card-title">Particuliers</h5>
+                    {% for add in adds %}
+                        <p class="card-text">
+                        <span class="text-info"> {{add.name}} </span> - {{add.title}} - {{add.description}} 
+                    
+                        <a href="index.php?controller=back&action=deleteAdd&param={{add.id}}" onclick="confirm('Souhaites-tu supprimer cette annonce ?')">Supprimer
+                        </a>
+                        </p>
+                        {% else %}
+                        <p>Aucune annonce à modérer</p> 
+                    {% endfor %}
+                </div>
             </div>
-            <div class="custom_dev_dashboard_card card-body">
-                <h5 class="card-title">Particuliers</h5>
-                {% for add in adds %}
-                    <p class="card-text">
-                     <span class="text-info"> {{add.name}} </span> - {{add.title}} - {{add.description}} 
-                
-                    <a href="index.php?controller=back&action=deleteAdd&param={{add.id}}" onclick="confirm('Souhaites-tu supprimer cette annonce ?')">Supprimer
-                    </a>
+            <div class="card h-50 text-secondary my-3">
+                <div class="card-header text-light bg-info">
+                    <h5 class="my-0 font-weight-bold text-light">Liste des paniers</h5>
+                </div>
+                <div class="custom_dev_dashboard_card card-body">
+                    <h5 class="card-title">Professionnels</h5>
+                        {% for basket in baskets %}
+                        <p class="card-text">
+                        <span class="text-info">{{basket.company}}  </span> - {{basket.title}} - {{basket.description}} 
+                    
+                        <a href="index.php?controller=back&action=deleteBasket&param={{basket.id}}" onclick="confirm('Souhaites-tu supprimer ce panier ?')">Supprimer
+                        </a>
+                        </p>
+                        {% else %}
+                        <p>Aucun panier à modérer</p> 
+                    {% endfor %}
                     </p>
-                    {% else %}
-                    <p>Aucune annonce à modérer</p> 
-                {% endfor %}
+                </div>
             </div>
         </div>
-        <div class="card h-50 text-secondary my-3">
-            <div class="card-header text-light bg-info">
-                <h5 class="my-0 font-weight-bold text-light">Liste des paniers</h5>
-            </div>
-            <div class="custom_dev_dashboard_card card-body">
-                <h5 class="card-title">Professionnels</h5>
-                    {% for basket in baskets %}
-                    <p class="card-text">
-                      <span class="text-info">{{basket.company}}  </span> - {{basket.title}} - {{basket.description}} 
-                
-                    <a href="index.php?controller=back&action=deleteBasket&param={{basket.id}}" onclick="confirm('Souhaites-tu supprimer ce panier ?')">Supprimer
-                    </a>
-                    </p>
-                    {% else %}
-                    <p>Aucun panier à modérer</p> 
-                {% endfor %}
-                </p>
-            </div>
-        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block section1R %}
-<div class="container-fluid h-100 pt-5" > 
-    <div class="row justify-content-center align-items-center m-3">
-        <h3 class="custom_engraved_text text-center">Les utilisateurs et statistiques</h3>            
-    </div>         
-    <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center">
-        <div class="card h-50 text-secondary my-3">
-            <div class="card-header text-light bg-primary">
-                <h5 class="my-0 font-weight-bold text-light">Liste particuliers</h5>
-            </div>
-            <div class="custom_dev_dashboard_card card-body">
-                <h5 class="card-title">Utilisateurs</h5>
-                {% for user in users %}
-                    <p class="card-text">
-                        <span class="text-info"> {{user.name}}  {{user.surname}} </span> - {{user.email}}  - Statut : {{user.banned}} - Action : 
-                
-                    {% if user.banned %}
-                        <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
-                        </a>
-                    {% else %} 
-                        <a class="text-right" href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
-                        </a>
-                    {% endif %}
-                    </p>
-                {% else %}
-                    <p>Aucun utilisateur à modérer</p> 
-                {% endfor %}
-            </div>
-        </div>
-        
-        <div class="card h-50 text-secondary my-3">
-            <div class="card-header text-light bg-primary">
-                <h5 class="my-0 font-weight-bold text-light">Liste professionnels</h5>
-            </div>
-            <div class="custom_dev_dashboard_card card-body">
-                <h5 class="card-title">Professionnels</h5>
-                {% for user in usersPro %}
-                    <p class="card-text">
-                      <span class="text-info"> {{user.company}} </span> - {{user.email}}  - Statut : {{user.banned}} - Action : 
-                
-                    {% if user.banned %}
-                        <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
-                        </a>
-                    {% else %} 
-                        <a href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
-                        </a>
-                    {% endif %}
-                    </p>
-                {% else %}
-                    <p>Aucun utilisateur à modérer</p> 
-                {% endfor %}
-            </div>
-        </div>
-        
+    <div class="container-fluid h-100 pt-5" > 
         <div class="row justify-content-center align-items-center m-3">
-            <h3 class="custom_engraved_text text-center">Les statistiques</h3>            
-        </div>
-        <div class="card h-50 text-secondary my-3">
-            <div class="card-header text-light bg-secondary">
-                <h5 class="my-0 font-weight-bold text-light">Catégories particuliers</h5>
-            </div>
-            <div class="custom_dev_dashboard_card card-body">
-                <h5 class="card-title">Nombre par catégories d'annonces</h5>
-                {% for stat in adds_stats %}
-                    <p class="card-text">
-                        {{stat.select_value}} <span class="text-info">{{stat.adds_count}}</span>  
-                    </p>                    
-                {% endfor %}
-            </div>           
-        </div>
+            <h3 class="custom_engraved_text text-center">Les utilisateurs et statistiques</h3>            
+        </div>         
+        <div class="custom_dev_dashboard_card container h-75 justify-content-around align-items-center">
             <div class="card h-50 text-secondary my-3">
-                <div class="card-header text-light bg-secondary">
-                    <h5 class="my-0 font-weight-bold text-light">Catégories professionnels</h5>
+                <div class="card-header text-light bg-primary">
+                    <h5 class="my-0 font-weight-bold text-light">Liste particuliers</h5>
                 </div>
                 <div class="custom_dev_dashboard_card card-body">
-                <h5 class="card-title">Nombre par catégories de paniers</h5>
-                {% for stat in baskets_stats %}
-                    <p class="card-text">
-                        {{stat.select_value}} <span class="text-info"> {{stat.baskets_count}}</span>  
-                    </p>
+                    <h5 class="card-title">Utilisateurs</h5>
+                    {% for user in users %}
+                        <p class="card-text">
+                            <span class="text-info"> {{user.name}}  {{user.surname}} </span> - {{user.email}}  - Statut : {{user.banned}} - Action : 
                     
-                {% endfor %}
+                        {% if user.banned %}
+                            <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
+                            </a>
+                        {% else %} 
+                            <a class="text-right" href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
+                            </a>
+                        {% endif %}
+                        </p>
+                    {% else %}
+                        <p>Aucun utilisateur à modérer</p> 
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="card h-50 text-secondary my-3">
+                <div class="card-header text-light bg-primary">
+                    <h5 class="my-0 font-weight-bold text-light">Liste professionnels</h5>
+                </div>
+                <div class="custom_dev_dashboard_card card-body">
+                    <h5 class="card-title">Professionnels</h5>
+                    {% for user in usersPro %}
+                        <p class="card-text">
+                        <span class="text-info"> {{user.company}} </span> - {{user.email}}  - Statut : {{user.banned}} - Action : 
+                    
+                        {% if user.banned %}
+                            <a href="index.php?controller=back&action=unbanUser&param={{user.id}}" onclick="confirm('Souhaites-tu débloquer cet utilisateur ?')">Débloquer
+                            </a>
+                        {% else %} 
+                            <a href="index.php?controller=back&action=banUser&param={{user.id}}" onclick="confirm('Souhaites-tu bloquer cet utilisateur ?')">Bloquer
+                            </a>
+                        {% endif %}
+                        </p>
+                    {% else %}
+                        <p>Aucun utilisateur à modérer</p> 
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="row justify-content-center align-items-center m-3">
+                <h3 class="custom_engraved_text text-center">Les statistiques</h3>            
+            </div>
+            <div class="card h-50 text-secondary my-3">
+                <div class="card-header text-light bg-secondary">
+                    <h5 class="my-0 font-weight-bold text-light">Catégories particuliers</h5>
+                </div>
+                <div class="custom_dev_dashboard_card card-body">
+                    <h5 class="card-title">Nombre par catégories d'annonces</h5>
+                    {% for stat in adds_stats %}
+                        <p class="card-text">
+                            {{stat.select_value}} <span class="text-info">{{stat.adds_count}}</span>  
+                        </p>                    
+                    {% endfor %}
+                </div>           
+            </div>
+                <div class="card h-50 text-secondary my-3">
+                    <div class="card-header text-light bg-secondary">
+                        <h5 class="my-0 font-weight-bold text-light">Catégories professionnels</h5>
+                    </div>
+                    <div class="custom_dev_dashboard_card card-body">
+                    <h5 class="card-title">Nombre par catégories de paniers</h5>
+                    {% for stat in baskets_stats %}
+                        <p class="card-text">
+                            {{stat.select_value}} <span class="text-info"> {{stat.baskets_count}}</span>  
+                        </p>
+                        
+                    {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}

@@ -1,177 +1,124 @@
 {% extends "sections_template.html.twig" %}
 {% block section1 %}
-<div class="row h-100 justify-content-center">
-    <!--Section 1 left part-->
-     <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
-        <div class="container w-100 h-75">
-            <div class="custom_animation_infos custom_bg_s1_col2 row h-100 justify-content-center align-items-center">
-                <div class="col-lg-6">
-                    <img class="d-flex mx-auto img-fluid" src="./images/persos/chou-chêne.png" alt="personnage chou avec un panier et des sabots bois">
-                </div>
-                <div class="col-lg-6 p-0 text-center ">
-                    <h2 class="mb-4 ">"Chez<span class="font-italic font-weight-bold text-primary"> 3 Flans, 6 Choux </span> c'est troc'n'roll !"</h2>
-                    <hr class="w-100 text-light m-1"/>
-                    <h4 class="p-2">Aide ton voisin et reçois un panier de produits locaux !</h4>
-                </div>                
-            </div>
-        </div>
-    </div>
-    
-    <!--Section 1 right part-->
-   <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
-        <div class="container w-75 h-75">
-            <div class="custom_bg_s1_col1 row h-100 text-center">
-            
-                <div class="custom_bg_home_main_title col-md-10 row justify-content-center align-items-center h-75 m-auto">
-                    <h2 class="text-center text-light font-weight-bolder">Comment ça marche ?</h2>           
+    <div class="row h-100 justify-content-center">
+        <!--Section 1 left part-->
+        <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
+            <div class="container w-100 h-75">
+                <div class="custom_animation_infos custom_bg_s1_col2 row h-100 justify-content-center align-items-center">
+                    <div class="col-lg-6">
+                        <img class="d-flex mx-auto img-fluid" src="./images/persos/chou-chêne.png" alt="personnage chou avec un panier et des sabots bois">
+                    </div>
+                    <div class="col-lg-6 p-0 text-center ">
+                        <h2 class="mb-4 ">"Chez<span class="font-italic font-weight-bold text-primary"> 3 Flans, 6 Choux </span> c'est troc'n'roll !"</h2>
+                        <hr class="w-100 text-light m-1"/>
+                        <h4 class="p-2">Aide ton voisin et reçois un panier de produits locaux !</h4>
+                    </div>                
                 </div>
             </div>
         </div>
+        <!--Section 1 right part-->
+        <div class="custom_section col-lg-6 d-flex justify-content-center align-items-center bg-light">
+            <div class="container w-75 h-75">
+                <div class="custom_bg_s1_col1 row h-100 text-center">
+                    <div class="custom_bg_home_main_title col-md-10 row justify-content-center align-items-center h-75 m-auto">
+                        <h2 class="text-center text-light font-weight-bolder">Comment ça marche ?</h2>           
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block section2 %}
-  
-<div class="row h-100 justify-content-around text-center">
-    <!--Section 2 large part-->
-    <div class="row h-25 col-lg-12 mt-5 mb-0 p-0 justify-content-center align-items-center">
-        <h1 class="display-4 text-light p-5 bg-primary border border-light">Rendre service n'a jamais été aussi simple et efficace !</h1>
-    </div>
-    <!--Section 2 left part--> 
-    <div class="row h-75 col-lg-12 justify-content-around">
-        <div class="custom_section col-lg-4 p-0 d-flex justify-content-center align-items-center">
-            <div class="row justify-content-center align-items-center">
-            
-                <div class="card w-75 mb-4 box-shadow">
-                    <div class="card-header bg-info">
-                        <h4 class="my-0 font-weight-bold text-light">PARTICULIER</h4>
+    <div class="row h-100 justify-content-center text-center">
+        <div class="custom_section col-lg-12 d-flex justify-content-center align-items-center">
+            <div class="row h-100">
+                <div class="custom_animation_infos2 custom_bg_s1_col2 row h-100 justify-content-center align-items-center">
+                    <div class="col-lg-8">
+                        <h1 class="display-4 text-light p-1 bg-primary border border-light">Rendre service simplement !</h1>
                     </div>
-                    <div class="card-body text-left">
-                        <h5 class="text-center font-weight-bold">"Je donne un coup de pouce"</h5>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>• Je regarde les annonces grâce à la carte prévue à cette effet</li>                           
-                            <li>• Je réponds à l'annonce et décide, parmi la liste proposée, chez quel producteur je prendrais le(s) panier(s) offert(s) par le déposant</li>
-                            <li class="text-center"><p class="text-primary"> + <br/>• Je peux aussi déposer une demande de service</p></li>
-                        </ul>
-                        <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a> 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Section 2 center part-->
-        <div class="custom_section col-lg-4 p-0 d-flex justify-content-around align-items-center">
-            <div class="row justify-content-center align-items-center">
-            
-                <div class="card w-75 mb-4 box-shadow">
-                    <div class="card-header bg-info">
-                        <h4 class="my-0 font-weight-bold text-light">PARTICULIER</h4>
-                    </div>
-                    <div class="card-body text-left">
-                        <h5 class="text-center font-weight-bold">"Je demande un coup de pouce"</h5>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>• Je dépose une demande de service via le formulaire dédié "créer une annonce"</li>                           
-                            <li>• Je décide de la taille (S/M/L) + du nombre de paniers producteurs que j'offrirais en contrepartie à la personne qui me rendra service </li>
-                            <li class="text-center"><p class="text-primary"> + <br/>• Je peux aussi rendre service et répondre à des annonces</p></li>
-                        </ul>
-                        <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a> 
-                    </div>
-                </div>
-            </div>
-        </div>   
-        <!--Section 2 right part-->
-        <div class="custom_section col-lg-4 p-0 d-flex justify-content-center align-items-center">
-            <div class="row justify-content-center align-items-center">
-            
-                <div class="card w-75 mb-4 box-shadow">
-                    <div class="card-header bg-primary">
-                        <h4 class="my-0 font-weight-bold text-light">PROFESSIONNEL</h4>
-                    </div>
-                    <div class="card-body text-left">
-                        <h5 class="text-center font-weight-bold">"Je propose mes produits pour les rétributions"</h5>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>• Je propose mes produits</li>                           
-                            <li>• Je décide et énonce ce que contiendra 1 panier selon les différentes tailles S/M/L. Ex : 1 panier de légumes variés - taille S : 1kg de pomme de terre et 3 courgettes,...</li>
-                            <li class="text-center"><p class="text-primary"> + <br/>• Je peux mettre les photos de mes produits (à venir)</p></li>
-                        </ul>
-                        <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a> 
-                    </div>
+                    <div class="custom_text_infos row col-10 h-50 justify-content-center align-items-center p-3 bg-info">
+                        <h3 class="text-light">
+                        Une application d’entraide entre particuliers où la  rétribution pour chaque service rendu est faite par le biais « de panier de produits locaux », soit un genre de pseudo monnaie parallèle.<br>
+                        3 acteurs :<br>
+                        -Le particulier « demandeur » : La personne demandant un service et offrant en contrepartie un nombre de paniers de la taille de son choix (S/M/L) de produits locaux(le choix des produits est fait par la personne aidante) qu’il commandera pour celui qui lui rendra service une fois la mission acceptée.<br>
+                        -Le particulier « aidant » : La personne qui répond à une demande de service et reçoit en contrepartie un ou plusieurs paniers de produits locaux dont il aura le choix du contenu selon les disponibilités chez les producteurs.<br> 
+                        -Le professionnel (producteur pour le moment seulement) « rétributeur » : Le producteur proposant un catalogue de rétributions, selon son activité, ce sous la forme fictive de paniers.
+                        </h3>
+                    </div>                
                 </div>
             </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block section3 %}
-<div class="row h-100 justify-content-around text-center">
-    <!--Section 2 large part-->
-    <div class="row h-25 col-lg-12 mt-5 mb-0 p-0 justify-content-center align-items-center">
-        <h1 class="display-4 text-light p-5 bg-primary border border-light">En m'inscrivant, je peux...</h1>
-    </div>
-    <!--Section 2 left part--> 
-    <div class="row h-75 col-lg-12 justify-content-around">
-        <div class="custom_section col-lg-4 p-0 d-flex justify-content-center align-items-center">
-            <div class="row justify-content-center align-items-center">
-            
-                <div class="card w-75 mb-4 box-shadow">
-                    <div class="card-header bg-info">
-                        <h4 class="my-0 font-weight-bold text-light">PARTICULIER</h4>
+    <div class="row h-100 justify-content-around text-center bg-light">
+        <!--Section 2 large part-->
+        <div class="row h-25 col-lg-12 mt-5 mb-0 p-0 justify-content-center align-items-center">
+            <h1 class="display-4 text-light p-3 bg-primary border border-light">En m'inscrivant, je peux...</h1>
+        </div>
+        <!--Section 2 left part--> 
+        <div class="row h-75 col-lg-12 justify-content-around">
+            <div class="custom_section col-lg-4 p-0 d-flex justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center">
+                
+                    <div class="card w-75 mb-4 box-shadow">
+                        <div class="card-header bg-info">
+                            <h4 class="my-0 font-weight-bold text-light">PARTICULIER</h4>
+                        </div>
+                        <div class="card-body text-left">
+                            <h5 class="text-center font-weight-bold">"Je donne un coup de pouce"</h5>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>• Je regarde les annonces grâce à la carte prévue à cette effet</li>                           
+                                <li>• Je réponds à l'annonce et décide, parmi la liste proposée, chez quel producteur je prendrais le(s) panier(s) offert(s) par le déposant</li>
+                                <li class="text-center"><p class="text-primary"> + <br/>• Je peux aussi déposer une demande de service</p></li>
+                            </ul>
+                            <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a> 
+                        </div>
                     </div>
-                    <div class="card-body text-left">
-                        <h5 class="text-center font-weight-bold">"Je donne un coup de pouce"</h5>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>• Je regarde les annonces grâce à la carte prévue à cette effet</li>                           
-                            <li>• Je réponds à l'annonce et décide, parmi la liste proposée, chez quel producteur je prendrais le(s) panier(s) offert(s) par le déposant</li>
-                            <li class="text-center"><p class="text-primary"> + <br/>• Je peux aussi déposer une demande de service</p></li>
-                        </ul>
-                        <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a> 
+                </div>
+            </div>
+            <!--Section 2 center part-->
+            <div class="custom_section col-lg-4 p-0 d-flex justify-content-around align-items-center">
+                <div class="row justify-content-center align-items-center">
+                
+                    <div class="card w-75 mb-4 box-shadow">
+                        <div class="card-header bg-info">
+                            <h4 class="my-0 font-weight-bold text-light">PARTICULIER</h4>
+                        </div>
+                        <div class="card-body text-left">
+                            <h5 class="text-center font-weight-bold">"Je demande un coup de pouce"</h5>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>• Je dépose une demande de service via le formulaire dédié "créer une annonce"</li>                           
+                                <li>• Je décide de la taille (S/M/L) + du nombre de paniers producteurs que j'offrirais en contrepartie à la personne qui me rendra service </li>
+                                <li class="text-center"><p class="text-primary"> + <br/>• Je peux aussi rendre service et répondre à des annonces</p></li>
+                            </ul>
+                            <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a> 
+                        </div>
+                    </div>
+                </div>
+            </div>   
+            <!--Section 2 right part-->
+            <div class="custom_section col-lg-4 p-0 d-flex justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center">
+                
+                    <div class="card w-75 mb-4 box-shadow">
+                        <div class="card-header bg-primary">
+                            <h4 class="my-0 font-weight-bold text-light">PROFESSIONNEL</h4>
+                        </div>
+                        <div class="card-body text-left">
+                            <h5 class="text-center font-weight-bold">"Je propose mes produits pour les rétributions"</h5>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>• Je propose mes produits</li>                           
+                                <li>• Je décide et énonce ce que contiendra 1 panier selon les différentes tailles S/M/L. Ex : 1 panier de légumes variés - taille S : 1kg de pomme de terre et 3 courgettes,...</li>
+                                <li class="text-center"><p class="text-primary"> + <br/>• Je peux mettre les photos de mes produits (à venir)</p></li>
+                            </ul>                        
+                            <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a>                        
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--Section 2 center part-->
-        <div class="custom_section col-lg-4 p-0 d-flex justify-content-around align-items-center">
-            <div class="row justify-content-center align-items-center">
-            
-                <div class="card w-75 mb-4 box-shadow">
-                    <div class="card-header bg-info">
-                        <h4 class="my-0 font-weight-bold text-light">PARTICULIER</h4>
-                    </div>
-                    <div class="card-body text-left">
-                        <h5 class="text-center font-weight-bold">"Je demande un coup de pouce"</h5>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>• Je dépose une demande de service via le formulaire dédié "créer une annonce"</li>                           
-                            <li>• Je décide de la taille (S/M/L) + du nombre de paniers producteurs que j'offrirais en contrepartie à la personne qui me rendra service </li>
-                            <li class="text-center"><p class="text-primary"> + <br/>• Je peux aussi rendre service et répondre à des annonces</p></li>
-                        </ul>
-                        <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a> 
-                    </div>
-                </div>
-            </div>
-        </div>   
-        <!--Section 2 right part-->
-        <div class="custom_section col-lg-4 p-0 d-flex justify-content-center align-items-center">
-            <div class="row justify-content-center align-items-center">
-            
-                <div class="card w-75 mb-4 box-shadow">
-                    <div class="card-header bg-primary">
-                        <h4 class="my-0 font-weight-bold text-light">PROFESSIONNEL</h4>
-                    </div>
-                    <div class="card-body text-left">
-                        <h5 class="text-center font-weight-bold">"Je propose mes produits pour les rétributions"</h5>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>• Je propose mes produits</li>                           
-                            <li>• Je décide et énonce ce que contiendra 1 panier selon les différentes tailles S/M/L. Ex : 1 panier de légumes variés - taille S : 1kg de pomme de terre et 3 courgettes,...</li>
-                            <li class="text-center"><p class="text-primary"> + <br/>• Je peux mettre les photos de mes produits (à venir)</p></li>
-                        </ul>                        
-                        <a class="btn btn-lg btn-block btn-primary text-light"  role="button" href="index.php?controller=home&action=register">Je m'inscris</a>                        
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-</div>
 {% endblock %}
-    
-

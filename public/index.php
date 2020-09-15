@@ -67,5 +67,4 @@ if(class_exists($controller))
     (new HomeController())->error(); 
     exit;
 }  
-
   
